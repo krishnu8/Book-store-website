@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Navigation Bar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <style type="text/css">
+    .navbar {
+      position: fixed;
+      z-index: 1;
+      width: 100%;
+    }
+
+    ul {
+      align-items: center;
+    }
+
+    li {
+      margin-left: 40px;
+      margin-right: 40px;
+      font-size: 20px;
+    }
+
+    .nav-link:hover {
+      color: red;
+    }
+
+    .all {
+      background-color: black;
+      padding-left: 5px;
+      padding-right: 15px;
+      display: flex;
+      align-items: center;
+      width: 450px;
+      height: 40px;
+      background-color: white;
+      border-radius: 5px;
+      margin-left: 100px;
+    }
+
+    .btn1 {
+      height: 30px;
+      display: flex;
+      align-items: center;
+    }
+    .more{
+      width: 150px;
+      background-color:#36454F;
+      border: none;
+    }
+    .more:hover{
+      background-color: #36454F;
+    }
+    .dropdown-menu{
+      width: 150px;
+    }
+    .dropdown-item{
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid jack">
+      <a class="navbar-brand" href="#">
+        <img src="image/Book1.png" alt="Avatar Logo" style="width:120px; opacity:90%;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <form class="d-flex all">
+          <input class="form-control me-2" style="height:30px; text-align:center;" ; type="text" placeholder="Search">
+          <button class="btn1 btn-primary btn" type="button">Search</button>
+        </form>
+
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About.php">Become Seller</a>
+          </li>
+          <!-- dropdown -->
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn more btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                More
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                <li><a class="dropdown-item" href="#">Order</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Cart</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+</body>
+
+</html>
