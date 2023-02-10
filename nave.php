@@ -25,9 +25,6 @@
       font-size: 20px;
     }
 
-    .nav-link:hover {
-      color: red;
-    }
 
     .all {
       background-color: black;
@@ -44,22 +41,23 @@
 
     @media only screen and (max-width: 500px) {
       .all {
-      background-color: black;
-      padding-left: 5px;
-      padding-right: 15px;
-      display: flex;
-      align-items: center;
-      width: 80%;
-      height: 40px;
-      background-color: white;
-      border-radius: 5px;
-    }
+        background-color: black;
+        padding-left: 5px;
+        padding-right: 15px;
+        display: flex;
+        align-items: center;
+        width: 80%;
+        height: 40px;
+        background-color: white;
+        border-radius: 5px;
+      }
     }
 
     .btn1 {
       height: 30px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .more {
@@ -110,7 +108,8 @@
           <!-- dropdown -->
           <li class="nav-item">
             <div class="dropdown">
-              <button class="btn more btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn more btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
                 More
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -128,8 +127,6 @@
       </div>
     </div>
   </nav>
-
-
 </body>
 
 </html>
