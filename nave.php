@@ -35,11 +35,25 @@
       padding-right: 15px;
       display: flex;
       align-items: center;
-      width: 450px;
+      width: 30%;
       height: 40px;
       background-color: white;
       border-radius: 5px;
-      margin-left: 100px;
+      margin-left: 10%;
+    }
+
+    @media only screen and (max-width: 500px) {
+      .all {
+      background-color: black;
+      padding-left: 5px;
+      padding-right: 15px;
+      display: flex;
+      align-items: center;
+      width: 80%;
+      height: 40px;
+      background-color: white;
+      border-radius: 5px;
+    }
     }
 
     .btn1 {
@@ -47,18 +61,22 @@
       display: flex;
       align-items: center;
     }
-    .more{
+
+    .more {
       width: 150px;
-      background-color:#36454F;
+      background-color: #36454F;
       border: none;
     }
-    .more:hover{
+
+    .more:hover {
       background-color: #36454F;
     }
-    .dropdown-menu{
+
+    .dropdown-menu {
       width: 150px;
     }
-    .dropdown-item{
+
+    .dropdown-item {
       margin: 0;
       padding: 0;
       text-align: center;
