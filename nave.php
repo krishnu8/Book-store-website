@@ -82,7 +82,7 @@
   </style>
 </head>
 
-<body>
+<body>  
 
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid jack">
@@ -113,7 +113,7 @@
                 More
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                <li><a class="dropdown-item" href="my_profilie.php">My Profile</a></li>
                 <li><a class="dropdown-item" href="#">Order</a></li>
                 <li><a class="dropdown-item" href="#">Logout</a></li>
               </ul>

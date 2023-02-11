@@ -1,4 +1,4 @@
-<?php include("nave.php")?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,11 +27,17 @@
         .jack1{
             height: 350px;
         }
+        .hu{
+            height: 70px;
+            /* margin-top: 100px; */
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
+<?php include("nave.php")?>
+        <div class="hu"></div>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12" style="text-align: center;">
                 <h2>Dasboard</h2>
