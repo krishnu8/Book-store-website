@@ -49,16 +49,12 @@
 
         <form action="" method="post">
             <div class="row">
-                <div class="col-sm-2" style="background-color: rgb(76, 122, 188);">
+                <div class="col-sm-2">
                     <div class="d-grid gap-3 full">
-                        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">My
-                            Orders</a>
-                        <a href="#" class="btn btn-primary btn-lg active" role="button"
-                            aria-pressed="true">Notification</a>
-                        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Change
-                            password</a>
-                        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete
-                            Account</a>
+                        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">My Orders</a>
+                        <a href="#" class="btn btn-primary btn-lg active" role="button"aria-pressed="true">Notification</a>
+                        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Change password</a>
+                        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete Account</a>
                         <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Logout</a>
                     </div>
                 </div>
