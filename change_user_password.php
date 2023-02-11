@@ -31,8 +31,8 @@
         .hu {
             background-color: wheat;
         }
-        .change{
-            height: 500px;
+        .form-group{
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -40,7 +40,7 @@
 <body>
     <?php include("nave.php")?> 
     <div class="jack12"> </div>
-    <div class="container-fluid hu">
+   <div class="container-fluid hu">
         <div class="row">
             <div class="col-sm-12" style="text-align: center; background-color:white;">
                 <h2>Change Password </h2>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col-sm-10">
-                    <div class="card card-outline-secondary change">
+                    <div class="card card-outline-secondary">
                         <div class="card-header">
                             <h3 class="mb-0">Change Password</h3>
                         </div>
@@ -88,7 +88,7 @@
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-lg float-right">Save</button>
+                                    <button type="submit" class="btn btn-success btn-lg float-right">Change</button>
                                 </div>
                             </form>
                         </div>
@@ -97,7 +97,7 @@
             </div>
         </form>
 
-    </div>
+    </div> 
 
 </body>
 

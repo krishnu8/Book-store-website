@@ -75,7 +75,7 @@ button {
 }
 
 button:hover {
-  opacity 0.8;
+  opacity: 0.8;
   box-shadow: 0 2px 5px #9a9a9a;
 }
 
