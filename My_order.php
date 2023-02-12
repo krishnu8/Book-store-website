@@ -111,7 +111,7 @@
         <div class="row">
             <div class="col-sm-2 oi">
                 <div class="d-grid gap-3 full">
-                    <a href="#" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
+                    <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
                         Orders</a>
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button"
                         aria-pressed="true">Notification</a>

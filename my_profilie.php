@@ -17,7 +17,9 @@
         html {
             scroll-behavior: smooth;
         }
-
+        body{
+            height: 200vh;
+        }
         .profile {
             border-radius: 50%;
             background-color: rgb(255, 153, 0);
@@ -107,7 +109,7 @@
             <div class="row">
                 <div class="col-sm-2 oi" style="background-color: #9ec5c6;">
                     <div class="d-grid gap-3 full">
-                        <a href="#" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
+                        <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
                             Orders</a>
                         <a href="#" class="btn btn-custom btn-lg active btn2" role="button"
                             aria-pressed="true">Notification</a>
@@ -175,7 +177,7 @@
                         </div>
                         <div class="col-sm-6">
                             <br>
-                            <button type="submit" class="btn btn-custom-1">Update</button>
+                            <button type="submit" class="btn btn-custom-1">Update Profile</button>
                         </div>
 
                     </div>

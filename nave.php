@@ -89,7 +89,7 @@
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid jack">
       <a class="navbar-brand" href="#">
-        <img src="image/Book1.png" alt="Avatar Logo" style="width:120px; opacity:90%;">
+        <img src="image/Book1.png" alt="BOOK CHOR" style="width:120px; opacity:90%;">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
