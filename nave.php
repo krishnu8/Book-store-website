@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-  <title>Navigation Bar</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -115,7 +114,7 @@
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="my_profilie.php">My Profile</a></li>
-                <li><a class="dropdown-item" href="#">Order</a></li>
+                <li><a class="dropdown-item" href="My_order.php">Order</a></li>
                 <li><a class="dropdown-item" href="#">Logout</a></li>
               </ul>
             </div>

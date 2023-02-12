@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title>My-profile</title>
+    <title>All Notification</title>
     <style>
         .jack12 {
             height: 80px;
@@ -48,6 +48,7 @@
             position: fixed;
             height: 80%;
             background-color: #9ec5c6;
+            /* display: none; */
         }
 
         .btn-custom {
@@ -62,112 +63,83 @@
             transform: scale(0.9);
             transition: 0.5s ease-in-out;
         }
-
-        .btn-custom-1 {
-            background-color: #689abf !important;
-            color: #f3f3f3 !important;
-            transition: 0.7s ease-in-out;
-        }
-
-        .btn-custom-1:hover {
-            background-color: #169f98 !important;
-            /* color: #c7c6c6 !important; */
-            transform: scale(1.1);
-            transition: 0.5s ease-in-out;
-        }
-
-        .hu {
-            background-color: #e2e0d4;
-            margin-left: 25px;
-            margin-top: 25px;
-            border: 10px;
-            text-align: center;
-        }
-
-        th {
-            width: 200px;
-            text-align: center;
-        }
-
-        .got {
-            background-color: red;
-        }
-
-        .got td {
-            padding-top: 10px;
-        }
     </style>
 </head>
 
 <body>
     <?php include("nave.php") ?>
-    <div class="jack12"> hu</div>
+    <div class="jack12"> </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12" style="text-align: center; background-color:white;">
-                <h2><b>ORDERS</b> </h2>
+                <h2><b>Notifications</b> </h2>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-2 oi">
                 <div class="d-grid gap-3 full">
-                    <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
+                    <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button"
+                        aria-pressed="true">My
                         Orders</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button"
+                    <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button"
                         aria-pressed="true">Notification</a>
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
                         data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
                         data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
 
-                    <a href="#feedback" class="btn btn-custom btn-lg active btn2" role="button"
+                    <a href="my_profilie.php" class="btn btn-custom btn-lg active btn2" role="button"
                         aria-pressed="true">Feedback</a>
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
                 </div>
             </div>
             <div class="col-sm-2"></div>
-            <div class="col-sm-10">
-                <table class="hu">
-                    <tr>
-                        <th>SN</th>
-                        <th>Picture</th>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Deliver date</th>
-                    </tr>
-                    <div class="got">
-                        <tr>
-                            <td>1</td>
-                            <td> <img src="image/wallpaper.jpg" width="200px" alt=""> </td>
-                            <td>123</td>
-                            <td>456</td>
-                            <td>ghyuj</td>
-                            <td>789</td>
-                        </tr>
+            <div class="col-sm-10 noti">
+                <div class="row" >
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10 data" style="background-color: rgb(51, 113, 220); text-align: center;">
+                        <div class="row">
+                            <div class="col-sm-2"><img
+                                    src="image/Book.png" width="80px" style="border-radius: 50%; background-color: red;" alt=""> </div>
+                            <div class="col-sm-10"
+                                style="align-self: center; word-wrap: break-word; ">
+                                Your product will deliver till tommorow</div>
+                        </div>
                     </div>
-                    <div class="got">
-                        <tr>
-                            <td>1</td>
-                            <td> <img src="image/wallpaper.jpg" width="200px" alt=""> </td>
-                            <td>123</td>
-                            <td>456</td>
-                            <td>ghyuj</td>
-                            <td>789</td>
-                        </tr>
+                </div>
+                <div class="row row2" style="margin-top: 10px;">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10 data" style="text-align: center; background-color:  rgb(51, 113, 220);">
+                        <div class="row">
+                            <div class="col-sm-2"><img src="image/Book.png" width="80px" style="border-radius: 50%;  background-color: red;    " alt=""> </div>
+                            <div class="col-sm-10"
+                                style="align-self: center; word-wrap: break-word; ">
+                                Your product will deliver till tommorow</div>
+                        </div>
                     </div>
-                    <div class="got">
-                        <tr>
-                            <td>1</td>
-                            <td> <img src="image/wallpaper.jpg" width="200px" alt=""> </td>
-                            <td>123</td>
-                            <td>456</td>
-                            <td>ghyuj</td>
-                            <td>789</td>
-                        </tr>
-                    </div>  
-
-                </table>
+                </div>
+                <div class="row row2" style="margin-top: 10px;">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10 data" style="text-align: center; background-color:  rgb(51, 113, 220);">
+                        <div class="row">
+                            <div class="col-sm-2"><img src="image/Book.png" width="80px" style="border-radius: 50%;  background-color: red;    " alt=""> </div>
+                            <div class="col-sm-10"
+                                style="align-self: center; word-wrap: break-word; ">
+                                Your product will deliver till tommorow</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row2" style="margin-top: 10px;">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10 data" style="text-align: center; background-color:  rgb(51, 113, 220);">
+                        <div class="row">
+                            <div class="col-sm-2"><img src="image/Book.png" width="80px" style="border-radius: 50%;  background-color: red;    " alt=""> </div>
+                            <div class="col-sm-10"
+                                style="align-self: center; word-wrap: break-word; ">
+                                Your product will deliver till tommorow</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

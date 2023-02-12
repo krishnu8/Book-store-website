@@ -53,6 +53,9 @@
         .oi {
             position: fixed;
             height: 80%;
+            /* display: none; */
+            background-color: #9ec5c6;
+            /* border-radius: 10px; */
         }
 
         .feed {
@@ -107,11 +110,11 @@
 
         <form action="" method="post">
             <div class="row">
-                <div class="col-sm-2 oi" style="background-color: #9ec5c6;">
+                <div class="col-sm-2 oi">
                     <div class="d-grid gap-3 full">
                         <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
                             Orders</a>
-                        <a href="#" class="btn btn-custom btn-lg active btn2" role="button"
+                        <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button"
                             aria-pressed="true">Notification</a>
                         <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
                             data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
@@ -125,63 +128,65 @@
                     </div>
                 </div>
                 <div class="col-sm-2"></div>
-                <div class="col-sm-10 hu">
-                    <img src="image/Book.png" alt="Profile_picture" width="150px" class="profile"><br>
-                    <div class="row row1">
-                        <div class="col-sm-6">
-                            <span>First Name: <br>
-                                <input type="text" class="form-control" id="#" placeholder="First Name">
-                            </span>
+                <div class="col-sm-10">
+                    <div class="hu">
+                        <img src="image/Book.png" alt="Profile_picture" width="150px" class="profile"><br>
+                        <div class="row row1">
+                            <div class="col-sm-6">
+                                <span>First Name: <br>
+                                    <input type="text" class="form-control" id="#" placeholder="First Name">
+                                </span>
+                            </div>
+                            <div class="col-sm-6">
+                                <span>
+                                    Last Name: <br>
+                                    <input type="text" class="form-control" placeholder="Last name"> <br>
+                                </span>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <span>
-                                Last Name: <br>
-                                <input type="text" class="form-control" placeholder="Last name"> <br>
-                            </span>
+                        <div class="row row1">
+                            <div class="col-sm-6 con">
+                                <span>
+                                    Contact Email: <br>
+                                    <input type="text" class="form-control" placeholder="Email"> <br>
+                                </span>
+                            </div>
+                            <div class="col-sm-6 con">
+                                <span>
+                                    Contact Number: <br>
+                                    <input type="tel" name="num" placeholder="Number" class="form-control" id=""> <br>
+                                </span>
+                            </div>
                         </div>
+                        <div class="row row1">
+                            <div class="col-sm-6">
+                                <span>
+                                    State: <br>
+                                    <input type="text" class="form-control" placeholder="State" name="" id=""> <br>
+                                </span>
+                            </div>
+                            <div class="col-sm-6">
+                                <span>
+                                    City: <br>
+                                    <input type="text" class="form-control" placeholder="City" name="" id=""> <br>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-6">
+                                <span>
+                                    Bio: <br>
+                                    <textarea name="" id="" cols="25" rows="2" placeholder="Bio"></textarea> <br>
+                                </span>
+                            </div>
+                            <div class="col-sm-6">
+                                <br>
+                                <button type="submit" class="btn btn-custom-1">Update Profile</button>
+                            </div>
+    
+                        </div>
+    
                     </div>
-                    <div class="row row1">
-                        <div class="col-sm-6 con">
-                            <span>
-                                Contact Email: <br>
-                                <input type="text" class="form-control" placeholder="Email"> <br>
-                            </span>
-                        </div>
-                        <div class="col-sm-6 con">
-                            <span>
-                                Contact Number: <br>
-                                <input type="tel" name="num" placeholder="Number" class="form-control" id=""> <br>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="row row1">
-                        <div class="col-sm-6">
-                            <span>
-                                State: <br>
-                                <input type="text" class="form-control" placeholder="State" name="" id=""> <br>
-                            </span>
-                        </div>
-                        <div class="col-sm-6">
-                            <span>
-                                City: <br>
-                                <input type="text" class="form-control" placeholder="City" name="" id=""> <br>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="row row1">
-                        <div class="col-sm-6">
-                            <span>
-                                Bio: <br>
-                                <textarea name="" id="" cols="25" rows="2" placeholder="Bio"></textarea> <br>
-                            </span>
-                        </div>
-                        <div class="col-sm-6">
-                            <br>
-                            <button type="submit" class="btn btn-custom-1">Update Profile</button>
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
         </form>
