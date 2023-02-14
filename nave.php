@@ -73,6 +73,7 @@
 
     .dropdown-menu {
       width: 150px;
+      z-index: 1;
     }
 
     .dropdown-item {
@@ -84,7 +85,6 @@
 </head>
 
 <body>
-
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid jack">
       <a class="navbar-brand" href="#">
@@ -120,7 +120,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
           </li>
         </ul>
 

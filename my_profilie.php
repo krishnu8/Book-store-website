@@ -17,9 +17,9 @@
         html {
             scroll-behavior: smooth;
         }
-        body{
+        /* body{
             height: 200vh;
-        }
+        } */
         .profile {
             border-radius: 50%;
             background-color: rgb(255, 153, 0);
@@ -220,7 +220,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Delete</button>
+                            <input type="submit" value="Delete" class="btn btn-primary">
                         </div>
                     </form>
 

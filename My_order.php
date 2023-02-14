@@ -75,27 +75,26 @@
             transform: scale(1.1);
             transition: 0.5s ease-in-out;
         }
+        .data{
+            background-color:#D5EAF5; 
+            border-radius: 10px;
+        
+        }
+        .data1{
+            background-color:rgba(245, 222, 179, 0.736);
+            border-radius: 10px;
 
-        .hu {
-            background-color: #aaffca92;
-            margin-left: 25px;
-            margin-top: 25px;
-            border: 10px;
-            text-align: center;
         }
 
-        th {
-            width: 200px;
-            text-align: center;
+        .data1:hover{
+            background-color:#CAC2FF;
+            border:  red 1px solid;
         }
-        /* .a1{
-            background-color: violet;
-            color: white;
+        
+        .data:hover{
+            background-color: #E9ECF1 ;
+            border:  red 1px solid;
         }
-        .a2{
-            background-color: blanchedalmond;
-            color: white;
-        } */
     </style>
 </head>
 
@@ -111,94 +110,73 @@
         <div class="row">
             <div class="col-sm-2 oi">
                 <div class="d-grid gap-3 full">
-                    <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button"
-                        aria-pressed="true">My
+                    <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
                         Orders</a>
-                    <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Notification</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
+                    <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Notification</a>
+                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
+                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
 
-                    <a href="my_profilie.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Feedback</a>
+                    <a href="my_profilie.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Feedback</a>
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
                 </div>
             </div>
             <div class="col-sm-2"></div>
             <div class="col-sm-10">
-                <table class="hu" style="row-gap: 10px;">
-                    <tr class="a1">
-                        <th>SN</th>
-                        <th>Picture</th>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Deliver date</th>
-                    </tr>
-
-                    <tr class="a2" >
-                        <td>1</td>
-                        <td> <img src="image/wallpaper.jpg" width="200px" alt=""> </td>
-                        <td>123</td>
-                        <td>456</td>
-                        <td>ghyuj</td>
-                        <td>789</td>
-                        
-                    </tr>
-                    <tr class="a1">
-                        <td>1</td>
-                        <td> <img src="image/wallpaper.jpg" width="200px" alt=""> </td>
-                        <td>123</td>
-                        <td>456</td>
-                        <td>ghyuj</td>
-                        <td>789</td>
-                    </tr>
-                <tr class="a2">
-                    <td>1</td>
-                    <td> <img src="image/wallpaper.jpg" width="200px" alt=""> </td>
-                    <td>123</td>
-                    <td>456</td>
-                    <td>ghyuj</td>
-                    <td>789</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <!-- delete account form -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Conform its You</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="row data" style="margin-top: 10px; display: flex; align-items: center; margin-left: 100px; margin-right: 100px; margin-bottom: 15px;">
+                    <div class="col-sm-3"><img src="image/Book.png" height="80px" style="border-radius: 50%;" alt=""></div>
+                    <div class="col-sm-3" >Science book</div>
+                    <div class="col-sm-2" >RS-200</div>
+                    <div class="col-sm-2">Delivered on 26 feb</div>
                 </div>
-                <form action="" method="post">
-                    <div class="modal-body">
-                        <label for="inputPasswordOld">Enter Password</label>
-                        <input type="password" class="form-control" id="inputPasswordOld" required="">
+                <div class="row data1" style="margin-top: 10px; display: flex; align-items: center; margin-left: 100px; margin-right: 100px; margin-bottom: 15px;">
+                    <div class="col-sm-3"><img src="image/Book.png" height="80px" style="border-radius: 50%;" alt=""></div>
+                    <div class="col-sm-3" >Science book</div>
+                    <div class="col-sm-2" >RS-200</div>
+                    <div class="col-sm-2">Delivered on 26 feb</div>
+                </div>
+                <div class="row data" style="margin-top: 10px; display: flex; align-items: center; margin-left: 100px; margin-right: 100px; margin-bottom: 15px;">
+                    <div class="col-sm-3"><img src="image/Book.png" height="80px" style="border-radius: 50%;" alt=""></div>
+                    <div class="col-sm-3" >Science book</div>
+                    <div class="col-sm-2" >RS-200</div>
+                    <div class="col-sm-2">Delivered on 26 feb</div>
+                </div>
+                <div class="row data1" style="margin-top: 10px; display: flex; align-items: center; margin-left: 100px; margin-right: 100px; margin-bottom: 15px;">
+                    <div class="col-sm-3"><img src="image/Book.png" height="80px" style="border-radius: 50%;" alt=""></div>
+                    <div class="col-sm-3" >Science book</div>
+                    <div class="col-sm-2" >RS-200</div>
+                    <div class="col-sm-2">Delivered on 26 feb</div>
+                </div>
+            </div>
+            <!-- delete account form -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Conform its You</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="" method="post">
+                            <div class="modal-body">
+                                <label for="inputPasswordOld">Enter Password</label>
+                                <input type="password" class="form-control" id="inputPasswordOld" required="">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Delete</button>
+                            </div>
+                        </form>
 
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Delete</button>
-                    </div>
-                </form>
-
+                </div>
             </div>
         </div>
     </div>
-    </div>
-    </div>
 
     <!-- Change password -->
-    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <form action="" method="post">
                 <div class="modal-content">
@@ -237,14 +215,8 @@
     </div>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html>

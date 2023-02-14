@@ -48,6 +48,8 @@
             position: fixed;
             height: 80%;
             background-color: #9ec5c6;
+            /* background-image: linear-gradient( #0692CF , #F16238  ); */
+            border-radius: 10px;
             /* display: none; */
         }
 
@@ -62,6 +64,25 @@
             /* color: #c7c6c6 !important; */
             transform: scale(0.9);
             transition: 0.5s ease-in-out;
+        }
+        .data1{
+            background-color:#D5EAF5;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .data{
+            background-color: rgba(245, 222, 179, 0.736)    ;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .data1:hover{
+            background-color:#CAC2FF;
+            border:  red 1px solid;
+        }
+        
+        .data:hover{
+            background-color: #E9ECF1 ;
+            border:  red 1px solid;
         }
     </style>
 </head>
@@ -78,65 +99,63 @@
         <div class="row">
             <div class="col-sm-2 oi">
                 <div class="d-grid gap-3 full">
-                    <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button"
-                        aria-pressed="true">My
+                    <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
                         Orders</a>
-                    <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Notification</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
+                    <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Notification</a>
+                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
+                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
 
-                    <a href="my_profilie.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Feedback</a>
+                    <a href="my_profilie.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Feedback</a>
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
                 </div>
             </div>
             <div class="col-sm-2"></div>
             <div class="col-sm-10 noti">
-                <div class="row" >
+                <div class="row ">
                     <div class="col-sm-1"></div>
-                    <div class="col-sm-10 data" style="background-color: rgb(51, 113, 220); text-align: center;">
+                    <div class="col-sm-10 data1" style="margin-top: 15px;">
                         <div class="row">
-                            <div class="col-sm-2"><img
-                                    src="image/Book.png" width="80px" style="border-radius: 50%; background-color: red;" alt=""> </div>
-                            <div class="col-sm-10"
-                                style="align-self: center; word-wrap: break-word; ">
-                                Your product will deliver till tommorow</div>
+                            <div class="col-sm-2">
+                                <img src="image/Book.png" width="80px" style="border-radius: 50%; background-color: red;" alt="">
+                            </div>
+                            <div class="col-sm-2" style="align-self: center; word-wrap: break-word; ">
+                                From:Amarjit
+                            </div>
+                            <div class="col-sm-8" style="align-self: center; word-wrap: break-word; ">
+                                Your product will deliver till tommorow
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row row2" style="margin-top: 10px;">
+                <div class="row " style="margin-top: 10px;">
                     <div class="col-sm-1"></div>
-                    <div class="col-sm-10 data" style="text-align: center; background-color:  rgb(51, 113, 220);">
+                    <div class="col-sm-10 data">
                         <div class="row">
-                            <div class="col-sm-2"><img src="image/Book.png" width="80px" style="border-radius: 50%;  background-color: red;    " alt=""> </div>
-                            <div class="col-sm-10"
-                                style="align-self: center; word-wrap: break-word; ">
-                                Your product will deliver till tommorow</div>
+                            <div class="col-sm-2">
+                                <img src="image/Book.png" width="80px" style="border-radius: 50%; background-color: red;" alt="">
+                            </div>
+                            <div class="col-sm-2" style="align-self: center; word-wrap: break-word; ">
+                                From:Amarjit
+                            </div>
+                            <div class="col-sm-8" style="align-self: center; word-wrap: break-word; ">
+                                Your product will deliver till tommorow
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row row2" style="margin-top: 10px;">
+                <div class="row " style="margin-top: 10px;">
                     <div class="col-sm-1"></div>
-                    <div class="col-sm-10 data" style="text-align: center; background-color:  rgb(51, 113, 220);">
+                    <div class="col-sm-10 data1">
                         <div class="row">
-                            <div class="col-sm-2"><img src="image/Book.png" width="80px" style="border-radius: 50%;  background-color: red;    " alt=""> </div>
-                            <div class="col-sm-10"
-                                style="align-self: center; word-wrap: break-word; ">
-                                Your product will deliver till tommorow</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row row2" style="margin-top: 10px;">
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-10 data" style="text-align: center; background-color:  rgb(51, 113, 220);">
-                        <div class="row">
-                            <div class="col-sm-2"><img src="image/Book.png" width="80px" style="border-radius: 50%;  background-color: red;    " alt=""> </div>
-                            <div class="col-sm-10"
-                                style="align-self: center; word-wrap: break-word; ">
-                                Your product will deliver till tommorow</div>
+                            <div class="col-sm-2">
+                                <img src="image/Book.png" width="80px" style="border-radius: 50%; background-color: red;" alt="">
+                            </div>
+                            <div class="col-sm-2" style="align-self: center; word-wrap: break-word; ">
+                                From:Amarjit
+                            </div>
+                            <div class="col-sm-8" style="align-self: center; word-wrap: break-word; ">
+                                Your product will deliver till tommorow
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,8 +163,7 @@
         </div>
 
         <!-- delete account form -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -173,8 +191,7 @@
     </div>
 
     <!-- Change password -->
-    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <form action="" method="post">
                 <div class="modal-content">
@@ -213,14 +230,8 @@
     </div>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html>
