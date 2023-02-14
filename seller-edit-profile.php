@@ -99,34 +99,32 @@
 </head>
 
 <body>
-    <?php include("nave.php") ?>
+    <?php include("seller_navebar.php") ?>
     <div class="jack12"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12" style="text-align: center; background-color:white;">
-                <h2><b>MY Profile</b> </h2>
+                <h2><b> <u>Profile Edit</u> </b> </h2>
             </div>
         </div>
 
-        <form action="" method="post">
-            <div class="row">
-                <div class="col-sm-2 oi">
-                    <div class="d-grid gap-3 full">
-                        <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
-                            Orders</a>
-                        <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button"
-                            aria-pressed="true">Notification</a>
-                        <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                            data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
-                        <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                            data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
+        <div class="row">
+            <div class="col-sm-2 oi">
+                <div class="d-grid gap-3 full">
+                    <a href="#" class="btn btn-custom btn-lg active btn3" role="button"aria-pressed="true">
+                        Profile</a>
+                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button"
+                        aria-pressed="true">Add product</a>
+                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
+                        data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
+                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
+                        data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
 
-                        <a href="#feedback" class="btn btn-custom btn-lg active btn2" role="button"
-                            aria-pressed="true">Feedback</a>
-                        <a href="#" class="btn btn-custom btn-lg active btn2" role="button"
-                            aria-pressed="true">Logout</a>
-                    </div>
+                    <a href="seller_rating.php" class="btn btn-custom btn-lg active btn2" role="button"
+                        aria-pressed="true">Feedback</a>
+                    <a href="login.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
                 </div>
+            </div>
                 <div class="col-sm-2"></div>
                 <div class="col-sm-10">
                     <div class="hu">
@@ -134,13 +132,13 @@
                         <div class="row row1">
                             <div class="col-sm-6">
                                 <span>First Name: <br>
-                                    <input type="text" class="form-control" id="#" placeholder="First Name">
+                                    <input type="text" class="form-control" id="#" placeholder="First Name" value="krishnu">
                                 </span>
                             </div>
                             <div class="col-sm-6">
                                 <span>
                                     Last Name: <br>
-                                    <input type="text" class="form-control" placeholder="Last name"> <br>
+                                    <input type="text" class="form-control" placeholder="Last name" value="Gupta"> <br>
                                 </span>
                             </div>
                         </div>
@@ -148,13 +146,13 @@
                             <div class="col-sm-6 con">
                                 <span>
                                     Contact Email: <br>
-                                    <input type="text" class="form-control" placeholder="Email"> <br>
+                                    <input type="text" class="form-control" placeholder="Email" valu="Krishnugupta593@gmail.com" readonly> <br>
                                 </span>
                             </div>
                             <div class="col-sm-6 con">
                                 <span>
                                     Contact Number: <br>
-                                    <input type="tel" name="num" placeholder="Number" class="form-control" id=""> <br>
+                                    <input type="tel" name="num" placeholder="Number" class="form-control" id="" value="+91********"> <br>
                                 </span>
                             </div>
                         </div>
@@ -162,13 +160,13 @@
                             <div class="col-sm-6">
                                 <span>
                                     State: <br>
-                                    <input type="text" class="form-control" placeholder="State" name="" id=""> <br>
+                                    <input type="text" class="form-control" placeholder="State" name="" id="" value="Gujarat"> <br>
                                 </span>
                             </div>
                             <div class="col-sm-6">
                                 <span>
                                     City: <br>
-                                    <input type="text" class="form-control" placeholder="City" name="" id=""> <br>
+                                    <input type="text" class="form-control" placeholder="City" name="" id="" value="Rajkot"> <br>
                                 </span>
                             </div>
                         </div>
@@ -190,16 +188,6 @@
                 </div>
             </div>
         </form>
-        <div class="container-fluid" id="feedback">
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-10 ">
-                    <div class="col-sm-12 feed">
-                        Feedback
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- delete account form -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
