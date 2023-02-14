@@ -108,7 +108,7 @@
             </div>
         </div>
 
-        <form action="" method="post">
+        <form action="" method="post"
             <div class="row">
                 <div class="col-sm-2 oi">
                     <div class="d-grid gap-3 full">
@@ -134,13 +134,13 @@
                         <div class="row row1">
                             <div class="col-sm-6">
                                 <span>First Name: <br>
-                                    <input type="text" class="form-control" id="#" placeholder="First Name">
+                                    <input type="text" class="form-control" id="#" placeholder="First Name" value="krishnu">
                                 </span>
                             </div>
                             <div class="col-sm-6">
                                 <span>
                                     Last Name: <br>
-                                    <input type="text" class="form-control" placeholder="Last name"> <br>
+                                    <input type="text" class="form-control" placeholder="Last name" value="Gupta"> <br>
                                 </span>
                             </div>
                         </div>
@@ -148,13 +148,13 @@
                             <div class="col-sm-6 con">
                                 <span>
                                     Contact Email: <br>
-                                    <input type="text" class="form-control" placeholder="Email"> <br>
+                                    <input type="text" class="form-control" placeholder="Email" valu="Krishnugupta593@gmail.com" readonly> <br>
                                 </span>
                             </div>
                             <div class="col-sm-6 con">
                                 <span>
                                     Contact Number: <br>
-                                    <input type="tel" name="num" placeholder="Number" class="form-control" id=""> <br>
+                                    <input type="tel" name="num" placeholder="Number" class="form-control" id="" value="+91********"> <br>
                                 </span>
                             </div>
                         </div>
@@ -162,13 +162,13 @@
                             <div class="col-sm-6">
                                 <span>
                                     State: <br>
-                                    <input type="text" class="form-control" placeholder="State" name="" id=""> <br>
+                                    <input type="text" class="form-control" placeholder="State" name="" id="" value="Gujarat"> <br>
                                 </span>
                             </div>
                             <div class="col-sm-6">
                                 <span>
                                     City: <br>
-                                    <input type="text" class="form-control" placeholder="City" name="" id=""> <br>
+                                    <input type="text" class="form-control" placeholder="City" name="" id="" value="Rajkot"> <br>
                                 </span>
                             </div>
                         </div>
