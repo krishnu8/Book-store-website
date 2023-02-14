@@ -17,7 +17,6 @@
         html {
             scroll-behavior: smooth;
         }
-
         /* body{
             height: 200vh;
         } */
@@ -59,12 +58,12 @@
             /* border-radius: 10px; */
         }
 
-        /* .feed {
+        .feed {
             margin-top: 8px;
             text-align: center;
             font-size: 30px;
             font-weight: bold;
-        } */
+        }
 
         .btn-custom {
             background-color: #128680 !important;
@@ -96,37 +95,6 @@
             width: 1000px;
             height: 800px;
         }
-
-        .box {
-            margin: 50px;
-            padding: 5px;
-            border: 7px solid #074c8d;
-            background-color: #55d0cc;
-            border-radius: 15px;
-            height: 250px;
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.5s ease-in-out;
-        }
-        .box:hover{
-            transform: scale(1.1)
-        }
-        .contain {
-            margin-top: 20px;
-            width: 80%;
-            height: 80%;
-            /* background-color: yellow; */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .contain p {
-            font-size: 30px;
-        }
     </style>
 </head>
 
@@ -136,7 +104,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12" style="text-align: center; background-color:white;">
-                <h2><b> <u>Dashboard</u> </b> </h2>
+                <h2><b> <u>Profile Edit</u> </b> </h2>
             </div>
         </div>
 
@@ -145,7 +113,7 @@
                 <div class="d-grid gap-3 full">
                     <a href="#" class="btn btn-custom btn-lg active btn3" role="button"aria-pressed="true">
                         Profile</a>
-                    <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button"
+                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button"
                         aria-pressed="true">Add product</a>
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
                         data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
@@ -157,58 +125,69 @@
                     <a href="login.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
                 </div>
             </div>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-9">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="box">
-                            <div class="contain">
-                                <p>Total product</p> <br>
-                                <p> 6 </p>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <div class="hu">
+                        <img src="image/Book.png" alt="Profile_picture" width="150px" class="profile"><br>
+                        <div class="row row1">
+                            <div class="col-sm-6">
+                                <span>First Name: <br>
+                                    <input type="text" class="form-control" id="#" placeholder="First Name" value="krishnu">
+                                </span>
                             </div>
-                            <a href="seller_product.php"><button class="btn-custom"  style="height:35px; width:100%">View Product</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="box">
-                            <div class="contain">
-                                <p>Orders</p> <br>
-                                <p> 67 </p>
+                            <div class="col-sm-6">
+                                <span>
+                                    Last Name: <br>
+                                    <input type="text" class="form-control" placeholder="Last name" value="Gupta"> <br>
+                                </span>
                             </div>
-                            <a href="#"><button class="btn-custom"  style="height:35px; width:100%">Orders</button></a>
-
                         </div>
+                        <div class="row row1">
+                            <div class="col-sm-6 con">
+                                <span>
+                                    Contact Email: <br>
+                                    <input type="text" class="form-control" placeholder="Email" valu="Krishnugupta593@gmail.com" readonly> <br>
+                                </span>
+                            </div>
+                            <div class="col-sm-6 con">
+                                <span>
+                                    Contact Number: <br>
+                                    <input type="tel" name="num" placeholder="Number" class="form-control" id="" value="+91********"> <br>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-6">
+                                <span>
+                                    State: <br>
+                                    <input type="text" class="form-control" placeholder="State" name="" id="" value="Gujarat"> <br>
+                                </span>
+                            </div>
+                            <div class="col-sm-6">
+                                <span>
+                                    City: <br>
+                                    <input type="text" class="form-control" placeholder="City" name="" id="" value="Rajkot"> <br>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-6">
+                                <span>
+                                    Bio: <br>
+                                    <textarea name="" id="" cols="25" rows="2" placeholder="Bio"></textarea> <br>
+                                </span>
+                            </div>
+                            <div class="col-sm-6">
+                                <br>
+                                <button type="submit" class="btn btn-custom-1">Update Profile</button>
+                            </div>
+    
+                        </div>
+    
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-9">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="box">
-                            <div class="contain">
-                                <p>Total Income</p> <br>
-                                <p> 578 </p>
-                            </div>
-                            
-                            <a href="seller_rating.php"><button class="btn-custom"  style="height:35px; width:100%">Income</button></a>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="box">
-                            <div class="contain">
-                                <p>Feedbacks</p> <br>
-                                <p> 1111 </p>
-                            </div>
-                            <a href="seller_rating.php"><button class="btn-custom"  style="height:35px; width:100%;">View user</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
+        </form>
 
         <!-- delete account form -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"

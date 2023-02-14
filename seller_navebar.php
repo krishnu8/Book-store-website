@@ -96,15 +96,12 @@
       </button>
       <div class="collapse navbar-collapse" id="mynavbar">
 
-        <ul class="navbar-nav me-auto" style="margin-left:40%;">
+        <ul class="navbar-nav me-auto" style="margin-left:50%;">
           <li class="nav-item">
-            <a class="nav-link" href="login.php">Logout</a>
+            <a class="nav-link" href="non-login-home-page.php">Switch as User</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="About.php">Switch as User</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cart.php"></i>Start selling</a>
+            <a class="nav-link" href=""></i>Start selling</a>
           </li>
           <!-- dropdown -->
           <li class="nav-item">
@@ -113,10 +110,10 @@
                 More
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="my_profile.php">Dashbord</a></li>
-                <li><a class="dropdown-item" href="My_order.php">Orders</a></li>
-                <li><a class="dropdown-item" href="My_order.php">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="Seller_dashboard.php">Dashbord</a></li>
+                <!-- <li><a class="dropdown-item" href="My_order.php">Orders</a></li> -->
+                <li><a class="dropdown-item" href="seller_profile.php">Profile</a></li>
+                <li><a class="dropdown-item" href="login.php">Logout</a></li>
               </ul>
             </div>
           </li>
