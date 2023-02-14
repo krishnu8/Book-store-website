@@ -27,7 +27,7 @@
 	
 	
 		<div class="right">
-		<p>Don't have an account? <a href="regis.html" class="aahan">Register</a> it takes less than a minute</p>
+		<p>Don't have an account? <a href="regis.php" class="aahan">Register</a> it takes less than a minute</p>
 		<div class="wrapper">
 			<header>Login Form</header>
 			<form action="#">
@@ -50,7 +50,7 @@
 			  <div class="pass-txt"><a href="#">Forgot password?</a></div>
 			  <input type="submit" value="Login" onclick="login()">
 			</form>
-			<div class="sign-txt">Not yet member? <a href="regis.html">Signup now</a></div>
+			<div class="sign-txt">Not yet member? <a href="regis.php">Signup now</a></div>
 		  </div>
 
 		<script src="validation/vali.js"></script>
