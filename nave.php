@@ -127,6 +127,7 @@
       </div>
     </div>
   </nav>
+  <?php include_once("index.php"); ?>
 </body>
 
 </html>
