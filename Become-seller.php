@@ -105,7 +105,10 @@ body, html {
 	<input type="button" value="Start Selling" class="a2">
     <p></p>
     <a href="regis.php"><input type="button" value="register" class="btn2"></a>
+    <a href="seller-login.php">
 	<input type="button" value="Start Selling" class="btn">
+
+    </a>
   </div>
 </div>
 
