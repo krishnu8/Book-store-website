@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
-    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="product.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Home Page</title>
 </head>
@@ -41,11 +41,16 @@
             height: 50px;
             margin-top: 25%;
         }
+.aahan{
+    height:90px;
+}
     </style>
     </head>
 
     <body>
-        <?php include_once("nave.php"); ?>
+        <?php include('non-login-nav.php')
+        ?>
+      <div class="aahan"></div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -92,7 +97,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <span class="discount-tag">50% off</span>
-                        <a href="product_info.php"><img src="image/book1.jpg" class="product-thumb" alt=""></a>
+                        <a href="calvin.html"><img src="image/book1.jpg" class="product-thumb" alt=""></a>
                         <a href="login.php">
                             <button class="card-btn">Buy Now</button>
                         </a>
