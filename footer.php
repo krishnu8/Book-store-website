@@ -33,7 +33,7 @@
                 <h5>Quick Links</h5>
                 <ul class="footer-links">
                     <li>
-                        <a href="">Home</a>
+                        <a href="non-login-home-page.php">Home</a>
                     </li>
                     <li>
                         <a href="">Login</a>

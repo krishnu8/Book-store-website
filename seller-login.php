@@ -14,7 +14,7 @@
 <div class="box-form">
 	<div class="left">
 		<div class="overlay">
-		<h1>Hello Viewer.</h1>
+		<h1>Hello Seller.</h1>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 		Curabitur et est sed felis aliquet sollicitudin</p>
 		<span>
@@ -30,7 +30,7 @@
 		<p>Don't have an account? <a href="regis.php" class="aahan">Register</a> it takes less than a minute</p>
 		<div class="wrapper">
 			<header>Login Form</header>
-			<form action="">
+			<form action="seller_dashboard.php">
 			  <div class="field email">
 				<div class="input-area">
 				  <input type="text" placeholder="Email Address" id="email">

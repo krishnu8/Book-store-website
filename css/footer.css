@@ -14,7 +14,7 @@
     text-shadow: 0px 5px 6px deepskyblue;
   }
   .footer{
-     background-color: black;
+     background-color: rgb(78, 73, 73);
   }
   .row{
     display: flex;
@@ -112,4 +112,7 @@
  .social-link-icons li a:hover{
   background: transparent;
   color:deepskyblue;
+ }
+ .web-desc p{
+  color: red;
  }
