@@ -214,12 +214,7 @@
             <div style="background-color: rgba(0,0,0,0.7);width:350px;height:fit-content;border-radius: 10px;color: #fff;">
                 <form onSubmit="return(validate123());" method="post" enctype="multipart/form-data" action="Seller_dashboard.php">
 
-                <div class="form-group">
-                                    <label for="email">Full Name:</label>
-                                    <input type="text" class="form-control" placeholder="Enter Name" id="fname1"value="krishnu Gupta" name="fn1">
-                                    <p id="fn1"></p>
-                                </div>
-                                   
+                
                 <div class="form-group">
                         <label for="email">Full Name:</label>
                         <input type="text" class="form-control" placeholder="Enter Name" id="fname1" name="fn1">
