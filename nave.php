@@ -101,7 +101,7 @@
 
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
+            <a class="nav-link" href="#">Name</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="seller_registration.php"><i class="fa-solid fa-business-time"></i> Become Seller</a>

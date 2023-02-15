@@ -9,7 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="stylesheet" href="css/footer.css">
 </head>
-
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Baloo 2", cursive;
+    color: white;
+}
+</style>
 <body>
     <footer>
         <div class="row">

@@ -194,17 +194,7 @@
                 </div>
             </div>
         </form>
-        <!-- <div class="container-fluid" id="feedback">
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-10 ">
-                    <div class="col-sm-12 feed">
-                        Feedback
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
+   
         <!-- delete account form -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
