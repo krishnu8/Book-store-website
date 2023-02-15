@@ -104,7 +104,7 @@
             <a class="nav-link" href="login.php">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Become-Seller.php"><i class="fa-solid fa-business-time"></i> Become Seller</a>
+            <a class="nav-link" href="seller_registration.php"><i class="fa-solid fa-business-time"></i> Become Seller</a>
           </li>
           <!-- dropdown -->
           <li class="nav-item">

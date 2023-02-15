@@ -10,7 +10,6 @@
     }
 
     */
-
     .pic {
         width: 50px;
         height: 50px;
@@ -126,10 +125,13 @@
 </style>
 <?php include("seller_navebar.php") ?>
 <div class="container-fluid">
-    
+
     <div class="table-wrap">
-        <div style="text-align: center;"><h2><u>MY Product</u></h2></div>
+        <div style="text-align: center;">
+            <h2><u>MY Product</u></h2>
+        </div>
         <table class="table table-responsive table-borderless">
+
             <thead>
                 <th>&nbsp;</th>
                 <th>Product</th>
@@ -138,11 +140,14 @@
                 <th>Category</th>
                 <th>&nbsp;</th>
             </thead>
+            <tr>
+                <td colspan="6" style="text-align:end;"> <a href="seller_product_register.php"><button style="height: 30px; background-color:#3b6967">Add product</button></a> </td>
+            </tr>
             <tbody>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
-                        <img class="pic"  src="image/Book.png" alt="">
+                        <img class="pic" src="image/Book.png" alt="">
                     </td>
                     <td>
                         <div>
@@ -157,7 +162,7 @@
                         7
                     </td>
                     <td>
-                    Fairy tales
+                        Fairy tales
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -166,13 +171,13 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                   
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
                     <td>
                         <div>
-                            <p class="m-0 fw-bold">	Anna Karenina</p>
+                            <p class="m-0 fw-bold"> Anna Karenina</p>
                             <p class="m-0 text-muted">BY Leo Tolstoy</p>
                         </div>
                     </td>
@@ -183,7 +188,7 @@
                         36
                     </td>
                     <td>
-                    Crime.
+                        Crime.
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -192,9 +197,9 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                   
+
                     <td class="text-center">
-                        <img class="pic"  src="image/Book.png" alt="">
+                        <img class="pic" src="image/Book.png" alt="">
                     </td>
                     <td>
                         <div>
@@ -209,7 +214,7 @@
                         9
                     </td>
                     <td>
-                    Classics.   
+                        Classics.
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -218,7 +223,7 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
@@ -232,10 +237,10 @@
                         <div class="fw-600">RS.574.99</div>
                     </td>
                     <td>
-                       12
+                        12
                     </td>
                     <td>
-                    Adventure stories
+                        Adventure stories
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -244,7 +249,7 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
@@ -258,10 +263,10 @@
                         <div class="fw-600">RS.574.99</div>
                     </td>
                     <td>
-                       12
+                        12
                     </td>
                     <td>
-                    Adventure stories
+                        Adventure stories
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -270,7 +275,7 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
@@ -284,10 +289,10 @@
                         <div class="fw-600">RS.574.99</div>
                     </td>
                     <td>
-                       12
+                        12
                     </td>
                     <td>
-                    Adventure stories
+                        Adventure stories
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -296,7 +301,7 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
@@ -310,10 +315,10 @@
                         <div class="fw-600">RS.574.99</div>
                     </td>
                     <td>
-                       12
+                        12
                     </td>
                     <td>
-                    Adventure stories
+                        Adventure stories
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -322,7 +327,7 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
@@ -336,10 +341,10 @@
                         <div class="fw-600">RS.574.99</div>
                     </td>
                     <td>
-                       12
+                        12
                     </td>
                     <td>
-                    Adventure stories
+                        Adventure stories
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -348,7 +353,7 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
@@ -362,10 +367,10 @@
                         <div class="fw-600">RS.574.99</div>
                     </td>
                     <td>
-                       12
+                        12
                     </td>
                     <td>
-                    Adventure stories
+                        Adventure stories
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -374,7 +379,7 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
@@ -388,10 +393,10 @@
                         <div class="fw-600">RS.574.99</div>
                     </td>
                     <td>
-                       12
+                        12
                     </td>
                     <td>
-                    Adventure stories
+                        Adventure stories
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -400,7 +405,7 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
@@ -414,10 +419,10 @@
                         <div class="fw-600">RS.574.99</div>
                     </td>
                     <td>
-                       12
+                        12
                     </td>
                     <td>
-                    Adventure stories
+                        Adventure stories
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -426,7 +431,7 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
@@ -440,10 +445,10 @@
                         <div class="fw-600">RS.574.99</div>
                     </td>
                     <td>
-                       12
+                        12
                     </td>
                     <td>
-                    Adventure stories
+                        Adventure stories
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -452,7 +457,7 @@
                     </td>
                 </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
-                    
+
                     <td class="text-center">
                         <img class="pic" src="image/Book1.png" alt="">
                     </td>
@@ -466,10 +471,10 @@
                         <div class="fw-600">RS.574.99</div>
                     </td>
                     <td>
-                       12
+                        12
                     </td>
                     <td>
-                    Adventure stories
+                        Adventure stories
                     </td>
                     <td>
                         <div class="btn" data-bs-dismiss="alert">
@@ -477,9 +482,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="6" style="text-align:end; "><button class="btn-primary" style="height: 30px;">Add product</button></td>
-                </tr>
+
             </tbody>
         </table>
     </div>

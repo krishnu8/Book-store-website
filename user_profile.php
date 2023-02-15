@@ -264,7 +264,7 @@
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
                         data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
 
-                    <a href="seller_rating.php" class="btn btn-custom btn-lg active btn2" role="button"
+                    <a href="user.feedback.php" class="btn btn-custom btn-lg active btn2" role="button"
                         aria-pressed="true">Feedback</a>
                     <a href="login.php" class="btn btn-custom btn-lg active btn2" role="button"
                         aria-pressed="true">Logout</a>
