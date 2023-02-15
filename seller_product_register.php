@@ -20,18 +20,14 @@
         font-size: 20px;
 
     }
-
+    body{
+        background-image: url(image/book111.jpg);
+        background-repeat: no-repeat;
+    }
     .sub_btn:hover {
         background-color: blue;
         color: white;
     }
-
-    body{
-        background-size:cover;
-        background-image: url(image/book22.jpg);
-        background-repeat: no-repeat;
-         
-         }
 </style>
 
 
@@ -94,7 +90,7 @@
     
 <div style="display: flex;justify-content: center; ">
     <form onSubmit="return(validate123());" method="post" enctype="multipart/form-data" action="seller_product.php"
-        style="margin-top:50px;display: flex;justify-content: center;background-color: beige;width:35%;height:auto; margin-top:10%;">
+        style="margin-top:50px;display: flex;justify-content: center;background-color:rgba(36, 179, 160, 0.588);width:35%;height:auto; margin-top:10%;">
 
         <table>
             <tr>
@@ -146,10 +142,16 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center;">
-                    <input type="submit" class="sub_btn" value="submit" name="sub" />
+                    <input type="submit" class="sub_btn" style=" margin-top:10px" value="submit" name="sub" />
                 </td>
             </tr>
-        </table><br>
-    </form>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <a href="seller_product.php"><button type="button" class="sub_btn" style="width:150px; margin-top:20px"> Return Back</button></a>
+                </td>
+            </tr>
+            
+        </table>
+    
 </div>
 </body>

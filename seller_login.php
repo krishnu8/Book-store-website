@@ -1,42 +1,105 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<style>
-    .jack {
-        background-color: blue; 
-        width: 20%;
-    }
-    body{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
 
-<body>
-    <div class="jack">
-        <div class="row">
-            <div class="col-sm-12" style="text-align:center">
-            <img src="image/Book1.png" height="30px" alt="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="Register.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav {
+            min-height: 100vh;
+            background-image: url(image/book111.jpg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            border: #61d394 solid 2px;
+        }
+
+        .input::after {
+            content: '';
+            width: 300px;
+            height: 3px;
+            background: #ffffff;
+            display: block;
+            margin: 4px;
+            margin-left: -0px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        input {
+            color: #fff;
+        }
+
+        span {
+            font-size: 15px;
+            color: red;
+        }
+
+        .btn1 {
+            background-color: transparent;
+            border-color: blue;
+            font-size: 20px;
+            border-radius: 10px;
+            height: 40px;
+            width: 100px;
+        }
+
+        .btn1:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body style="justify-content: center;border: #ffffff solid 2px;height: 100%;">
+    <section class="nav">
+        <!-- <nav>
+            <a href="login.php"><img src="./pic/hen.png" height="40px" width="100px"></a>
+            <div style="font-size: 20px;"><a href="index.php"><button class="home">Home</button></a></div>
+        </nav><br> -->
+        <div class="form" style="display: flex;justify-content: center;margin-top:100px;">
+            <div style="background-color: rgba(0,0,0,0.7);width:380px; height:500px;border-radius: 20px;">
+                <center><img src="image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
+                <div style="padding: 30px;">
+                    <form onsubmit="return validation1()" action="Seller_dashboard.php">
+                        <div class="input">
+                            <font style="color: #fff; " size="5"><b>E-mail</b><br>
+                                <input id="email" type="email" placeholder="example@gmail.com" required style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                                <span id="emailerror" class="text-danger"></span>
+                        </div>
+                        <br>
+                        <div class="input"><b>Password</b> <br>
+                            <input id="password" type="password" placeholder="Enter password" required style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                            <span id="passworderror" class="text-danger"></span>
+                        </div>
+                        </font><br>
+                        <p id="p1"></p>
+                        <center><button type="submit" class="btn1" type="submit">
+                                <a href="index.php" class="btn1"><b>Log In</b></a></button></center>
+                    </form>
+                    <br>
+                    <font color="white">forgot password ?<br></font><br>
+                    <font color="white"><b>Don't have?</b> <u><a href="seller_registration.php">Create Account</a></u><br></font><br>
+
+                    <center><button style="background-color: rgb(117, 14, 143);width: 150px;height:35px;font-size: 20px;border: 0;border-radius: 10px;">
+                            <a href="login-home-page.php" style="color:#fff;"><b>Return BAck</b></a></button></center><br>
+                </div>
             </div>
         </div>
-        <form action="" class="was-validated">
-            <div class="form-group">
-                <label for="uname">Username:</label>
-                <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <button type="submit" class="btn btn-primary" style="text-align:center">Login</button>
-        </form>
-    </div>
+    </section>
 </body>
+
+</html>

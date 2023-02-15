@@ -116,7 +116,7 @@
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
 
-                    <a href="my_profilie.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Feedback</a>
+                    <a href="user.feedback.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Feedback</a>
                     <a href="login.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
                 </div>
             </div>

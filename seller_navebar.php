@@ -98,7 +98,7 @@
 
         <ul class="navbar-nav me-auto" style="margin-left:50%;">
           <li class="nav-item">
-            <a class="nav-link" href="non-login-home-page.php">Switch as User</a>
+            <a class="nav-link" href="login-home-page.php">Switch as User</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="seller_product.php"></i>Start selling</a>
@@ -113,7 +113,7 @@
                 <li><a class="dropdown-item" href="Seller_dashboard.php">Dashbord</a></li>
                 <!-- <li><a class="dropdown-item" href="My_order.php">Orders</a></li> -->
                 <li><a class="dropdown-item" href="seller_profile.php">Profile</a></li>
-                <li><a class="dropdown-item" href="login.php">Logout</a></li>
+                <li><a class="dropdown-item" href="seller_login.php">Logout</a></li>
               </ul>
             </div>
           </li>

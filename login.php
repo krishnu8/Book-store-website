@@ -16,7 +16,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .nav {
+        .nav{
             min-height: 100vh;
             background-image: url(image/book111.jpg);
             background-position: center;
@@ -72,7 +72,7 @@
             <div style="background-color: rgba(0,0,0,0.7);width:380px; height:500px;border-radius: 20px;">
                 <center><img src="image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
                 <div style="padding: 30px;">
-                    <form onsubmit="return validation1()" action="index.php">
+                    <form onsubmit="return validation1()" action="login-home-page.php">
                         <div class="input">
                             <font style="color: #fff; " size="5"><b>E-mail</b><br>
                                 <input id="email" type="email" placeholder="example@gmail.com" required style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">

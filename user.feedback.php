@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title>All Notification</title>
+    <title>Feedback</title>
     <style>
         .jack12 {
             height: 80px;
@@ -65,24 +65,27 @@
             transform: scale(0.9);
             transition: 0.5s ease-in-out;
         }
-        .data1{
-            background-color:#D5EAF5;
+
+        .data1 {
+            background-color: #D5EAF5;
             text-align: center;
             border-radius: 10px;
         }
-        .data{
-            background-color: rgba(245, 222, 179, 0.736)    ;
+
+        .data {
+            background-color: rgba(245, 222, 179, 0.736);
             text-align: center;
             border-radius: 10px;
         }
-        .data1:hover{
-            background-color:#CAC2FF;
-            border:  red 1px solid;
+
+        .data1:hover {
+            background-color: #CAC2FF;
+            border: red 1px solid;
         }
-        
-        .data:hover{
-            background-color: #E9ECF1 ;
-            border:  red 1px solid;
+
+        .data:hover {
+            background-color: #E9ECF1;
+            border: red 1px solid;
         }
     </style>
 </head>
@@ -93,7 +96,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12" style="text-align: center; background-color:white;">
-                <h2><b>Notifications</b> </h2>
+                <h2><b></b> </h2>
             </div>
         </div>
         <div class="row">
@@ -115,50 +118,66 @@
                     <div class="col-sm-1"></div>
                     <div class="col-sm-10 data1" style="margin-top: 15px;">
                         <div class="row">
-                            <div class="col-sm-2">
-                                <img src="image/Book.png" width="80px" style="border-radius: 50%; background-color: red;" alt="">
+                            <div class="col-md-2">
+                                <img src="image/a1.jpg" class="img img-rounded img-fluid" />
                             </div>
-                            <div class="col-sm-2" style="align-self: center; word-wrap: break-word; ">
-                                From:Amarjit
-                            </div>
-                            <div class="col-sm-8" style="align-self: center; word-wrap: break-word; ">
-                                Your product will deliver till tommorow
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row " style="margin-top: 10px;">
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-10 data">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <img src="image/Book.png" width="80px" style="border-radius: 50%; background-color: red;" alt="">
-                            </div>
-                            <div class="col-sm-2" style="align-self: center; word-wrap: break-word; ">
-                                From:Amarjit
-                            </div>
-                            <div class="col-sm-8" style="align-self: center; word-wrap: break-word; ">
-                                Your product will deliver till tommorow
+                            <div class="col-md-10">
+                                <p>
+                                    <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>Mamjad </strong></a>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                </p>
+                                <div class="clearfix"></div>
+                                <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row " style="margin-top: 10px;">
                     <div class="col-sm-1"></div>
-                    <div class="col-sm-10 data1">
+                    <div class="col-sm-10 data1" style="margin-top: 15px;">
                         <div class="row">
-                            <div class="col-sm-2">
-                                <img src="image/Book.png" width="80px" style="border-radius: 50%; background-color: red;" alt="">
+                            <div class="col-md-2">
+                                <img src="image/a1.jpg" class="img img-rounded img-fluid" />
                             </div>
-                            <div class="col-sm-2" style="align-self: center; word-wrap: break-word; ">
-                                From:Amarjit
-                            </div>
-                            <div class="col-sm-8" style="align-self: center; word-wrap: break-word; ">
-                                Your product will deliver till tommorow
+                            <div class="col-md-10">
+                                <p>
+                                    <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>Mamjad </strong></a>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                </p>
+                                <div class="clearfix"></div>
+                                <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row " style="margin-top: 10px;">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10 data1" style="margin-top: 15px;">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="image/a1.jpg" class="img img-rounded img-fluid" />
+                            </div>
+                            <div class="col-md-10">
+                                <p>
+                                    <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>Mamjad </strong></a>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                    <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                </p>
+                                <div class="clearfix"></div>
+                                <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
 
