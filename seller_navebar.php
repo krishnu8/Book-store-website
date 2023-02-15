@@ -101,7 +101,7 @@
             <a class="nav-link" href="non-login-home-page.php">Switch as User</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=""></i>Start selling</a>
+            <a class="nav-link" href="seller_product.php"></i>Start selling</a>
           </li>
           <!-- dropdown -->
           <li class="nav-item">

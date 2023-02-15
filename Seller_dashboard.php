@@ -145,7 +145,7 @@
                 <div class="d-grid gap-3 full">
                     <a href="seller_profile.php" class="btn btn-custom btn-lg active btn3" role="button"aria-pressed="true">
                         Profile</a>
-                    <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button"
+                    <a href="seller_product.php" class="btn btn-custom btn-lg active btn2" role="button"
                         aria-pressed="true">Add product</a>
                     <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
                         data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>

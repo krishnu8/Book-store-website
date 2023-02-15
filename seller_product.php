@@ -477,9 +477,9 @@
                         </div>
                     </td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td colspan="6" style="text-align:end; "><button class="btn-primary" style="height: 30px;">Add product</button></td>
-                </tr> -->
+                </tr>
             </tbody>
         </table>
     </div>
