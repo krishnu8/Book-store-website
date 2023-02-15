@@ -143,7 +143,7 @@
         <div class="row">
             <div class="col-sm-2 oi">
                 <div class="d-grid gap-3 full">
-                    <a href="#" class="btn btn-custom btn-lg active btn3" role="button"aria-pressed="true">
+                    <a href="seller_profile.php" class="btn btn-custom btn-lg active btn3" role="button"aria-pressed="true">
                         Profile</a>
                     <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button"
                         aria-pressed="true">Add product</a>
