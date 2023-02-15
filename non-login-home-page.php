@@ -92,7 +92,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <span class="discount-tag">50% off</span>
-                        <a href="calvin.html"><img src="image/book1.jpg" class="product-thumb" alt=""></a>
+                        <a href="product_info.php"><img src="image/book1.jpg" class="product-thumb" alt=""></a>
                         <a href="login.php">
                             <button class="card-btn">Buy Now</button>
                         </a>
