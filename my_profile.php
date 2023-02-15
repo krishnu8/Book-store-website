@@ -108,7 +108,7 @@
             </div>
         </div>
 
-        <form action="" method="post"
+        <form action="" method="post">
             <div class="row">
                 <div class="col-sm-2 oi">
                     <div class="d-grid gap-3 full">
@@ -123,7 +123,7 @@
 
                         <a href="#feedback" class="btn btn-custom btn-lg active btn2" role="button"
                             aria-pressed="true">Feedback</a>
-                        <a href="#" class="btn btn-custom btn-lg active btn2" role="button"
+                        <a href="login.php" class="btn btn-custom btn-lg active btn2" role="button"
                             aria-pressed="true">Logout</a>
                     </div>
                 </div>

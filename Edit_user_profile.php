@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title>Seller_profile</title>
+    <title>My-profile</title>
     <style>
         .jack12 {
             height: 80px;
@@ -17,9 +17,11 @@
         html {
             scroll-behavior: smooth;
         }
-        /* body{
+
+        /* body {
             height: 200vh;
         } */
+
         .profile {
             border-radius: 50%;
             background-color: rgb(255, 153, 0);
@@ -99,36 +101,32 @@
 </head>
 
 <body>
-    <?php include("seller_navebar.php") ?>
+    <?php include("nave.php") ?>
     <div class="jack12"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12" style="text-align: center; background-color:white;">
-                <h2><b> <u>Profile Edit</u> </b> </h2>
+                <h2><b>Edit Profile</b> </h2>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-2 oi">
-                <div class="d-grid gap-3 full">
-                    <a href="seller_profile.php" class="btn btn-custom btn-lg active btn3" role="button"aria-pressed="true">
-                        Profile</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Add product</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
+        <form onSubmit="return(validate123());" method="post" enctype="multipart/form-data" action="user_profile.php">
+            <div class="row">
+                <div class="col-sm-2 oi">
+                    <div class="d-grid gap-3 full">
+                        <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
+                            Orders</a>
+                        <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Notification</a>
+                        <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
+                        <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
 
-                    <a href="seller_rating.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Feedback</a>
-                    <a href="login.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
+                        <a href="#feedback" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Feedback</a>
+                        <a href="login.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
+                    </div>
                 </div>
-            </div>
                 <div class="col-sm-2"></div>
                 <div class="col-sm-10">
-                <form onSubmit="return(validate123());" method="post" enctype="multipart/form-data" action="Seller_dashboard.php">
-                <div class="hu">
+                    <div class="hu">
                         <img src="image/Book.png" alt="Profile_picture" width="150px" class="profile"><br>
                         <div class="row row1">
                             <div class="col-sm-6">
@@ -152,7 +150,7 @@
                             <div class="col-sm-6 con">
                                 <div class="form-group">
                                     <label for="pwd">Contact Number:</label>
-                                    <input type="text" class="form-control" placeholder="Number" id="mobile1" value="98.........." name="mobile">
+                                    <input type="text" class="form-control" placeholder="Number" id="mobile1" value="9811111111" name="mobile">
                                     <p id="mno"> </p>
                                 </div>
                             </div>
@@ -194,13 +192,21 @@
 
                     </div>
                 </div>
-    </form>
             </div>
         </form>
+        <!-- <div class="container-fluid" id="feedback">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10 ">
+                    <div class="col-sm-12 feed">
+                        Feedback
+                    </div>
+                </div>
+            </div>
+        </div> -->
 
         <!-- delete account form -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -228,8 +234,7 @@
     </div>
 
     <!-- Change password -->
-    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <form action="" method="post">
                 <div class="modal-content">
@@ -268,16 +273,9 @@
     </div>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
     function validate123() {
         //alert("welcome to js");
