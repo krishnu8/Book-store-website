@@ -99,7 +99,7 @@
 </head>
 
 <body>
-    <?php include("nave.php") ?>
+    <?php include("nave.php"); ?>
     <div class="jack12"> hu</div>
     <div class="container-fluid">
         <div class="row">
