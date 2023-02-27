@@ -81,6 +81,9 @@
       padding: 0;
       text-align: center;
     }
+    .navbar-nav{
+      margin-left: 200px; 
+    }
   </style>
 </head>
 
@@ -103,9 +106,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Name</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="seller_registration.php"><i class="fa-solid fa-business-time"></i> Become Seller</a>
-          </li>
+          </li> -->
           <!-- dropdown -->
           <li class="nav-item">
             <div class="dropdown">

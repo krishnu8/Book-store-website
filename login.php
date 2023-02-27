@@ -76,7 +76,7 @@
                         <div class="input">
                             <font style="color: #fff; " size="5"><b>E-mail</b><br>
                                 <input id="email" type="email" placeholder="example@gmail.com" required style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
-                                <span id="emailerror" class="text-danger"></span>
+                                <span id="emailerror" class="text-danger"></span>  
                         </div>
                         <br>
                         <div class="input"><b>Password</b> <br>
@@ -90,7 +90,7 @@
                     </form>
                     <br>
                     <font color="white">forgot password ?<br></font><br>
-                    <font color="white"><b>Don't have?</b> <u><a href="">Create Account</a></u><br></font><br>
+                    <font color="white"><b>Don't have?</b> <u><a href="register.php">Create Account</a></u><br></font><br>
                    
                     <center><button style="background-color: rgb(117, 14, 143);width: 150px;height:35px;font-size: 20px;border: 0;border-radius: 10px;">
                             <a href="#" style="color:#fff;"><b>Return BAck</b></a></button></center><br>
@@ -101,3 +101,16 @@
 </body>
 
 </html>
+<script>
+    function validation1(){
+        var a=document.getElementById("password").value;
+        var passwordcheck=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        if(passwordcheck.test(a)){
+            return true;
+        }
+        else{
+            alert("Incorrect Email or password");
+            return false;
+        }
+    }
+</script>

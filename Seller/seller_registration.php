@@ -16,13 +16,10 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .nav {
-            min-height: 100vh;
-            background-image: url(image/book111.jpg);
-            background-position: center;
+        body {
+            background-image: url(../image/book111.jpg);
+            background-repeat: no-repeat;
             background-size: cover;
-            position: relative;
-            border: #61d394 solid 2px;
         }
 
         .input::after {
@@ -73,9 +70,9 @@
     </style>
 </head>
 <body style="justify-content: center;border: #ffffff solid 2px;height: 100vh;">
-        <div class="form" style="display: flex;justify-content: center;margin-top:50px;">
-            <div style="background-color: rgba(0,0,0,0.7);width:400px; height:750px;border-radius: 20px;">
-                <center><img src="image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
+        <div class="form" style="display: flex;justify-content: center;margin-top:110px;">
+            <div style="background-color: rgba(0,0,0,0.7);width:400px; height:650px;border-radius: 20px;">
+                <center><img src="../image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
                 <div style="padding: 30px;">
                     <form onsubmit="return validation1()" action="">
                         <div class="input">

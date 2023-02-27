@@ -7,13 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
-    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="css/product.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Home Page</title>
 </head>
@@ -41,16 +40,43 @@
             height: 50px;
             margin-top: 25%;
         }
-.aahan{
-    height:90px;
-}
+
+        .product-info {
+            width: 100%;
+            height: 100px;
+            padding-top: 10px;
+            color: black;
+        }
+
+        .product-short-des {
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            overflow: hidden;
+            opacity: 0.5;
+            color: black;
+            text-transform: capitalize;
+            margin: 5px 0;
+        }
+
+        .price {
+            font-weight: 900;
+            font-size: 20px;
+            color: black;
+        }
+
+        .actual-price {
+            margin-left: 20px;
+            opacity: 0.5;
+            color: black;
+            text-decoration: line-through;
+        }
     </style>
     </head>
 
     <body>
-        <?php include('non-login-nav.php')
-        ?>
-      <div class="aahan"></div>
+        <?php include_once("nave.php"); ?>
+        <diiv class="hle"></diiv>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -61,7 +87,7 @@
                 <div class="carousel-item active">
                     <img src="image/a1.jpg" alt="Los Angeles" width="100%" height="680px">
                     <div class="carousel-caption">
-                        <h3>The Best</h3>
+                        <h3>hello</h3>
                         <p>Books Shop Ever</p>
                     </div>
                 </div>
@@ -97,7 +123,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <span class="discount-tag">50% off</span>
-                        <a href="calvin.html"><img src="image/book1.jpg" class="product-thumb" alt=""></a>
+                        <a href="product_info.php"><img src="image/book1.jpg" class="product-thumb" alt=""></a>
                         <a href="login.php">
                             <button class="card-btn">Buy Now</button>
                         </a>

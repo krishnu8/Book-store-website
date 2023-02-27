@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title>My-profile</title>
+    <title>rating</title>
     <style>
         .jack12 {
             height: 80px;
@@ -17,6 +17,7 @@
         html {
             scroll-behavior: smooth;
         }
+
         /* body{
             height: 200vh;
         } */
@@ -104,7 +105,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12" style="text-align: center; background-color:white;">
-                <h2><b>MY Profile</b> </h2>
+                <h2><b>Rating</b> </h2>
             </div>
         </div>
 
@@ -112,9 +113,11 @@
             <div class="row">
                 <div class="col-sm-2 oi">
                     <div class="d-grid gap-3 full">
-                        <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">My
+                        <a href="My_order.php" class="btn btn-custom btn-lg active btn3" role="button"
+                            aria-pressed="true">My
                             Orders</a>
-                            <a href="cart.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Cart</a>
+                        <a href="cart.php" class="btn btn-custom btn-lg active btn2" role="button"
+                            aria-pressed="true">Cart</a>
                         <a href="user_notifiication.php" class="btn btn-custom btn-lg active btn2" role="button"
                             aria-pressed="true">Notification</a>
                         <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
@@ -129,78 +132,17 @@
                 </div>
                 <div class="col-sm-2"></div>
                 <div class="col-sm-10">
-                    <div class="hu">
-                        <img src="image/Book.png" alt="Profile_picture" width="150px" class="profile"><br>
-                        <div class="row row1">
-                            <div class="col-sm-6">
-                                <span>First Name: <br>
-                                    <input type="text" class="form-control" id="#" placeholder="First Name" value="krishnu">
-                                </span>
-                            </div>
-                            <div class="col-sm-6">
-                                <span>
-                                    Last Name: <br>
-                                    <input type="text" class="form-control" placeholder="Last name" value="Gupta"> <br>
-                                </span>
-                            </div>
+                    <div class="row">
+                        <div class="col-sm-4">he</div>
+                        <div class="col-sm-8" style="text-align:end;"> <img src="image/a1.jpg" alt="" width="200px" height="125px" > </div>
+                        <div class="col-sm-12">
                         </div>
-                        <div class="row row1">
-                            <div class="col-sm-6 con">
-                                <span>
-                                    Contact Email: <br>
-                                    <input type="text" class="form-control" placeholder="Email" valu="Krishnugupta593@gmail.com" readonly> <br>
-                                </span>
-                            </div>
-                            <div class="col-sm-6 con">
-                                <span>
-                                    Contact Number: <br>
-                                    <input type="tel" name="num" placeholder="Number" class="form-control" id="" value="+91********"> <br>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="row row1">
-                            <div class="col-sm-6">
-                                <span>
-                                    State: <br>
-                                    <input type="text" class="form-control" placeholder="State" name="" id="" value="Gujarat"> <br>
-                                </span>
-                            </div>
-                            <div class="col-sm-6">
-                                <span>
-                                    City: <br>
-                                    <input type="text" class="form-control" placeholder="City" name="" id="" value="Rajkot"> <br>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="row row1">
-                            <div class="col-sm-6">
-                                <span>
-                                    Bio: <br>
-                                    <textarea name="" id="" cols="25" rows="2" placeholder="Bio"></textarea> <br>
-                                </span>
-                            </div>
-                            <div class="col-sm-6">
-                                <br>
-                                <button type="submit" class="btn btn-custom-1">Update Profile</button>
-                            </div>
-    
-                        </div>
-    
                     </div>
                 </div>
             </div>
         </form>
-        <div class="container-fluid" id="feedback">
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-10 ">
-                    <div class="col-sm-12 feed">
-                        Feedback
-                    </div>
-                </div>
-            </div>
-        </div>
-<?php include("user_change_password.php") ?>
+
+        <?php include("user_change_password.php") ?>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

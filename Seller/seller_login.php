@@ -18,7 +18,7 @@
 
         .nav {
             min-height: 100vh;
-            background-image: url(image/book111.jpg);
+            background-image: url(../image/book111.jpg);
             background-position: center;
             background-size: cover;
             position: relative;
@@ -72,7 +72,7 @@
         </nav><br> -->
         <div class="form" style="display: flex;justify-content: center;margin-top:100px;">
             <div style="background-color: rgba(0,0,0,0.7);width:380px; height:500px;border-radius: 20px;">
-                <center><img src="image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
+                <center><img src="../image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
                 <div style="padding: 30px;">
                     <form onsubmit="return validation1()" action="Seller_dashboard.php">
                         <div class="input">
