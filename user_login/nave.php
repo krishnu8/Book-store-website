@@ -7,10 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- CSS Links -->
-  <link rel="stylesheet" href="css/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="custom_css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-  <link rel="stylesheet" href="css/css/style.css" />
+  <link rel="stylesheet" href="custom_css/style.css" />
+
   <title>Navegation-Bar</title>
 
   <style type="text/css">
@@ -154,8 +155,8 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold" href="#">
-        <div class="textt">
-          <img src="image/Book1.png" alt="BOOK CHOR" style="width:150px; opacity:90%;">
+        <div>
+          <img src="../image/Book1.png" alt="BOOK CHOR" style="width:150px; opacity:90%;">
         </div>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar" aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
@@ -250,4 +251,4 @@
       </nav>
     </div>
   </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="custom_js/bootstrap.bundle.min.js"></script>
