@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Reviews - E-commerce Website</title>
+	<style>
+		/* Style for rating stars */
+		.rating {
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 2rem;
+			color: orange;
+		}
+
+		.rating input {
+			display: none;
+		}
+
+		.rating label {
+			cursor: pointer;
+		}
+
+		.rating label:before {
+			content: "\2605";
+		}
+
+		.rating label:hover:before,
+		.rating label:hover ~ label:before,
+		.rating input:checked ~ label:before {
+			content: "\2605";
+			color: gold;
+		}
+
+		/* Style for review box */
+		.review-box {
+			border: 1px solid #ddd;
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+
+		.review-box h3 {
+			margin-top: 0;
+		}
+
+		.review-box p {
+			margin-top: 10px;
+		}
+
+		.review-box .reviewer {
+			font-weight: bold;
+			margin-right: 10px;
+		}
+
+		.review-box .date {
+			color: #999;
+			font-size: 0.9rem;
+		}
+	</style>
+</head>
+<body>
+	<h1>Product Reviews</h1>
+
+	<div class="review-box">
+		<h3>Great product!</h3>
+		<div class="rating">
+			<input type="radio" name="rating" value="5" id="rating-5" checked>
+			<label for="rating-5"></label>
+			<input type="radio" name="rating" value="4" id="rating-4">
+			<label for="rating-4"></label>
+			<input type="radio" name="rating" value="3" id="rating-3">
+			<label for="rating-3"></label>
+			<input type="radio" name="rating" value="2" id="rating-2">
+			<label for="rating-2"></label>
+			<input type="radio" name="rating" value="1" id="rating-1">
+			<label for="rating-1"></label>
+		</div>
+		<p>This product is amazing! It's exactly what I was looking for and it exceeded my expectations. I would definitely recommend it to anyone.</p>
+		<div class="review-info">
+			<span class="reviewer">John Doe</span>
+			<span class="date">March 3, 2023</span>
+		</div>
+	</div>
+
+	<div class="review-box">
+		<h3>Not as good as I hoped</h3>
+		<div class="rating">
+			<input type="radio" name="rating" value="5" id="rating-5">
+			<label for="rating-5"></label>
+			<input type="radio" name="rating" value="4" id="rating-4">
+			<label for="rating-4"></label>
+			<input type="radio" name="rating" value="3" id="rating-3" checked>
+			<label for="rating-3"></label>
+			<input type="radio" name="rating" value="2" id="rating-2">
+			<label for="rating-2"></label>
+			<input type="radio" name="rating" value="1" id="rating-1">
+			<label for="
