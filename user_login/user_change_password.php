@@ -6,7 +6,63 @@
         border-radius: 10px;
         padding-top: -20px;
     }
+
+    .ale {
+        position: absolute;
+        top: 100px;
+        right: 50px;
+        z-index: 1;
+        width: 500px;
+        font-size: 18px;
+    }
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<?php
+include_once("../database/Create_database.php");
+if (isset($_POST['delete'])) {
+    $spass = $_SESSION['password'];
+    $semail = $_SESSION['email'];
+    $pass = $_POST['ppass'];
+    if ($spass != $pass) {
+        $_SESSION['PASSWORDWRONG'] = "Enter Correct Password";
+    } else {
+        $deactivate = "UPDATE `registration` SET `Status`='Deleted' WHERE email='$semail' and password ='$spass'";
+        if (mysqli_query($con, $deactivate)) {
+            unset($_SESSION['email']);
+            unset($_SESSION['password']);
+            $_SESSION['login'] = "Account deleted successfully";
+            header("location:login.php");
+        } else {
+?>
+            <script>
+                alert("Please Leave you problem here!");
+                // contact page link
+                // window.location.href="";
+            </script>
+    <?php
+        }
+    }
+}
+
+if (isset($_SESSION['PASSWORDWRONG'])) {
+    ?>
+    <div class="ale">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong> <?php echo $_SESSION['PASSWORDWRONG'] ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        setTimeout("", 200);
+    </script>
+<?php
+    unset($_SESSION['PASSWORDWRONG']);
+}
+?>
+
+<!-- delete account -->
 <div class="modal fade" id="delete_acc" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -19,24 +75,24 @@
             <form action="" method="post">
                 <div class="modal-body">
                     <label for="inputPasswordOld">Enter Password</label>
-                    <input type="password" class="form-control" id="inputPasswordOld" required="">
+                    <input type="password" class="form-control" id="inputPasswordOld" required="" onblur="checkpass4()" name="ppass">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" value="Delete" class="btn btn-primary">
+                    <input type="submit" value="Delete" class="btn btn-primary" name="delete">
                 </div>
             </form>
-
         </div>
     </div>
 </div>
+
 </div>
 </div>
 
 <!-- Change password -->
 <div class="modal fade" id="cppp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form action="" method="post" onsubmit="return validation1()">
+        <form action="user_change_password_action.php" method="post" onsubmit="return validation1()">
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Chnage Password</h4>
@@ -47,51 +103,118 @@
                 <div class="modal-body mx-3">
                     <div class="md-form mb-5">
                         <i class="fas fa-lock prefix grey-text"></i>
-                        <input type="password" id="orangeForm-name" class="form-control     " required>
+                        <input type="password" id="orangeForm-name" class="form-control" required name="cp1" onblur="checkpass1()">
                         <label data-error="wrong" data-success="right" for="orangeForm-name">Current
                             Password</label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-lock prefix grey-text"></i>
-                        <input type="password" id="pass" class="form-control " required>
+                        <input type="password" id="pass" class="form-control " required onblur="check3()">
                         <label data-error="wrong" data-success="right" for="orangeForm-email">New Pasword</label>
                     </div>
 
                     <div class="md-form mb-4">
                         <i class="fas fa-lock prefix grey-text"></i>
-                        <input type="password" id="cpass" class="form-control" required>
-                        <label data-error="wrong" data-success="right" for="orangeForm-pass" >verify</label>
+                        <input type="password" name="pass1" id="cpass" required class="form-control" onblur="check2()">
+                        <label data-error="wrong" data-success="right" for="orangeForm-pass">verify</label>
                     </div>
 
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <input type="submit" value="Change"style="width:100px;" class=" btn-primary" >
+                    <input type="submit" value="Change" name="change" style="width:100px;" class=" btn-primary">
                 </div>
             </div>
         </form>
+
         <script>
             function validation1() {
                 var pass = document.getElementById("pass").value;
                 var cpass = document.getElementById("cpass").value;
                 var passwordcheck = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-                if(passwordcheck.test(pass)){
-                    if(pass!==cpass){
-                        alert("Enter same password as above");
-                        CP="false";
+                if (passwordcheck.test(pass)) {
+                    if (pass !== cpass) {
+                        // alert("Enter same password as above");
+                        CP = "false";
+                    } else {
+                        CP = "true"
                     }
+                    P = "true";
+                } else {
+                    // alert("password must contain number character special symbol");
+                    P = "false";
                 }
-                else{
-                    alert("password must contain number character special symbol");
-                    P="false";
-                }
-                if(P=="false"||CP=="false"){
+                if (P == "false" || CP == "false") {
                     return false;
-                }else{
+                } else {
                     return true;
                 }
 
             }
         </script>
+        <?php
+
+        ?>
+        <script>
+            function checkpass1() {
+                <?php
+                $jo = $_SESSION['password'];
+                // $_SESSION['path']=$first_path;
+                $directoryURI = $_SERVER['REQUEST_URI'];
+                $path = parse_url($directoryURI, PHP_URL_PATH);
+                $components = explode('/', $path);
+                $first_part = $components[3];
+                $_SESSION['path']="$first_part";
+                ?>
+                var pass = document.getElementById("orangeForm-name").value;
+                var cpass = "<?php echo $jo ?>";
+                if (pass != "") {
+                    if (pass == cpass) {
+                        document.getElementById("orangeForm-name").style.boxShadow = "4px 4px 1px 1px green";
+                    } else {
+                        document.getElementById("orangeForm-name").style.boxShadow = "4px 4px 1px 1px red";
+                    }
+                }
+            }
+
+            function check3() {
+                var pass = document.getElementById("pass").value;
+                var passwordcheck = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+                if (pass != "") {
+                    if (passwordcheck.test(pass)) {
+                        document.getElementById("pass").style.boxShadow = "4px 4px 1px 1px green";
+                    } else {
+                        document.getElementById("pass").style.boxShadow = "4px 4px 1px 1px red";
+                    }
+                }
+            }
+
+            function check2() {
+                var pass = document.getElementById("pass").value;
+                var cpass = document.getElementById("cpass").value;
+                if (cpass != "") {
+                    if (pass == cpass) {
+                        document.getElementById("cpass").style.boxShadow = "4px 4px 1px 1px green";
+                    } else {
+                        document.getElementById("cpass").style.boxShadow = "4px 4px 1px 1px red";
+                    }
+                }
+            }
+            function checkpass4() {
+                <?php
+                $jo = $_SESSION['password'];
+                ?>
+                var pass = document.getElementById("inputPasswordOld").value;
+                var cpass = "<?php echo $jo ?>";
+                if (pass != "") {
+                    if (pass == cpass) {
+                        document.getElementById("inputPasswordOld").style.boxShadow = "4px 4px 1px 1px green";
+                    } else {
+                        document.getElementById("inputPasswordOld").style.boxShadow = "4px 4px 1px 1px red";
+                    }
+                }
+            }
+        </script>
+       
     </div>
 </div>
 

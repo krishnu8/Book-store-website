@@ -8,9 +8,7 @@
     <title>Orders</title>
     <?php include_once("nave.php") ?>
     <style>
-        main {
-            margin-top: 75px;
-        }
+       
 
         @media (max-width: 992px) {
             main {

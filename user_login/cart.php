@@ -19,9 +19,7 @@
             }
         }
 
-        main {
-            margin-top: 75px;
-        }
+       
 
         .card-body {
             -ms-flex: 1 1 auto;
@@ -144,6 +142,13 @@
                 position: relative;
                 bottom: 0;
             }
+            .cart{
+                width: 100%;
+                z-index: 1; 
+            }
+        }
+        .cart{
+            width:70%;
         }
     </style>
 </head>
@@ -160,7 +165,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="row">
-                        <div class="col-sm-11">
+                        <div class="col-sm-11 cart">
                             <div class="table-responsive">
                                 <table class="table table-borderless table-shopping-cart" style="width: 100%;">
                                     <thead class="text-muted">
@@ -168,7 +173,7 @@
                                             <th scope="col">Product</th>
                                             <th scope="col">Quantity</th>
                                             <th scope="col">Price</th>
-                                            <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>

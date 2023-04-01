@@ -1,16 +1,4 @@
 
-<?php 
-session_start();
-include_once("../database/Create_database.php");
-if(!isset($_SESSION['email'])&& !isset($_SESSION['password'])){
-  ?>
-  <script>
-    window.location.href="login.php";
-  </script>
-  <?php
-}
-include_once("user_change_password.php");
- ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,41 +30,19 @@ include_once("user_change_password.php");
     }
 
     .navbar-nav1 {
-      margin-left: 200px;
+      margin-left:50%;
     }
 
     li {
-      margin-left: 45px;
-      margin-right: 20px;
+      /* margin-left: 45px;
+      margin-right: 20px; */
+      display: flex;
+      /* margin-left: 50px; */
+      margin-right: 100px;
       font-size: 20px;
     }
 
-    .all {
-      background-color: black;
-      padding-left: 5px;
-      padding-right: 15px;
-      display: flex;
-      align-items: center;
-      width: 30%;
-      height: 40px;
-      background-color: white;
-      border-radius: 5px;
-      margin-left: 10%;
-    }
-
     @media only screen and (max-width: 500px) {
-      .all {
-        background-color: black;
-        margin-top: 10px;
-        padding-left: 5px;
-        padding-right: 15px;
-        display: flex;
-        align-items: center;
-        width: 80%;
-        height: 40px;
-        background-color: white;
-        border-radius: 5px;
-      }
 
       .navbar-nav1 {
         margin: 0;
@@ -158,9 +124,6 @@ include_once("user_change_password.php");
       transform: scale(1.1);
       transition: 0.5s ease-in-out;
     }
-    main {
-            margin-top: 75px;
-        }
   </style>
 </head>
 
@@ -179,26 +142,31 @@ include_once("user_change_password.php");
         <i class="bi bi-three-dots-vertical" style="font-size: 25px; background-color: none;"></i>
       </button>
       <div class="collapse navbar-collapse" id="topNavBar">
-        <form class="d-flex all">
-          <input class="form-control me-2" style="height:30px; text-align:center;" ; type="text" placeholder="Search">
-          <button class="btn1 btn-primary btn" type="button">Search</button>
-        </form>
+       
         <ul class="navbar-nav navbar-nav1">
           <li class="nav-item">
-            <a class="nav-link" href="" style="width:80px;">Name</a>
+            <a class="nav-link" href="">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Home</a>
+            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i> Start selling</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <!-- <i class="bi bi-person-fill"></i> -->
-              <!-- <img src="image/Book1.png" class="img-fluid" style="height:25px; width:25px; border-radius:50%;"> -->
+              
               More
             </a>
             <ul class="dropdown-menu dropdown-menu-end dro">
+            <li>
+                <a class="dropdown-item" href="user_profile.php">View product</a>
+              </li>
               <li>
                 <a class="dropdown-item" href="user_profile.php">My Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="user_profile.php">Change Password</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="user_profile.php">Delete Account</a>
               </li>
               <li>
                 <a class="dropdown-item" href="">About Us</a>
@@ -207,63 +175,13 @@ include_once("user_change_password.php");
                 <a class="dropdown-item" href="">Contact Us</a>
               </li>
               <li>
-                <a class="dropdown-item" href="logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
+                <a class="dropdown-item" href="" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
-          </li>
+         
         </ul>
       </div>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample">
-      <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
-    </button>
   </nav>
-  <!-- top navigation bar -->
-  <div class="offcanvas offcanvas-start sidebar-nav" tabindex="-1" id="sidebar">
-    <div class="offcanvas-body p-0">
-      <nav class="navbar-dark">
-        <ul class="navbar-nav">
-          <li>
-            <div class="das" style="text-align: center;font-size:30px; margin-bottom:-45px;color:white">
-              <span class="me-2"><i class="bi bi-speedometer2"></i></span> <br>
-              <span style="font-family: JetBrains Mono;">Dashboard</span>
-            </div>
-          </li>
-
-          <li class="my-4">
-            <hr class="dropdown-divider bg-light" />
-          </li>
-
-          <li>
-            <a href="" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">Home</a>
-          </li>
-          <li>
-            <a href="user_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">Orders</a>
-          </li>
-
-          <li>
-            <a href="cart.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Cart</a>
-          </li>
-          <li>
-            <a href="User_Notification.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Notification</a>
-          </li>
-          <li>
-          <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#cppp">Change Password</a>
-          </li>
-          <li>
-          <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#delete_acc">Delete Account</a>
-          </li>
-          <li>
-            <a href="user_feedback.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Feed Back</a>
-          </li>
-          <li>
-            <a href="logout.php" onclick="return confirm('Are you sure you want to logout?')" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <script src="custom_js/bootstrap.bundle.min.js"></script>
+  <script src="custom_js/bootstrap.bundle.min.js"></script> 
