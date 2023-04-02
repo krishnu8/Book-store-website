@@ -30,7 +30,7 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            background-image: url(image/book111.jpg);
+            background-image: url(../image/book111.jpg);
         }
 
         .input::after {
@@ -157,7 +157,7 @@
         ?>
         <div class="form" style="display: flex;justify-content: center;margin-top:100px;">
             <div style="background-color: rgba(0,0,0,0.7);width:380px; height:520px;border-radius: 20px;">
-                <center><img src="image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
+                <center><img src="../image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
                 <div style="padding: 30px;">
                     <form onsubmit="return validation1()" action="" method="post">
                         <div class="input">
@@ -209,7 +209,7 @@ if (isset($_POST['log'])) {
     $pass = @$_POST['pass'];
     $em = @$_POST['email'];
 
-    include_once("database/Create_database.php");
+    include_once("Connection.php");
     $select = "SELECT * FROM registration WHERE email='$em' and password='$pass'";
     $count = mysqli_num_rows(mysqli_query($con, $select));
     // echo "$count";
@@ -223,17 +223,15 @@ if (isset($_POST['log'])) {
                 $_SESSION['password'] = "$pass";
 ?>
                 <script>
-                    window.location.href = "user_login/user_home.php";
+                    window.location.href = "user_home.php";
                 </script>
             <?php
             } elseif ($role[9] == "Admin") {
-                session_start();
-                $_SESSION['Admin_email'] = "$em";
-                $_SESSION['Admin_password'] = "$pass";
+                echo "admin";
             ?>
-                <script>
-                    window.location.href="Admin/Dashboard.php";
-                </script>
+                <!-- <script>
+                    window.location.href="Admin.php";
+                </script> -->
             <?php
             } else {
                 echo "Seller";

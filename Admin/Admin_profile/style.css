@@ -1,0 +1,56 @@
+body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+table{
+    font-size:20px;
+    text-align: center;
+    width: 50%;
+    background-color:#212529;
+    align-self: center;
+    justify-content: center;
+    color: rgb(250, 250, 250);
+}
+.a1{
+    background-color: black;
+}
+.a0{
+    background-color:#212529;
+}
+.stu{
+    align-self: center;
+    font-size: 30px;
+    background-color: #212529;
+    width:50%;
+    text-align:center;
+    color: white;
+}
+.profile{
+    align-items: center;
+    text-align: center;
+}
+img{
+    border-radius: 50%;
+}
+button{
+    margin-top: 25px;
+    font-size: 20px;
+    border-radius: 8px;
+}
+input{
+    text-align: center;
+    width: 100%;
+    color: white;
+    border:solid rgb(46, 44, 44) 2px;
+}
+.a1 input{
+    background-color: black;
+}
+.a0 input{
+    background-color:#212529;
+}
+button{
+    background-color: black;
+    color: white;
+}

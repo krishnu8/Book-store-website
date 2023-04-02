@@ -7,6 +7,7 @@
         padding-top: -20px;
     }
 </style>
+
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -16,7 +17,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="" method="post" style="background-color: blue;">
+            <form action="" method="post">
                 <div class="modal-body">
                     <label for="inputPasswordOld">Enter Password</label>
                     <input type="password" class="form-control" id="inputPasswordOld" required="">
@@ -29,6 +30,8 @@
 
         </div>
     </div>
+</div>
+</div>
 </div>
 
 <!-- Change password -->
