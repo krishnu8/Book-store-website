@@ -29,7 +29,7 @@ include_once("user_change_password.php");
   <style type="text/css">
     body {
       background-color: rgb(220, 220, 220);
-      font-family: 'Open Sans', serif;    
+      /* font-family: 'Open Sans', serif;     */
         font-size: 14px;
     }
 

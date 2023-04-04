@@ -208,7 +208,6 @@ if (isset($_POST['log'])) {
 
     $pass = @$_POST['pass'];
     $em = @$_POST['email'];
-
     include_once("database/Create_database.php");
     $select = "SELECT * FROM registration WHERE email='$em' and password='$pass'";
     $count = mysqli_num_rows(mysqli_query($con, $select));
@@ -219,6 +218,7 @@ if (isset($_POST['log'])) {
         if ($role[8] == 'Active') {
             if ($role[9] == 'Normal') {
                 session_start();
+                $_SESSION['User_id'] = "$role[10]";
                 $_SESSION['email'] = "$em";
                 $_SESSION['password'] = "$pass";
 ?>

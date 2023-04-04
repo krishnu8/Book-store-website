@@ -8,12 +8,17 @@
     <title>Orders</title>
     <?php include_once("nave.php") ?>
     <style>
-       
-
         @media (max-width: 992px) {
             main {
                 padding-top: 30px;
+                /* background-color: black; */
             }
+            .row1 {
+            display: flex;
+            flex-direction:column;
+            /* width: 95%; */
+            /* height: auto; */
+        }
         }
 
         .data {
@@ -60,14 +65,16 @@
             margin-left: 2.5%;
             margin-top: 10px;
         }
-        .aa{
-            background-color:blue;
+
+        .aa {
+            background-color: blue;
             color: white;
             border-radius: 8px;
             padding: 5px;
         }
-        .aa:hover{
-            background-color:white;
+
+        .aa:hover {
+            background-color: white;
             color: black;
             border-radius: 8px;
         }
@@ -82,21 +89,75 @@
                     <h2><b>Orders</b></h2>
                 </div>
             </div>
-            <div class="row1 data">
-                <div style="width:30%"><img src="../image/Book.png" height="80px" style="border-radius: 50%; background-color: red;" alt="img"></div>
-                <div style="width:10%"><h5>Science</h5></div>
-                <div style="width:10%"><h5>RS.200</h5></div>
-                <div style="width:30%"><h5>Your Order will delivered till tommorow</h5></div>
-                <!-- <div><a href=""><button class="aa">Feedback</button></a></div> -->
-            </div>
-            <div class="row1 data1">
-                <div style="width:30%"><img src="../image/Book.png" height="80px" style="border-radius: 50%; background-color: red;" alt="img"></div>
-                <div style="width:5%"><h5>Science</h5></div>
-                <div style="width:5%"><h5>RS.200</h5></div>
-                <div style="width:20%"><h5>Delivered</h5></div>
-                <div><a href=""><button class="aa">Review and Rating</button></a></div>
-            </div>
-
+            <?php
+            $user_id = $_SESSION['User_id'];
+            // echo $user_id;
+            $select = "SELECT * FROM `oders` WHERE User_id='$user_id'";
+            $data = mysqli_query($con, $select);
+            $b = 0;
+            $date = date('Y/m/d');
+            while ($a = mysqli_fetch_array($data)) {
+                $product = "SELECT * FROM `product` WHERE Product_Id='$a[1]'";
+                $product_info=mysqli_fetch_array(mysqli_query($con,$product));
+                if ($b == 0) {
+                    ?>
+                    <div class="row1 data">
+                        <div style="width:10%"><img src="../image/Book_image/<?php echo$product_info[3] ?>" height="80px" width="80px" style="border-radius: 50%; background-color: red;" alt="img"></div>
+                        <div style="width:30%">
+                        <h5> <?php echo $product_info[1]," By:",$product_info[8] ?></h5>
+                        </div>
+                        <?php
+                        if($date>$a[4]){
+                            ?>
+                            <div style="width:40%">
+                            <h5>Delivered</h5>
+                            </div>
+                            <div><a href=""><button class="aa">Review and Rating</button></a></div>
+                            <?php
+                        }else{
+                            $day=date('l', strtotime($a[4]));
+                            ?>
+                                 <div style="width:40%">
+                                    <h5>Your Order will be delivered till <?php echo"$day" ?></h5>
+                                </div>
+                                <div><a href=""><button class="aa">Cancle order</button></a></div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <?php
+                    $b = 1;
+                } else {
+                    ?>
+                     <div class="row1 data1">
+                        <div style="width:10%"><img src="../image/Book_image/<?php echo$product_info[3] ?>"  width="80px" height="80px" style="border-radius: 50%; background-color: red;" alt="img"></div>
+                        <div style="width:30%">
+                            <h5><?php echo $product_info[1]," By:",$product_info[8] ?></h5>
+                        </div>
+                        <?php
+                        if($date>$a[4]){
+                            ?>
+                            <div style="width:40%">
+                            <h5>Delivered</h5>
+                            </div>
+                            <div><a href=""><button class="aa">Review and Rating</button></a></div>
+                            <?php
+                        }else{
+                            $day=date('l', strtotime($a[4]));
+                            ?>
+                                 <div style="width:40%">
+                                    <h5>Your Order will be delivered till <?php echo"$day" ?></h5>
+                                </div>
+                                <div><a href=""><button class="aa">Cancle Order</button></a></div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <?php
+                    $b = 0;
+                }
+            }
+            ?>
         </div>
     </main>
 </body>
