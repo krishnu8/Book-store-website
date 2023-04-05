@@ -1,6 +1,5 @@
 <?php
-include_once("nav.php");
-// include_once("database/Create_database.php");
+include_once("home_nave.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +58,7 @@ $result=mysqli_fetch_array(mysqli_query($con,$select));
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <img src="image/Book_image/<?php echo $result[3]?>" height="500px" width="350px">
+          <img src="../image/Book_image/<?php echo $result[3]?>" height="500px" width="350px">
           <hr>
           <h4>Product Description</h4>
           <p><?php echo $result[7]?></p>
@@ -114,7 +113,7 @@ $result=mysqli_fetch_array(mysqli_query($con,$select));
               ?>
               <a href="product_detail.php?product_id=<?php echo $jack[0]?>">
                 <div class="pro">
-                  <img src="image/Book_image/<?php echo $jack[3] ?>" alt="Book123" height="250px" width="200px">
+                  <img src="../image/Book_image/<?php echo $jack[3] ?>" alt="Book123" height="250px" width="200px">
                   <h6>Name:<?php echo $jack[1] ?></h6>
                   <h6>Author:<?php echo $jack[8] ?></h6>
                 </div>
@@ -132,9 +131,10 @@ $result=mysqli_fetch_array(mysqli_query($con,$select));
 </html>
 <?php
 if(isset($_POST['cart'])){
+  $Quantity=@$_POST['select'];
 ?>
 <script>
-  window.location.href="login.php";
+  // window.location.href=""
 </script>
 <?php
 }
@@ -142,7 +142,7 @@ if(isset($_POST['buy'])){
   $Quantity=@$_POST['select'];
   ?>
   <script>
-    window.location.href="login.php";
+    window.location.href="Payment.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
   </script>
   <?php
   }

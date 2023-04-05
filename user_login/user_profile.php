@@ -67,8 +67,9 @@
         }
 
         .profile-img .im {
-            width: 70%;
-            height: 100%;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
         }
 
         .profile-head h5 {
@@ -165,7 +166,8 @@
         .up:hover {
             opacity: 60%;
         }
-        .change{
+
+        .change {
             position: relative;
             z-index: 1;
             bottom: -250px;
@@ -179,7 +181,7 @@ $data = "SELECT * FROM `registration` WHERE email='$email'";
 $a = mysqli_fetch_array(mysqli_query($con, $data));
 
 if (isset($_SESSION['fail_profile'])) {
-    ?>
+?>
     <div class="ale">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Sorry!</strong> <?php echo $_SESSION['fail_profile'] ?>
@@ -189,14 +191,14 @@ if (isset($_SESSION['fail_profile'])) {
         </div>
     </div>
     <script>
-        setTimeout("",5000);
+        setTimeout("", 5000);
     </script>
 <?php
     unset($_SESSION['fail_profile']);
 }
 
 if (isset($_SESSION['pass_profile'])) {
-    ?>
+?>
     <div class="ale">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Alert!</strong> <?php echo $_SESSION['pass_profile'] ?>
@@ -206,14 +208,14 @@ if (isset($_SESSION['pass_profile'])) {
         </div>
     </div>
     <script>
-        setTimeout("",5000);
+        setTimeout("", 5000);
     </script>
 <?php
     unset($_SESSION['pass_profile']);
 }
 
 if (isset($_SESSION['Image_error'])) {
-    ?>
+?>
     <div class="ale">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Error!</strong> <?php echo $_SESSION['Image_error'] ?>
@@ -223,14 +225,14 @@ if (isset($_SESSION['Image_error'])) {
         </div>
     </div>
     <script>
-        setTimeout("",5000);
+        setTimeout("", 5000);
     </script>
 <?php
     unset($_SESSION['Image_error']);
 }
 
 if (isset($_SESSION['Image_succ'])) {
-    ?>
+?>
     <div class="ale">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Alert!</strong> <?php echo $_SESSION['Image_succ'] ?>
@@ -240,7 +242,7 @@ if (isset($_SESSION['Image_succ'])) {
         </div>
     </div>
     <script>
-        setTimeout("",5000);
+        setTimeout("", 5000);
     </script>
 <?php
     unset($_SESSION['Image_succ']);
@@ -263,13 +265,13 @@ if (isset($_SESSION['Image_succ'])) {
                                 <div class="profile-img">
                                     <img class="im" src="../image/user_image/<?php echo $a[6] ?>" alt="Profile picture" />
                                     <label for="image1"><img class="up" src="../image/edit.png"></label>
-                                    <form action="user_profilepicture_action.php?img=<?php echo $a[6]?>" method="post" enctype="multipart/form-data">
-                                         <input type="file" name="fgd" id="image1" style="display: none; ">
-                                         <input type="submit" id="change_pic" class="change profile-edit-btn" name="change_pic" value="Change Profile Picture">
+                                    <form action="user_profilepicture_action.php?img=<?php echo $a[6] ?>" method="post" enctype="multipart/form-data" onsubmit=return(validate_image())>
+                                        <input type="file" name="fgd" id="image1" style="display: none; ">
+                                        <input type="submit" id="change_pic" class="change profile-edit-btn" name="change_pic" value="Change Profile Picture">
                                     </form>
-                                <!-- <label for="sub"><p class="profile-edit-btn" style="cursor: pointer;">Change password</p></label> -->
+                                    <!-- <label for="sub"><p class="profile-edit-btn" style="cursor: pointer;">Change password</p></label> -->
                                 </div>
-                               </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="profile-head">
                                     <h5>
@@ -403,3 +405,37 @@ if (isset($_SESSION['Image_succ'])) {
 </body>
 
 </html>
+<script>
+ function validate_image(Fileupload, main_photo_err) {
+    //alert("hello");
+    img_size = Fileupload.files[0].size;
+    alert(img_size);
+    var FileUploadPath = Fileupload.value;
+    // alert(FileUploadPath);
+    //To check if user upload any file
+    if (FileUploadPath == '') {
+        main_photo_err.innerHTML = "Please upload a file";
+        main_photo_err.style.color = "red";
+        return false;
+    }
+    else if (img_size >= 409600 || img_size == 0) {
+        main_photo_err.innerHTML = "Please upload a file of size less than 200Kb";
+        main_photo_err.style.color = "red";
+        return false;
+    }
+    else {
+        var Extension = FileUploadPath.substring(
+            FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+        //The file uploaded is an image
+        if (Extension == "png" || Extension == "jpeg" || Extension == "jpg") {
+            return true;
+        }
+        //The file upload is NOT an image
+        else {
+            main_photo_err.innerHTML = "Please upload a valid image file of type JPG or PNG";
+            main_photo_err.style.color = "red";
+            return false;
+        }
+    }
+}
+</script>

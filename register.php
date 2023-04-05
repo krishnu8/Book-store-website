@@ -14,7 +14,7 @@ session_start();
     <title>Register</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-    <script src="check_email.js"></script>
+   <script src="non_login/validation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -89,7 +89,11 @@ session_start();
             top: 30px;
             right: 50px;
         }
-
+        .re{
+            position: absolute;
+            bottom: 80px;
+            right:45%;
+        }
     </style>
 </head>
 <body style="justify-content: center;border: #ffffff solid 2px; height: 100vh;">
@@ -141,7 +145,7 @@ if (isset($_SESSION['reg_msg'])) {
         <div style="background-color: rgba(0,0,0,0.7);width:400px; height:670px;border-radius: 20px;">
             <center><img src="image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
             <div style="padding: 30px;">
-                <form  action="register_action.php" onsubmit="return validation1()" method="post" enctype=multipart/form-data>
+                <form  action="register_action.php" onsubmit="return(validation1())" method="post">
                     <div class="input">
                         <font style="color: #fff; " size="5"><b>Name</b><br>
                             <input id="name" name="name" type="text" placeholder="Enter your Name"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
@@ -171,69 +175,19 @@ if (isset($_SESSION['reg_msg'])) {
                     <center><input type="submit" class="btn1" name="regi" id="regi" value="Register"></center>
                 </form>
                 <font color="white"><b>Have an Account?</b> <u><a href="login.php">login</a></u><br></font><br>
-
-                <center><button style="background-color: rgb(117, 14, 143);width: 150px;height:35px;font-size: 20px;border: 0;border-radius: 10px;">
-                        <a href="#" style="color:#fff;"><b>Return BAck</b></a></button></center><br>
             </div>
         </div>
+    </div>
+    <div class="re">
+        <center>
+            <button style="background-color: rgb(117, 14, 143);width: 150px;height:35px;font-size: 20px;border: 0;border-radius: 10px; ">
+                            <a href="home_page.php" style="color:#fff;"><b>Return BAck</b></a></button>
+            </center><br>
     </div>
 </body>
 
 </html>
 <script>
-    function validation1() {
-        var name = document.getElementById("name").value;
-        var number = document.getElementById("number").value;
-        var password = document.getElementById("password").value;
-        var cpass = document.getElementById("password1").value;
-        var email = document.getElementById("em").value;
-        var namecheck = /[A-Za-z]/;
-        var numbercheck = /^[0-9]{10}$/;
-        var passwordcheck = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-        var emailcheck = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-        if (namecheck.test(name)) {
-            N = "true";
-        } else {
-
-            // document.getElementById('nameerror').innerHTML ="Name Connot contain number";
-            alert("Name Connot contain number");
-            N = "false";
-        }
-        if (numbercheck.test(number)) {
-            NU = "true";
-        } else {
-
-            // document.getElementById('numbererror').innerHTML ="Number must be 10 digit";
-            alert("Number must be 10 digit");
-            NU = "false";
-        }
-        if (emailcheck.test(email)) {
-            EM = "true";
-        } else {
-
-            // document.getElementById('numbererror').innerHTML ="Number must be 10 digit";
-            alert("Enter correct Email Adderess");
-            EM = "false";
-        }
-        if (passwordcheck.test(password)) {
-            if (password === cpass) {
-                CP = "true";
-            } else {
-                // document.getElementById('passworderror1').innerHTML ="Enter same as above";
-                alert("Enter same as above");
-                CP = "false";
-            }
-        } else {
-            // document.getElementById('passworderror').innerHTML ="Password must contain number symbol and character";
-            alert("Password must contain number symbol and character");
-            P = "false";
-        }
-        if (N == "false" || NU == "false" || P == "false" || CP == "false" || EM == "false") {
-            return false;
-        }
-
-    }
-
     function check_email(y) {
         var url = "check_mail.php?emailid=" + y.value;
 

@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
-    <?php include_once("nave.php") ?>
+    <?php 
+    // include_once("../database/Create_database.php");
+    // session_start();
+    include_once("nave.php");
+     ?>
     <style>
         @media (max-width: 992px) {
             main {
@@ -82,6 +86,75 @@
 </head>
 
 <body>
+<?php
+if (isset($_SESSION['Order_cancle_succ'])) {
+    ?>
+    <div class="ale">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong> <?php echo $_SESSION['Order_cancle_succ'] ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        setTimeout("", 5000);
+    </script>
+<?php
+    unset($_SESSION['Order_cancle_succ']);
+}
+
+if (isset($_SESSION['Order_cancle_err'])) {
+    ?>
+    <div class="ale">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong> <?php echo $_SESSION['Order_cancle_err'] ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        setTimeout("", 5000);
+    </script>
+<?php
+    unset($_SESSION['Order_cancle_err']);
+}
+
+if (isset($_SESSION['order_succ'])) {
+    ?>
+    <div class="ale">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong> <?php echo $_SESSION['order_succ'] ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        setTimeout("", 5000);
+    </script>
+<?php
+    unset($_SESSION['order_succ']);
+}
+
+if (isset($_SESSION['order_err'])) {
+    ?>
+    <div class="ale">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong> <?php echo $_SESSION['order_err'] ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        setTimeout("", 5000);
+    </script>
+<?php
+    unset($_SESSION['order_err']);
+}
+?>
     <main>
         <div class="container-fluid">
             <div class="row">
@@ -92,7 +165,7 @@
             <?php
             $user_id = $_SESSION['User_id'];
             // echo $user_id;
-            $select = "SELECT * FROM `oders` WHERE User_id='$user_id'";
+            $select = "SELECT * FROM `oders` WHERE User_id='$user_id' and status='Active'";
             $data = mysqli_query($con, $select);
             $b = 0;
             $date = date('Y/m/d');
@@ -120,7 +193,7 @@
                                  <div style="width:40%">
                                     <h5>Your Order will be delivered till <?php echo"$day" ?></h5>
                                 </div>
-                                <div><a href=""><button class="aa">Cancle order</button></a></div>
+                                <div><a href="cancle_order.php?order_id=<?php echo $a[0];?>"><button class="aa">Cancle order</button></a></div>
                             <?php
                         }
                         ?>
@@ -148,7 +221,7 @@
                                  <div style="width:40%">
                                     <h5>Your Order will be delivered till <?php echo"$day" ?></h5>
                                 </div>
-                                <div><a href=""><button class="aa">Cancle Order</button></a></div>
+                                <div><a href="cancle_order.php?order_id=<?php echo $a[0];?>"><button class="aa">Cancle Order</button></a></div>
                             <?php
                         }
                         ?>

@@ -1,6 +1,13 @@
 <?php
-include_once("database/Create_database.php");
 session_start();
+include_once("database/Create_database.php");
+if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+?>
+    <script>
+        window.location.href = "user_login/user_home.php";
+    </script>
+<?php
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,7 +97,7 @@ session_start();
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-sm  navbar-dark bg-dark">
     <div class="container-fluid jack">
       <a class="navbar-brand" href="#">
         <img src="image/Book1.png" alt="BOOK CHOR" style="width:150px; opacity:90%;">

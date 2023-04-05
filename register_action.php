@@ -21,7 +21,7 @@ session_start();
         if (mysqli_query($con, $q)) {
             $link = "http://localhost/Group-16/account_activation.php?email=$em";
             $mail = new PHPMailer();
-            $headers = 'From: Ecommerce Website <kgupta750@rku.ac.in>' . "\r\n";
+            $headers = 'From: Book Chor  Website <kgupta750@rku.ac.in>' . "\r\n";
             $headers .= 'Reply-To: <kgupta750@rku.ac.in>' . "\r\n";
             $headers .= 'X-Mailer: PHP/' . phpversion();
             $headers .= "MIME-Version: 1.0\r\n";
@@ -48,13 +48,13 @@ session_start();
             $mail->Port       = 587;                   // set the SMTP port for the GMAIL server
             $mail->Username   = "kgupta750@rku.ac.in";  // GMAIL username(from)
             $mail->Password   = "KRISHNU.GUPTA";            // GMAIL password(from)
-            $mail->SetFrom('kgupta750@rku.ac.in', 'Ecommerce Website'); //from
-            $mail->AddReplyTo($em, "Ecommerce Website"); //to
+            $mail->SetFrom('kgupta750@rku.ac.in', 'Book Chor'); //from
+            $mail->AddReplyTo($em, "Book chor"); //to
             $mail->Subject    = "Account activation link for Ecommerce Website";
             $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
             $mail->MsgHTML($body);
             $address = $em; //to
-            $mail->AddAddress($address, "Ecommerce Website");
+            $mail->AddAddress($address, "Book Chor");
             if (!$mail->Send()) {
                 $_SESSION['reg_msg_err'] = "Account created successfully. Error in sending activation link. Please try again.";
     ?>

@@ -164,15 +164,19 @@ include_once("footer.php")
 
 </html>
 <?php
+if(isset($_POST['cart'])){
+?>
+<script>
+  window.location.href="login.php";
+</script>
+<?php
+}
 if(isset($_POST['buy'])){
-    $Quantity=@$_POST['select'];
-    $product_id=@$_POST['product_id'];
-    ?>
-    <script>
-      window.location.href="Payment.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
-    </script>
-    <?php
-    }
+  $Quantity=@$_POST['select'];
   ?>
-  
+  <script>
+    window.location.href="login.php";
+  </script>
+  <?php
+  }
 ?>

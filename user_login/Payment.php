@@ -1,15 +1,15 @@
 <?php
-session_start();
-include_once("database/Create_database.php");
-$user_id = $_SESSION['User_id'];
+include_once("home_nave.php");
 $product_id = @$_GET['product_id'];
 $quantity = @$_GET['quantity'];
+$user_id = $_SESSION['User_id'];
 $select = "SELECT * from product WHERE Product_Id='$product_id'";
 $product_data = mysqli_fetch_array(mysqli_query($con, $select));
 
 $select = "SELECT * FROM `registration` WHERE User_id='$user_id'";
 $user_data = mysqli_fetch_array(mysqli_query($con, $select));
 ?>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -184,7 +184,7 @@ p.nameAndcvc,p.cardAndExpire{
         <div class="col-sm-7 jjj">
             <div class="card card-cascade wider shadow p-3 mb-5">
                 <div class="view view-cascade overlay text-center">
-                    <img class="card-img-top" src="https://i.imgur.com/oFDjIvN.png" alt="">
+                    <img class="card-img-top" src="../image/Book_image/<?php echo $product_data[3]?>" alt="">
                 </div>
             </div>
         </div>
@@ -206,23 +206,29 @@ p.nameAndcvc,p.cardAndExpire{
                         <p class="total"><strong>Total</strong><span class="float-right totalText1"><span class="totalText2"><?php echo $quantity * $product_data[2] ?></span></span></p>
 
                     </div>
-                    <form action="" class="jo" onsubmit="return validation()">
+            
+                    <form action="payment_action.php" method="post" class="jo" onsubmit="return validation()">
                         <div class="payment">
                             <p class="heading2"><strong>Payment Details</strong></p>
-                            <p class="cardAndExpire">Order Delivered BY<span class="float-right">Sunday</span></p>
+                            <?php
+                                $date=date('Y/m/d', strtotime(date('Y/m/d'). ' + 2 days'));
+                                $day=date('l', strtotime($date[3]));
+                            ?>
+                            <p class="cardAndExpire">Order Delivered BY<span class="float-right"><?php echo $day ?></span></p>
                             <!-- <p class="cardAndExpireValue">161617161816188<span class="float-right">26/11</span></p> -->
                             <p class="nameAndcvc" style="margin-bottom:-10px;">Cash On Delivery<span class="float-right"><i class="fa-regular fa-circle-dot"></i></span></p>
                             <!-- <p class="nameAndcvcValue">Mr. Example<span class="float-right">010</span></p> -->
 
-                            <input type="text" id="state" placeholder="State" class="form-control ho" value="<?php echo $user_data[4]; ?>">
+                            <input type="text" id="state" placeholder="State" class="form-control ho" name="state" value="<?php echo $user_data[4]; ?>">
                             <p class="dan" id="stateerr"></p>
-                            <input type="text" placeholder="City" id="city" class="form-control ho" value="<?php echo $user_data[5]; ?>">
+                            <input type="text" placeholder="City" id="city" class="form-control ho" name="city" value="<?php echo $user_data[5]; ?>">
                             <p class="dan" id="cityerr"></p>
-
+                            <input type="hidden" name="quantity" value="<?php echo $quantity?>">
+                            <input type="hidden" name="product_id" value="<?php echo $product_id?>">
                         </div>
 
                         <!--Card footer-->
-                        <button type="submit" class="card-footer text-center" style="width: 100%;">
+                        <button type="submit" name="bttn" class="card-footer text-center" style="width: 100%;">
                             PURCHASE &#8594;
                         </button>
                     </form>
