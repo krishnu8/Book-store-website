@@ -1,11 +1,13 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-<link rel="stylesheet" href="Github-killu/style.css">
 <?php
 include_once("../database/Create_database.php");
 
-    $p_id = @$_GET['Product_Id'];
+    $cat = @$_GET['Category'];
 
-    $q = "SELECT * FROM `Offers` WHERE Product_Id='$p_id'";
+    $q = "SELECT * FROM `Offers` WHERE Category='$cat'";
 
     $result = mysqli_query($con, $q);
     $a = mysqli_fetch_array($result);

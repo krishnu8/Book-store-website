@@ -3,7 +3,7 @@ include_once("Connection.php");
 session_start();
 if (isset($_SESSION['Email']) && isset($_SESSION['password'])) {
     $enroll = @$_GET['Enroll'];
-    $q = "DELETE FROM `Admin` WHERE ID_NO='$enroll'";
+    $q = "DELETE FROM `registration` WHERE role='Admin'";
     if (mysqli_query($con, $q)) {
         ?>
     <script>

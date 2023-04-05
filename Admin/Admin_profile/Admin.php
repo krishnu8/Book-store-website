@@ -28,11 +28,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 <?php
 include_once("Connection.php");
 
-session_start();
-if (isset($_SESSION['Email']) && isset($_SESSION['password'])) {
-
-    $email = $_SESSION['Email'];
-    $q = "Select * from Admin where Email='$email'";
+$q = "SELECT * FROM `registration` WHERE role='Admin'";
     // echo $q;
     $result = mysqli_query($con, $q);
     $a = mysqli_fetch_array($result);
@@ -42,57 +38,48 @@ if (isset($_SESSION['Email']) && isset($_SESSION['password'])) {
 <h3><a href="Admin_Edit.php"><i class="fa fa-solid fa-pen-to-square"></i>Edit</a></h3>
 </div>
 <div class="profile" style="background-color: #212529; width: 50%; margin-left: 25%; margin-top: -10px;">
-    <img src="pic/<?php echo $a[10]; ?>" alt="No profile picture"height='155px;' width='150px'>
+    <img src="pic/<?php echo $a[10]; ?>" alt="No profile picture"height='155px;' width='150px' style="margin-left: -13%;">
 </div>
 <table>
   <tbody>
     <tr>
-        <td>Your ID_NO:</td>
+        <td>Full Name:</td>
         <td><?php echo "$a[0]" ?></td>
     </tr>
     <tr>
-        <td>Name:</td>
+        <td>Email:</td>
         <td><?php echo "$a[1]" ?></td>
     </tr>
     <tr>
-        <td>Branch:</td>
+        <td>Mobile:</td>
         <td><?php echo "$a[2]" ?></td>
     </tr>
     <tr>
-        <td>Your ROLE:</td>
-        <td><?php echo "$a[3]" ?></td>
-    </tr>
-    <tr>
-        <td>Date of birth</td>
+        <td>State:</td>
         <td><?php echo "$a[4]" ?></td>
     </tr>
     <tr>
-        <td>Gender:</td>
+        <td>City</td>
         <td><?php echo "$a[5]" ?></td>
     </tr>
-    <tr> 
-        <td>Address:</td>
-        <td><?php echo "$a[6]" ?></td>
-    </tr>
     <tr>
-        <td>Email:</td>
+        <td>About:</td>
         <td><?php echo "$a[7]" ?></td>
     </tr>
     <tr>
-        <td>phone Number:</td>
-        <td><?php echo "$a[8]" ?></td>
+        <td>Role:</td>
+        <td><?php echo "$a[9]" ?></td>
     </tr>
     <tr>
-        <td>Password:</td>
-        <td><?php echo "$a[9]" ?></td>
+        <td>User Id:</td>
+        <td><?php echo "$a[10]" ?></td>
+    </tr>
+    <tr>
+        <td>Profile Pic:</td>
+        <td><?php echo "$a[6]" ?></td>
     </tr>
     <tr>
         <td colspan="2"><a href="../Dashboard.php?Email=<?php echo $a[7] ?>"><button style=" width: 30%;">Return Back</button></a><td>
     </tr>
   </tbody>
 </table>
-<?php
-}
-else{
-    header("location:Login.php");
-}

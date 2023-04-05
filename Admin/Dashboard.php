@@ -1,3 +1,6 @@
+<?php
+    include_once("navbar.php")
+  ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -95,10 +98,6 @@
 </style>
 </head>
 
-  <?php
-    include_once("navbar.php")
-  ?>
-
 <div class="row">
     <div class="col-sm-2 bg-dark funtion_class oi">
 
@@ -108,13 +107,13 @@
                 <br><br>
                 <a href="Admin_profile/Admin_Edit.php"> <button type="button" class="btn btn-secondary btn-block"><i class="fa fa-solid fa-pen-to-square"></i> Update Profile</button></a>
                 <br><br>
-                <a href="Admin_profile/Change_password.php"><button type="button" class="btn btn-secondary btn-block"><i class="fa fa-light fa-lock"></i> Change Password</button></a>
+                <a href="Admin_profile/form/forgot.php"><button type="button" class="btn btn-secondary btn-block"><i class="fa fa-light fa-lock"></i> Change Password</button></a>
                 <br><br>
                 <a href="Admin_profile/Help.php"><button type="button" class="btn btn-secondary btn-block"><i class="fa fa-duotone fa-phone"></i>Help & Support</button></a>
                 <br><br>
                 <a href="Admin_profile/Admin_Delete.php"><button type="button" class="btn btn-secondary btn-block"><i class="fa fa-solid fa-trash"></i>Remove Account</button></a>
                 <br><br>
-                <a href="Admin_profile/Logout.php"><button type="button" class="btn btn-secondary btn-block">Logout</button></a>
+                <a href="../logout.php"><button type="button" class="btn btn-secondary btn-block">Logout</button></a>
 
             <li><hr class="dropdown-divider"></li>
             <p style="color: red; text-align: center; font-size: 20px;">Contact Links</p>

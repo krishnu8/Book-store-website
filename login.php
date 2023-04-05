@@ -146,7 +146,6 @@
                     </div>
                     </div>
     
-                
                 <Script>
                     setTimeout("",5000);
                 </Script>
@@ -238,9 +237,9 @@ if (isset($_POST['log'])) {
             } else {
                 echo "Seller";
             ?>
-                <!-- <script>
+                <script>
                     window.location.href="seller.php";
-                </script> -->
+                </script>
             <?php
             }
         } else {

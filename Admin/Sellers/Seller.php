@@ -34,7 +34,7 @@ input:hover{
 <!-- <script src="js/bootstrap.js"></script> -->
 
 <div class="container">
-Insert more data<a href="Insert_data.php"><button style="background: green; color: #fff; width: 20%; font-size: 20px; border-radius: 10px;">Insert</button></a> <br>
+Insert more data<a href="../Sellers/seller_registration.php"><button style="background: green; color: #fff; width: 20%; font-size: 20px; border-radius: 10px;">Insert</button></a> <br>
 <table border="1">
 <tr>
     <th>Full Name</th>
