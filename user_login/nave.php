@@ -5,7 +5,7 @@ include_once("../database/Create_database.php");
 if(!isset($_SESSION['email'])&& !isset($_SESSION['password'])){
   ?>
   <script>
-    window.location.href="login.php";
+    window.location.href="../login.php";
   </script>
   <?php
 }
@@ -29,7 +29,7 @@ include_once("user_change_password.php");
   <style type="text/css">
     body {
       background-color: rgb(220, 220, 220);
-      font-family: 'Open Sans', serif;    
+      /* font-family: 'Open Sans', serif;     */
         font-size: 14px;
     }
 
@@ -160,7 +160,15 @@ include_once("user_change_password.php");
     }
     main {
             margin-top: 75px;
-        }
+    }
+    .ale {
+        position: absolute;
+        top: 100px;
+        right: 50px;
+        z-index: 1;
+        width: 500px;
+        font-size: 18px;
+    }
   </style>
 </head>
 
@@ -188,7 +196,7 @@ include_once("user_change_password.php");
             <a class="nav-link" href="" style="width:80px;">Name</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Home</a>
+            <a class="nav-link" href="user_home.php">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -201,10 +209,10 @@ include_once("user_change_password.php");
                 <a class="dropdown-item" href="user_profile.php">My Profile</a>
               </li>
               <li>
-                <a class="dropdown-item" href="">About Us</a>
+                <a class="dropdown-item" href="about.php">About Us</a>
               </li>
               <li>
-                <a class="dropdown-item" href="">Contact Us</a>
+                <a class="dropdown-item" href="contact_us.php">Contact Us</a>
               </li>
               <li>
                 <a class="dropdown-item" href="logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
@@ -238,7 +246,7 @@ include_once("user_change_password.php");
           </li>
 
           <li>
-            <a href="" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">Home</a>
+            <a href="user_home.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">Home</a>
           </li>
           <li>
             <a href="user_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">Orders</a>

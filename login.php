@@ -181,7 +181,7 @@
                     <font color="white"><b>Don't have?</b> <u><a href="register.php" class="c">Create Account</a></u><br></font><br>
 
                     <center><button style="background-color: rgb(117, 14, 143);width: 150px;height:35px;font-size: 20px;border: 0;border-radius: 10px; ">
-                            <a href="#" style="color:#fff;"><b>Return BAck</b></a></button></center><br>
+                            <a href="home_page.php" style="color:#fff;"><b>Return BAck</b></a></button></center><br>
                 </div>
             </div>
         </div>
@@ -207,7 +207,6 @@ if (isset($_POST['log'])) {
 
     $pass = @$_POST['pass'];
     $em = @$_POST['email'];
-
     include_once("database/Create_database.php");
     $select = "SELECT * FROM registration WHERE email='$em' and password='$pass'";
     $count = mysqli_num_rows(mysqli_query($con, $select));
@@ -218,6 +217,7 @@ if (isset($_POST['log'])) {
         if ($role[8] == 'Active') {
             if ($role[9] == 'Normal') {
                 session_start();
+                $_SESSION['User_id'] = "$role[10]";
                 $_SESSION['email'] = "$em";
                 $_SESSION['password'] = "$pass";
 ?>

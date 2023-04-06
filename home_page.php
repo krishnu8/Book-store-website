@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../non_login/aahan.css">
+    <link rel="stylesheet" href="non_login/aahan.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -55,29 +54,26 @@
 </head>
 
 <body>
-<?php
-include_once("home_nave.php");
-?>
-
+    <?php include('nav.php'); ?>
     <div class="aahan"></div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner " style="height:600px;">
             <div class="carousel-item active ">
-                <img src="../image/Book_image/book1.jpg" alt="Los Angeles" width="100%" class="img-fluid">
+                <img src="image/Book_image/book1.jpg" alt="Los Angeles" width="100%" class="img-fluid">
                 <div class="carousel-caption">
                     <h3></h3>
                     <p></p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../image/Book_image/book2.jpeg" alt="Chicago" width="100%" height="700px">
+                <img src="image/Book_image/book2.jpeg" alt="Chicago" width="100%" height="700px">
                 <div class="carousel-caption">
                     <h3></h3>
                     <p></p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../image/Book_image/book1.jpg" alt="New York" width="100%" height="700px">
+                <img src="image/Book_image/book1.jpg" alt="New York" width="100%" height="700px">
                 <div class="carousel-caption">
                     <h3></h3>
                     <p></p>
@@ -108,7 +104,7 @@ include_once("home_nave.php");
 
                 <div class='col-xl-3 col-md-4 col-sm-6 mt-5'>
                     <a href="product_detail.php?product_id=<?php echo $product_id ?>" class="an">
-                        <img class='card-image-top' src='../image/Book_image/<?php echo $Product_Image ?>' alt='$Product_Name' width='100%' height='350px'>
+                        <img class='card-image-top' src='image/Book_image/<?php echo $Product_Image ?>' alt='$Product_Name' width='100%' height='350px'>
                         <div class='card-body'>
                             <h3 class='card-titel '><?php echo $Product_Name ?></h3>
                             <h5>By <?php echo $auther ?></h5>
@@ -161,21 +157,26 @@ include_once("home_nave.php");
 
     </div>
     </div>
+<?php
+include_once("footer.php")
+?>
 </body>
 
 </html>
 <?php
+if(isset($_POST['cart'])){
+?>
+<script>
+  window.location.href="login.php";
+</script>
+<?php
+}
 if(isset($_POST['buy'])){
-    $Quantity=@$_POST['select'];
-    $product_id=@$_POST['product_id'];
-    ?>
-    <script>
-      window.location.href="Payment.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
-    </script>
-    <?php
-    }
+  $Quantity=@$_POST['select'];
   ?>
+  <script>
+    window.location.href="login.php";
+  </script>
   <?php
-  include_once("footer.php");
-  ?>
-  
+  }
+?>

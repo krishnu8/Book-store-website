@@ -1,3 +1,20 @@
+<?php
+session_start();
+include_once("../database/Create_database.php");
+if (!isset($_SESSION['email']) && !isset($_SESSION['password'])) {
+?>
+    <script>
+        window.location.href = "../login.php";
+    </script>
+<?php
+}
+
+$directoryURI = $_SERVER['REQUEST_URI'];
+$path = parse_url($directoryURI, PHP_URL_PATH);
+$components = explode('/', $path);
+$first_part = $components[3];
+// echo $first_part;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +33,7 @@
     <style type="text/css">
         body {
             background-color: rgb(220, 220, 220);
-            font-family: 'Open Sans', serif;
+            /* font-family: 'Open Sans', serif;     */
             font-size: 14px;
         }
 
@@ -48,8 +65,7 @@
             height: 40px;
             background-color: white;
             border-radius: 5px;
-            margin-left: 10%;
-            margin-top: 5px;
+            margin-left: 7%;
         }
 
         @media only screen and (max-width: 500px) {
@@ -146,8 +162,25 @@
             transform: scale(1.1);
             transition: 0.5s ease-in-out;
         }
-        .container-fluid{
-            height: 45px;
+
+        main {
+            margin-top: 75px;
+        }
+
+        .ale {
+            position: absolute;
+            top: 100px;
+            right: 50px;
+            z-index: 1;
+            width: 500px;
+            font-size: 18px;
+        }
+        .active1{
+            background-color:#25383C;
+        }
+        .navee{
+            background-color: blue;
+            color: red;
         }
     </style>
 </head>
@@ -176,7 +209,9 @@
                         <a class="nav-link" href="" style="width:80px;">Name</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Home</a>
+                        <a class="nav-link <?php if ($first_part == "user_home.php") {
+                            echo "active1";
+                        } ?>" href="user_home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -189,13 +224,15 @@
                                 <a class="dropdown-item" href="user_profile.php">My Profile</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="">About Us</a>
+                                <a class="dropdown-item class="nav-link <?php if ($first_part == "about.php") {
+                            echo "navee";
+                        } ?>" href="about.php">About Us</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="">Contact Us</a>
+                                <a class="dropdown-item" href="contact_us.php">Contact Us</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
+                                <a class="dropdown-item" href="logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -205,8 +242,6 @@
                 </ul>
             </div>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample">
-            <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
-        </button>
     </nav>
+
     <script src="custom_js/bootstrap.bundle.min.js"></script>
