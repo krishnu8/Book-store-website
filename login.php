@@ -146,7 +146,6 @@
                     </div>
                     </div>
     
-                
                 <Script>
                     setTimeout("",5000);
                 </Script>
@@ -227,18 +226,20 @@ if (isset($_POST['log'])) {
                 </script>
             <?php
             } elseif ($role[9] == "Admin") {
-                echo "admin";
+                session_start();
+                $_SESSION['Admin_email'] = "$em";
+                $_SESSION['Admin_password'] = "$pass";
             ?>
-                <!-- <script>
-                    window.location.href="Admin.php";
-                </script> -->
+                <script>
+                    window.location.href="Admin/Dashboard.php";
+                </script>
             <?php
             } else {
                 echo "Seller";
             ?>
-                <!-- <script>
+                <script>
                     window.location.href="seller.php";
-                </script> -->
+                </script>
             <?php
             }
         } else {

@@ -16,7 +16,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" style="background-color: blue;">
                 <div class="modal-body">
                     <label for="inputPasswordOld">Enter Password</label>
                     <input type="password" class="form-control" id="inputPasswordOld" required="">
@@ -29,8 +29,6 @@
 
         </div>
     </div>
-</div>
-</div>
 </div>
 
 <!-- Change password -->
