@@ -77,7 +77,7 @@ $a = mysqli_fetch_array(mysqli_query($con, $data));
             <form onSubmit="return(validate123());" method="post" enctype="multipart/form-data" action="">
             <div class="row">
                     <div class="hu">
-                        <img src="../image/user_image/<?php echo $a[6] ?>" alt="Profile_picture" width="150px" class="profile"><br>
+                        <img src="../image/user_image/<?php echo $a[6] ?>" alt="Profile_picture" height="150px" width="150px" class="profile"><br>
                         <div class="row row1">
                             <div class="col-sm-6">
 

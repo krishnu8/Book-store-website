@@ -79,4 +79,8 @@ session_start();
     <?php
         }
     }
+    ?>
+    <script>
+    window.location = "register.php";
+</script>
 ?>

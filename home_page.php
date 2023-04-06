@@ -59,7 +59,7 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner " style="height:600px;">
             <div class="carousel-item active ">
-                <img src="image/Book_image/book1.jpg" alt="Los Angeles" width="100%" class="img-fluid">
+                <img src="image/Book_image/book5.jpg" alt="Los Angeles" width="100%" class="img-fluid">
                 <div class="carousel-caption">
                     <h3></h3>
                     <p></p>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="image/Book_image/book1.jpg" alt="New York" width="100%" height="700px">
+                <img src="image/Book_image/a2.jpg" alt="New York" width="100%" height="700px">
                 <div class="carousel-caption">
                     <h3></h3>
                     <p></p>
@@ -108,7 +108,8 @@
                         <div class='card-body'>
                             <h3 class='card-titel '><?php echo $Product_Name ?></h3>
                             <h5>By <?php echo $auther ?></h5>
-                            <h5>Price:&nbsp<strike>12</strike> &nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $Price ?></h5>
+                            <h5>Price:<?php echo $Price ?></h5>
+                            <!-- &nbsp<strike>12</strike> &nbsp&nbsp&nbsp&nbsp&nbsp  -->
                     </a>
                     <form action="" method="post">
                         <h5>Quantity:<h5>

@@ -14,6 +14,11 @@ $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
 $first_part = $components[3];
 // echo $first_part;
+
+$email = $_SESSION['email'];
+$select = "SELECT * FROM `registration` WHERE Email='$email'";
+$ans = mysqli_fetch_array(mysqli_query($con, $select));
+$name = strtok($ans[0], " ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -175,11 +180,17 @@ $first_part = $components[3];
             width: 500px;
             font-size: 18px;
         }
-        .active1{
-            background-color:#25383C;
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #e9ecef;
         }
-        .navee{
-            background-color: blue;
+        .navbar-dark .navbar-nav .nav-link:hover{
+            color: red; 
+        }
+        .navbar-dark .navbar-nav .active1 {
+            color: red;
+        }
+        .drop {
             color: red;
         }
     </style>
@@ -206,12 +217,12 @@ $first_part = $components[3];
                 </form>
                 <ul class="navbar-nav navbar-nav1">
                     <li class="nav-item">
-                        <a class="nav-link" href="" style="width:80px;">Name</a>
+                        <a class="nav-link" href="user_profile.php" style="width:80px;"><?php echo $name ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if ($first_part == "user_home.php") {
-                            echo "active1";
-                        } ?>" href="user_home.php">Home</a>
+                                                echo "active1";
+                                            } ?>" href="user_home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -224,12 +235,14 @@ $first_part = $components[3];
                                 <a class="dropdown-item" href="user_profile.php">My Profile</a>
                             </li>
                             <li>
-                                <a class="dropdown-item class="nav-link <?php if ($first_part == "about.php") {
-                            echo "navee";
-                        } ?>" href="about.php">About Us</a>
+                                <a class="dropdown-item <?php if ($first_part == "about.php") {
+                                                echo "drop";
+                                            } ?>" href="about.php" class="drop ">About Us</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="contact_us.php">Contact Us</a>
+                                <a class="dropdown-item <?php if ($first_part == "contact_us.php") {
+                                                echo "drop";
+                                            } ?>" href="contact_us.php">Contact Us</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
