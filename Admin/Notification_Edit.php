@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 <?php
 include_once("../database/Create_database.php");
 
@@ -25,7 +25,7 @@ include_once("../database/Create_database.php");
     </tr>
     <tr class="a1">
         <td>Messages:</td>
-        <td> <input type="text" name="qntt" value="<?php echo "$a[2]"; ?>"></td>
+        <td> <input type="text" name="qntt" value="<?php echo "$a[3]"; ?>"></td>
     </tr>
 
     <tr class="a1">
@@ -47,14 +47,14 @@ include_once("../database/Create_database.php");
                 ?>
         <script>
             alert("Data Updated successfully");
-            window.location.href="Notification_Fetch_data.php";
+            window.location.href="Notification.php";
         </script>
         <?php
             } else {
                 ?>
         <script>
             alert("Data Updated fail  Try Again latter");
-            window.location.href="Notification_Fetch_data.php";
+            window.location.href="Notification.php";
         </script>
         <?php
             }

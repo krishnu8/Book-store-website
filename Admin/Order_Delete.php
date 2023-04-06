@@ -10,7 +10,7 @@ if (mysqli_query($con,$q))
     ?>
     <script>
             alert("Data Deleted successfully");
-            window.location.href="Order.php";
+            window.location.href="Orders.php";
         </script>
         <?php
 }
@@ -18,7 +18,7 @@ else{
     ?>
     <script>
     alert("Data Can't Delete please chech ERROR");
-    window.location.href="Order.php";
+    window.location.href="Orders.php";
 </script>
 <?php
 }

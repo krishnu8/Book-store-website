@@ -6,7 +6,7 @@
     }
 </style>
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 
 <form action="" method="post"enctype="multipart/form-data">
 <table border="1">
@@ -42,6 +42,10 @@
         <td> <input type="text" name="uid" required></td>
     </tr>
     <tr>
+        <td>My Order Pic:</td>
+        <td> <input type="file" name="pic" id="pic1" style="color: #fff;" required></td>
+    </tr>
+    <tr>
         <td>Description:</td>
         <td><input type="text" name="dis" required></td>
     </tr>
@@ -66,14 +70,15 @@ $price = @$_POST['price'];
 $odt = @$_POST['orderdt'];
 $ddt = @$_POST['deleverdt'];
 $uid = @$_POST['uid'];
+$pic = @$_FILES['pic']['name'];
 $des = @$_POST['dis'];
 
-$q = "INSERT INTO `Oders`(`Order_Id`, `Product_Id`, `Quantity`, `Price`, `Order_date`, `Deliver_date`, `User_Id`, `Description`) VALUES 
-('$o_id','$p_id','$c_name','$price','$odt','$ddt','$uid','$des')";
+$q = "INSERT INTO `Oders`(`Order_Id`, `Product_Id`, `Quantity`, `Price`, `Order_date`, `Deliver_date`, `User_Id`, `Order_pic`, `Description`) VALUES 
+('$o_id','$p_id','$c_name','$price','$odt','$ddt','$uid','$pic','$des')";
 
     if(mysqli_query($con,$q))
     {
-        // move_uploaded_file($_FILES['pic']['tmp_name'],'uploads/'.$pic);
+        move_uploaded_file($_FILES['pic']['tmp_name'],'image/'.$pic);
         ?>
         <script>
             alert("Registration successful");
@@ -82,7 +87,7 @@ $q = "INSERT INTO `Oders`(`Order_Id`, `Product_Id`, `Quantity`, `Price`, `Order_
 
         ?>
 <tr>
-<td><a href="Order.php" style="text-decoration: none; color: green; width: 50%; text-align: center; 
+<td><a href="Orders.php" style="text-decoration: none; color: green; width: 50%; text-align: center; 
 font-size: 25px; background: transparent; border-radius: 5px; border:2px solid black;">View Data</a></td>
 </tr>
 <?php

@@ -32,7 +32,7 @@ input:hover{
     
 
 <div class="container">
-Insert New Record<a href="Offers_insert.php"><button style="background: green; color: #fff; width: 15%; font-size: 15px; border-radius: 5px;">Insert</button></a> <br>
+Insert New Record<a href="Offers_insert_data.php"><button style="background: green; color: #fff; width: 15%; font-size: 15px; border-radius: 5px;">Insert</button></a> <br>
 <table border="1">
 <tr>
     <td>Discount</td>
@@ -54,7 +54,7 @@ while($a=mysqli_fetch_array($result))
     ?>
     <tr>
         <td><?php echo"$a[0]"?></td>
-        <td><?php echo"$a[1]"?></td>
+        <td><img src='image/<?php echo$a[1]?> 'alt="No Pic" height="100px" width="130px"></td>
         <td><?php echo"$a[2]"?></td>
         <td><?php echo"$a[3]"?></td>
         <td><?php echo"$a[4]"?></td>

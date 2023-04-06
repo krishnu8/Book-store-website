@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 <?php
 include_once("../database/Create_database.php");
 
@@ -67,14 +67,14 @@ include_once("../database/Create_database.php");
                 ?>
         <script>
             alert("Data Updated successfully");
-            window.location.href="Product_Fetch_data.php";
+            window.location.href="Product.php";
         </script>
         <?php
             } else {
                 ?>
         <script>
             alert("Data Updated fail  Try Again latter");
-            window.location.href="Order_Fetch_data.php";
+            window.location.href="Order.php";
         </script>
         <?php
             }

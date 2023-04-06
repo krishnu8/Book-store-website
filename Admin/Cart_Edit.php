@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 <?php
 include_once("../database/Create_database.php");
 
@@ -20,28 +20,20 @@ include_once("../database/Create_database.php");
         <td><input type="text" name="pid" value="<?php echo "$a[0]"; ?>" readonly></td>
     </tr>
     <tr class="a1">
-        <td>Product Name:</td>
-        <td> <input type="text" name="uid" value="<?php echo "$a[1]"; ?>"></td>
-    </tr>
-    <tr class="a1">
-        <td>Seller Id:</td>
-        <td> <input type="text" name="uid" value="<?php echo "$a[1]"; ?>"></td>
-    </tr>
-    <tr class="a1">
-        <td>Price:</td>
+        <td>User Id:</td>
         <td> <input type="text" name="uid" value="<?php echo "$a[1]"; ?>"></td>
     </tr>
     <tr class="a1">
         <td>Quantity:</td>
-        <td> <input type="text" name="qntt" value="<?php echo "$a[4]"; ?>"></td>
-    </tr>
-    <tr class="a0">
-        <td>Author:</td>
-        <td> <input type="text" name="price" value="<?php echo "$a[3]"; ?>"></td>
+        <td> <input type="text" name="qntt" value="<?php echo "$a[3]"; ?>"></td>
     </tr>
     <tr class="a1">
-        <td>Category:</td>
-        <td> <input type="text" name="total" value="<?php echo "$a[4]"; ?>"></td>
+        <td>Price:</td>
+        <td> <input type="text" name="price" value="<?php echo "$a[4]"; ?>"></td>
+    </tr>
+    <tr class="a0">
+        <td>Total:</td>
+        <td> <input type="text" name="total" value="<?php echo "$a[5]"; ?>"></td>
     </tr>
 
     <tr class="a1">
@@ -54,15 +46,14 @@ include_once("../database/Create_database.php");
 </form>
 <?php
         if (isset($_POST['btn'])) {
-            $pname = @$_POST['pname'];
-            $s_id = @$_POST['sid'];
-            $price = @$_POST['price'];
+            $p_id = @$_POST['pid'];
+            $u_id = @$_POST['uid'];
+            // $pic = @$_FILES['pic']['name'];
             $quan = @$_POST['quan'];
-            $auther = @$_POST['author'];
-            $cat = @$_POST['cat'];
+            $price = @$_POST['price'];
+            $total = @$_POST['total'];
 
-            $update = "UPDATE `Carts` SET `Product_Name`='$pname',`Seller_Id`='$s_id',`Price`='$price',
-            `Quantity`='$quan',`Author`='$auther',`Category`='$cat'WHERE Product_Id='$p_id'";
+            $update = "UPDATE `Carts` SET `User_Id`='$u_id',`Quantity`='$quan',`Price`='$price',`Total`='$total'WHERE Product_Id='$p_id'";
             if (mysqli_query($con, $update)) {
                 ?>
         <script>

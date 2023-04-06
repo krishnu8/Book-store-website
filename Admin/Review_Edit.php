@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 <?php
 include_once("../database/Create_database.php");
 

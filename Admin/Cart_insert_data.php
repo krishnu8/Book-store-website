@@ -6,7 +6,7 @@
     }
 </style>
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 
 <form action="" method="post"enctype="multipart/form-data">
 <table border="1">
@@ -18,28 +18,24 @@
         <td><input type="text" name="pid" required></td>
     </tr>
     <tr>
-        <td>Product Name:</td>
-        <td> <input type="text" name="pname" required></td>
+        <td>User Id:</td>
+        <td><input type="text" name="uid" required></td>
     </tr>
     <tr>
-        <td>Seller Id:</td>
-        <td><input type="text" name="sid" required></td>
-    </tr>
-    <tr>
-        <td>Price:</td>
-        <td><input type="text" name="price" required></td>
+        <td>My Cart Pic:</td>
+        <td> <input type="file" name="pic" style="color:#fff;" required></td>
     </tr>
     <tr>
         <td>Quantity:</td>
         <td> <input type="text" name="quan" required></td>
     </tr>
     <tr>
-        <td>Author:</td>
-        <td> <input type="text" name="author" required></td>
+        <td>Price:</td>
+        <td><input type="text" name="price" required></td>
     </tr>
     <tr>
-        <td>Category:</td>
-        <td> <input type="text" name="cat" required></td>
+        <td>Total:</td>
+        <td> <input type="text" name="total" required></td>
     </tr>
    
     <tr>
@@ -56,19 +52,18 @@ include_once("../database/Create_database.php");
 if(isset($_POST['btn']))
 {
 $p_id = @$_POST['pid'];
-$pname = @$_POST['pname'];
-$s_id = @$_POST['sid'];
-$price = @$_POST['price'];
+$u_id = @$_POST['uid'];
+$pic = @$_FILES['pic']['name'];
 $quan = @$_POST['quan'];
-$auther = @$_POST['author'];
-$cat = @$_POST['cat'];
+$price = @$_POST['price'];
+$total = @$_POST['total'];
 
-$q = "INSERT INTO `Carts`(`Product_Id`, `Product_Name`, `Seller_Id`, `Price`, `Quantity`, `Author`, `Category`) VALUES 
-('$p_id','$pname','$s_id','$price','$quan','$auther','$cat',)";
+$q = "INSERT INTO `carts`(`Product_Id`, `User_Id`, `Cart_pic`, `Quantity`, `Price`, `Total`) VALUES 
+('$p_id','$u_id','$pic','$quan','$price','$total')";
 
     if(mysqli_query($con,$q))
     {
-        // move_uploaded_file($_FILES['pic']['tmp_name'],'uploads/'.$pic);
+        move_uploaded_file($_FILES['pic']['tmp_name'],'image/'.$pic);
         ?>
         <script>
             alert("Add To Cart successful");

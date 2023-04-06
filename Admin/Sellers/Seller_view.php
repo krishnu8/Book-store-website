@@ -23,12 +23,12 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     }
 </style>
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <?php
-session_start();
-if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
+// session_start();
+// if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
 
     include_once("Connection.php");
 
@@ -88,7 +88,7 @@ if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
   </tbody>
 </table>
 <?php
-}
-else{
-    header("location:Login.php");
-}
+// }
+// else{
+//     header("location:Login.php");
+// }

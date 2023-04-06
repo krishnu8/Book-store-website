@@ -6,7 +6,7 @@
     }
 </style>
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 
 <form action="" method="post"enctype="multipart/form-data">
 <table border="1">
@@ -26,8 +26,12 @@
         <td><input type="text" name="qntt" required></td>
     </tr>
     <tr>
-        <td>Rating: </td>
+        <td>Rating:</td>
         <td><input type="text" name="price" required></td>
+    </tr>
+    <tr>
+        <td>My Product Pic:</td>
+        <td><input type="file" name="pic" style="color: #fff;" required></td>
     </tr>
    
     <tr>
@@ -47,13 +51,14 @@ $o_id = @$_POST['uid'];
 $p_id = @$_POST['pid'];
 $c_name = @$_POST['qntt'];
 $price = @$_POST['price'];
+$pic = @$_FILES['pic']['name'];
 
-$q = "INSERT INTO `Review`(`User_Id`, `Product_Id`, `Feedback`, `Rating`) VALUES 
-('$o_id','$p_id','$c_name','$price')";
+$q = "INSERT INTO `Review`(`User_Id`, `Product_Id`, `Feedback`, `Rating`,`Review_pic`) VALUES 
+('$o_id','$p_id','$c_name','$price','$pic')";
 
     if(mysqli_query($con,$q))
     {
-        // move_uploaded_file($_FILES['pic']['tmp_name'],'uploads/'.$pic);
+        move_uploaded_file($_FILES['pic']['tmp_name'],'image/'.$pic);
         ?>
         <script>
             alert("Add To Cart successful");
@@ -62,7 +67,7 @@ $q = "INSERT INTO `Review`(`User_Id`, `Product_Id`, `Feedback`, `Rating`) VALUES
 
         ?>
 <tr>
-<td><a href="Review_Fetch_data.php" style="text-decoration: none; color: green; width: 50%; text-align: center; 
+<td><a href="Review.php" style="text-decoration: none; color: green; width: 50%; text-align: center; 
 font-size: 25px; background: transparent; border-radius: 5px; border:2px solid black;">View Data</a></td>
 </tr>
 <?php

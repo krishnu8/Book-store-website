@@ -35,14 +35,15 @@ input:hover{
 Add To New Cart<a href="Cart_insert_data.php"><button style="background: green; color: #fff; width: 15%; font-size: 15px; border-radius: 5px;">Insert</button></a> <br>
 <table border="1">
 <tr>
-    <td>Product_Id</td>
-    <td>User_Id</td>
-    <td>Quantity</td>
-    <td>Price</td>
-    <td>Total</td>
-    <td>View</td>
-    <td>Edit</td>
-    <td>Delete</td>
+    <th>Product_Id</th>
+    <th>User_Id</th>
+    <th>My Cart Pic</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total</th>
+    <!-- <th>View</th> -->
+    <th>Edit</th>
+    <th>Delete</th>
 </tr>
 <?php
 include_once("../database/Create_database.php");
@@ -55,11 +56,12 @@ while($a=mysqli_fetch_array($result))
     <tr>
         <td><?php echo"$a[0]"?></td>
         <td><?php echo"$a[1]"?></td>
-        <td><?php echo"$a[2]"?></td>
+        <td><img src='image/<?php echo$a[2]?> 'alt="No Pic" height="100px" width="130px"></td>
         <td><?php echo"$a[3]"?></td>
         <td><?php echo"$a[4]"?></td>
+        <td><?php echo"$a[5]"?></td>
 
-        <td><a href="#?Product_Id=<?php echo"$a[0]"?>"><input type="button" value="View" class="btns" style="background: green;"></a></td>
+        <!-- <td><a href="#?Product_Id=<?php echo"$a[0]"?>"><input type="button" value="View" class="btns" style="background: green;"></a></td> -->
         <td><a href="Cart_Edit.php?Product_Id=<?php echo"$a[0]"?>"><input type="button" value="Edit" class="btns" style="background: blue;"></a></td>
         <td><a href="Cart_Delete.php?Product_Id=<?php echo"$a[0]"?>"><input type="button" value="Delete" class="btns"></a></td>
     </tr>

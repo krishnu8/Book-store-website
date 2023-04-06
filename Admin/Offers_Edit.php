@@ -22,21 +22,21 @@ include_once("../database/Create_database.php");
         <td>Discount:</td>
         <td> <input type="text" name="disc" value="<?php echo "$a[0]"; ?>"></td>
     </tr>
-    <tr class="a1">
+    <!-- <tr class="a1">
         <td>Category:</td>
-        <td> <input type="text" name="cat" value="<?php echo "$a[1]"; ?>"></td>
-    </tr>
+        <td> <input type="file" name="cat" value="<?php echo "$a[1]"; ?>"></td>
+    </tr> -->
     <tr class="a0">
         <td>Start Date:</td>
-        <td> <input type="date" name="startdt" value="<?php echo "$a[2]"; ?>"></td>
+        <td> <input type="text" name="startdt" value="<?php echo "$a[2]"; ?>"></td>
     </tr>
     <tr class="a0">
         <td>End Date:</td>
-        <td> <input type="date" name="enddt" value="<?php echo "$a[3]"; ?>"></td>
+        <td> <input type="text" name="enddt" value="<?php echo "$a[3]"; ?>"></td>
     </tr>
     <tr class="a0">
         <td>Coupen:</td>
-        <td> <input type="date" name="cup" value="<?php echo "$a[4]"; ?>"></td>
+        <td> <input type="text" name="cup" value="<?php echo "$a[4]"; ?>"></td>
     </tr>
 
     <tr class="a1">
@@ -50,7 +50,7 @@ include_once("../database/Create_database.php");
 <?php
         if (isset($_POST['btn'])) {
             $dis = @$_POST['disc'];
-            // $cat = @$_POST['cat'];
+            // $cat = @$_FILES['cat']['name'];
             $sdt = @$_POST['startdt'];
             $edt = @$_POST['enddt'];
             $cup = @$_POST['cup'];

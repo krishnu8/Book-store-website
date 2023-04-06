@@ -134,7 +134,7 @@ $first_part = $components[3];
     <li><a class="dropdown-item" href="Cart.php"><i class="fa fa-solid fa-cart-shopping"></i><h6>Carts</h6></a></li>
     <li><a class="dropdown-item" href="Offers.php"><i class="fa fa-regular fa-face-laugh-beam"></i><h6>Offers</h6></a></li>
     <li><a class="dropdown-item" href="Review.php"><i class="fa fa-regular fa-star"></i><h6>Feedback Review</h6></a></li><br>
-    <li><a class="dropdown-item" href="../logout"><i class="fa "></i><h6>Logout</h6></a></li>
+    <li><a class="dropdown-item" href="logout.php"><i class="fa "></i><h6>Logout</h6></a></li>
 
     <li><hr class="dropdown-divider"></li>
     <p style="color: red; text-align: center; font-size: 20px;">Contact Links</p>

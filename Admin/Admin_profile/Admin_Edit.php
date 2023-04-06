@@ -64,7 +64,7 @@ include_once("Connection.php");
             $ct = @$_POST['city'];
             $ab = @$_POST['about'];
 
-            $update = "UPDATE `registration` SET `Admin_Name`='$name',`Email_Id`='$em',`Mobile_NO`='$phone',`Password`='$pwd',
+            $update = "UPDATE `registration` SET `Fullname`='$name',`Email`='$em',`mobile`='$phone',`password`='$pwd',
             `State`='$st',`City`='$ct',`About`='$ab'WHERE role='Admin'";
             if (mysqli_query($con, $update)) {
                 ?>

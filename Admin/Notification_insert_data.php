@@ -6,7 +6,7 @@
     }
 </style>
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 
 <form action="" method="post"enctype="multipart/form-data">
 <table border="1">
@@ -14,7 +14,7 @@
         <td colspan="2" style="font-size: 30px;">Notification Form !</td>
     </tr>
     <tr>
-        <td>Uer_Id:</td>
+        <td>Uer_Id_NO:</td>
         <td> <input type="text" name="uid" required></td>
     </tr>
     <tr>
@@ -56,7 +56,7 @@ $q = "INSERT INTO `Notification`(`User_Id`, `Product_Id`, `Messages`) VALUES ('$
 
         ?>
 <tr>
-<td><a href="Notification_Fetch_data.php" style="text-decoration: none; color: green; width: 50%; text-align: center; 
+<td><a href="Notification.php" style="text-decoration: none; color: green; width: 50%; text-align: center; 
 font-size: 25px; background: transparent; border-radius: 5px; border:2px solid black;">View Data</a></td>
 </tr>
 <?php

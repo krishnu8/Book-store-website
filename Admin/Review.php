@@ -32,14 +32,15 @@ input:hover{
     
 
 <div class="container">
-Insert New Record<a href="Review_insert.php"><button style="background: green; color: #fff; width: 15%; font-size: 15px; border-radius: 5px;">Insert</button></a> <br>
+Insert New Record<a href="Review_insert_data.php"><button style="background: green; color: #fff; width: 15%; font-size: 15px; border-radius: 5px;">Insert</button></a> <br>
 <table border="1">
 <tr>
     <td>User_Id</td>
     <td>Product_Id</td>
     <td>Review(Feedback)</td>
     <td>Rating</td>
-    <td>View</td>
+    <td>My Product</td>
+    <!-- <td>View</td> -->
     <td>Edit</td>
     <td>Delete</td>
 </tr>
@@ -56,8 +57,9 @@ while($a=mysqli_fetch_array($result))
         <td><?php echo"$a[1]"?></td>
         <td><?php echo"$a[2]"?></td>
         <td><?php echo"$a[3]"?></td>
+        <td><img src='image/<?php echo$a[4]?> 'alt="No Pic" height="100px" width="130px"></td>
 
-        <td><a href="#?User_Id=<?php echo"$a[0]"?>"><input type="button" value="View" class="btns" style="background: green;"></a></td>
+        <!-- <td><a href="#?User_Id=<?php echo"$a[0]"?>"><input type="button" value="View" class="btns" style="background: green;"></a></td> -->
         <td><a href="Review_Edit.php?User_Id=<?php echo"$a[0]"?>"><input type="button" value="Edit" class="btns" style="background: blue;"></a></td>
         <td><a href="Review_Delete.php?User_Id=<?php echo"$a[0]"?>"><input type="button" value="Delete" class="btns"></a></td>
     </tr>

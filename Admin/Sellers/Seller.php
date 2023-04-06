@@ -30,6 +30,7 @@ input:hover{
     color: red;
 } */
 </style>
+<!-- <link rel="stylesheet" href="../style.css"> -->
 <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
 <!-- <script src="js/bootstrap.js"></script> -->
 
@@ -42,7 +43,7 @@ Insert more data<a href="../Sellers/seller_registration.php"><button style="back
     <th>Mobile</th>
     <th>State</th>
     <th>Status</th>
-    <th>User_Id</th>
+    <th>ID NO</th>
     <th>Role</th>
     <th>View</th>
     <th>Edit</th>
@@ -66,7 +67,7 @@ while($a=mysqli_fetch_array($result))
         <td><?php echo"$a[9]"?></td>
 
         <td><a href="Seller_view.php?Seller=<?php echo"$a[10]"?>"><input type="button" value="View" style="background: green;"></a></td>
-        <td><a href="Sellre_Edit.php?Seller=<?php echo"$a[10]"?>"><input type="button" value="Edit" style="background: blue;"></a></td>
+        <td><a href="../Sellers/Seller_Edit.php"><input type="button" value="Edit" style="background: blue;"></a></td>
         <td><a href="Seller_delete.php?Seller=<?php echo"$a[10]"?>"><input type="button" value="Delete"></a></td>
        
     </tr>

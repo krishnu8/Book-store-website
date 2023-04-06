@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="../style.css">
 <?php
 include_once("Connection.php");
 
-session_start();
-if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
+// session_start();
+// if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
 
     $rol = @$_GET['Seller'];
     $q = "SELECT * FROM `registration` WHERE role='Seller'";
@@ -64,7 +64,7 @@ if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
             $ct = @$_POST['city'];
             $ab = @$_POST['about'];
 
-            $update = "UPDATE `registration` SET `Seller_Name`='$name',`Email_Id`='$em',`Mobile_NO`='$phone',`Password`='$pwd',
+            $update = "UPDATE `registration` SET `Fullname`='$name',`Email`='$em',`mobile`='$phone',`password`='$pwd',
             `State`='$st',`City`='$ct',`About`='$ab'WHERE role='Seller'";
             if (mysqli_query($con, $update)) {
                 ?>
@@ -82,8 +82,8 @@ if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
         <?php
             }
         }
-}
-else
-{
-    header("location:Login.php");
-}
+// }
+// else
+// {
+//     header("location:Login.php");
+// }

@@ -1,10 +1,11 @@
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 <?php
 include_once("../database/Create_database.php");
 
-session_start();
-if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
+// session_start();
+// if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
+
     $o_id = @$_GET['Order_Id'];
     $q = "SELECT * FROM `Oders` WHERE Order_Id='$o_id'";
     $result = mysqli_query($con, $q);
@@ -70,20 +71,22 @@ if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
                 ?>
         <script>
             alert("Data Updated successfully");
-            window.location.href="Order.php?Order_Id=<?php echo $o_id ?>";
         </script>
+        <a href="Orders.php">
+        <button style="color: black; width: 50%; border: 2px double black; background: transparent; margin-top: -10px;">
+        View Data</button></a>
         <?php
             } else {
                 ?>
         <script>
             alert("Data Updated fail  Try Again latter");
-            window.location.href="Order.php?Order_Id=<?php echo $o_id ?>";
+            window.location.href="Orders.php?Order_Id=<?php echo $o_id ?>";
         </script>
         <?php
             }
         }
-}
-else
-{
-    header("location:Login.php");
-}
+// }
+// else
+// {
+//     header("location:Login.php");
+// }

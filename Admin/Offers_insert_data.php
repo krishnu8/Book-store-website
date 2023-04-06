@@ -6,7 +6,7 @@
     }
 </style>
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 
 <form action="" method="post"enctype="multipart/form-data">
 <table border="1">
@@ -20,7 +20,7 @@
     </tr>
     <tr>
         <td>Category:</td>
-        <td><input type="text" name="cat" required></td>
+        <td><input type="file" name="cat" style="color: #fff;" required></td>
     </tr>
     <tr>
         <td>Start Date:</td>
@@ -49,7 +49,7 @@ include_once("../database/Create_database.php");
 if(isset($_POST['btn']))
 {
 $dis = @$_POST['disc'];
-$cat = @$_POST['cat'];
+$cat = @$_FILES['cat']['name'];
 $sdt = @$_POST['startdt'];
 $edt = @$_POST['enddt'];
 $cup = @$_POST['cup'];
@@ -59,7 +59,7 @@ $q = "INSERT INTO `Offers`(`Discount`, `Category`, `Start_date`, `End_date`,
 
     if(mysqli_query($con,$q))
     {
-        // move_uploaded_file($_FILES['pic']['tmp_name'],'uploads/'.$pic);
+        move_uploaded_file($_FILES['cat']['tmp_name'],'image/'.$cat);
         ?>
         <script>
             alert("Offers Data Uploaded successful");

@@ -6,7 +6,7 @@
     }
 </style>
 
-<link rel="stylesheet" href="Github-killu/style.css">
+<link rel="stylesheet" href="style.css">
 
 <form action="" method="post"enctype="multipart/form-data">
 <table border="1">
@@ -42,6 +42,10 @@
         <td><input type="text" name="c_name" required></td>
     </tr>
     <tr>
+        <td>My Product:</td>
+        <td><input type="file" name="pic" id="pic1" required></td>
+    </tr>
+    <tr>
         <td colspan="2"><input type="submit" value="Upload" name="btn"  style="font-size: 20px; width: 30%; background: green; border-radius: 7px;"></td>
     </tr>
     <!-- <tr>
@@ -61,20 +65,18 @@ $price = @$_POST['price'];
 $q_name = @$_POST['qntt'];
 $author = @$_POST['athr'];
 $cname = @$_POST['c_name'];
+$pic = @$_FILES['pic']['name'];
 
-$q = "INSERT INTO `Products`(`Product_Id`, `Product_Name`, `Seller_Id`, `Price`, `Quantity`, `Author`, `Category`) VALUES 
-('$p_id','$p_name','$s_id','$price','$q_name','$author','$cname')";
+$q = "INSERT INTO `Products`(`Product_Id`, `Product_Name`, `Seller_Id`, `Price`, `Quantity`, `Author`, `Category`, `Product_pic`) VALUES 
+('$p_id','$p_name','$s_id','$price','$q_name','$author','$cname','$pic')";
 
     if(mysqli_query($con,$q))
     {
-        // move_uploaded_file($_FILES['pic']['tmp_name'],'uploads/'.$pic);
+        move_uploaded_file($_FILES['pic']['tmp_name'],'image/'.$pic);
         ?>
         <script>
             alert("Pruduct Uploaded successful");
         </script>
-        <?php
-
-        ?>
 <tr>
 <td><a href="Product.php" style="text-decoration: none; color: green; width: 50%; text-align: center; 
 font-size: 25px; background: transparent; border-radius: 5px; border:2px solid black;">View Data</a></td>

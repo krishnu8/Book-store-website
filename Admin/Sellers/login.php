@@ -155,9 +155,9 @@
             }
 
         ?>
-        <div class="form" style="display: flex;justify-content: center;margin-top:100px;">
+        <div class="form" style="display: flex;justify-content: center;margin-top:20px;">
             <div style="background-color: rgba(0,0,0,0.7);width:380px; height:520px;border-radius: 20px;">
-                <center><img src="image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
+                <center><img src="images/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
                 <div style="padding: 30px;">
                     <form onsubmit="return validation1()" action="" method="post">
                         <div class="input">

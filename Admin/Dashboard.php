@@ -39,10 +39,11 @@
         /* justify-content: center; */
         width: 270px;
         height: 260px;
-        border: 2px solid hsl(0, 2%, 28%);
+        border-style: dotted;
+        border-color: 2px solid black;
         padding: 40px;
         margin: 20px;
-        border-radius: 5%;
+        border-radius: 5px;
         background-color: hsl(0, 1%, 45%); 
         transition: 0.5s;
     }
@@ -73,7 +74,7 @@
     .jack1 .View_class{
         /* border: 1px solid hsl(240, 0%, 35%); */
         background-color: transparent;
-        color: hsl(0, 2%, 24%);;
+        color: black;;
         width: 150%;
         height: 55%;
         margin-top: 20%;
@@ -113,7 +114,7 @@
                 <br><br>
                 <a href="Admin_profile/Admin_Delete.php"><button type="button" class="btn btn-secondary btn-block"><i class="fa fa-solid fa-trash"></i>Remove Account</button></a>
                 <br><br>
-                <a href="../logout.php"><button type="button" class="btn btn-secondary btn-block">Logout</button></a>
+                <a href="logout.php"><button type="button" class="btn btn-secondary btn-block">Logout</button></a>
 
             <li><hr class="dropdown-divider"></li>
             <p style="color: red; text-align: center; font-size: 20px;">Contact Links</p>
@@ -132,7 +133,7 @@
 
         <div class="row row1">
             <div class="col-sm-3 jack1">
-                <h3>
+                <h3 style="background: #00ff00">
                     <p> 2 </p> 
                     <div class="View_class"> <h4 style="width: 50%; margin-left: 20px;">Welcom To !</h4> If Your are See <b><i>User Details</i></b>
                     Please Click on View Button
@@ -154,7 +155,7 @@
             </div> -->
     
             <div class="col-sm-3 jack1">
-                <h3>
+                <h3 style="background: rgb(142, 215, 47);">
                     <p> 3 </p> 
                     <div class="View_class"> If you want to See <u><i>Sellers Details</i></u> then Click on the following View button.</div>
     
@@ -165,7 +166,7 @@
             </div>
 
             <div class="col-sm-3 jack1">
-                <h3>
+                <h3 style="background: rgb(222, 185, 53);">
                     <p> 10/- </p> 
                     <div class="View_class"> If you want to See <u><i>Review Details</i></u> then Click on the following View button.</div>
     
@@ -176,7 +177,7 @@
             </div>
 
             <div class="col-sm-3 jack1">
-                <h3 class="current "> 
+                <h3 class="current " style="background-color: aquamarine;"> 
                     <p> 0 </p> 
                   <div class="View_class"> If you want to See <u><i>All Notifications</i></u> then Click on <br> the following View button.</div>
                     <a href="Notification.php">
@@ -192,7 +193,7 @@
 
 <div class="row" class="row2">
     <div class="col-sm-3 jack1">
-    <h3> 
+    <h3 style="background: rgb(239, 84, 228);"> 
         <p> $700 </p> 
         <div class="View_class"> If you want to <u><i>See Orders</i></u> Details then Click on the following View button.</div>
         <a href="Order.php">
@@ -202,7 +203,7 @@
     </div>
 
     <div class="col-sm-3 jack1">
-      <h3> 
+      <h3 style="background: rgb(229, 255, 0);"> 
           <p> $700 </p> 
           <div class="View_class"> If you want to See <u><i>Product Details</i></u> then Click on the following View button.</div>
           <a href="Product.php">
@@ -222,7 +223,7 @@
     </div> -->
 
     <div class="col-sm-3 jack1">
-        <h3 class="current "> 
+        <h3 class="current " style="background-color: aqua;"> 
             <p> $0/- </p> 
           <div class="View_class"> If you want to See <u><i>Offers Details</i></u> then Click on the following View button.</div>
             <a href="Offers.php">

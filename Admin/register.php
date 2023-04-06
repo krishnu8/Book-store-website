@@ -138,48 +138,77 @@ if (isset($_SESSION['reg_msg'])) {
 
 ?>
     
-    <div class="form" style="display: flex;justify-content: center;margin-top:40px;">
-        <div style="background-color: rgba(0,0,0,0.7);width:400px; height:660px;border-radius: 20px;">
-            <center><img src="image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
-            <div style="padding: 30px;">
-                <form  action="register_action.php" onsubmit="return validation1()" method="post" enctype=multipart/form-data>
-                    <div class="input">
-                        <font style="color: #fff; " size="5"><b>Name</b><br>
-                            <input id="name" name="name" type="text" placeholder="Enter your Name"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
-                            <span id="nameerror" class="text-danger"></span>
-                    </div>
-                    <div class="input">
-                        <font style="color: #fff; " size="5"><b>Phone Number</b><br>
-                            <input id="number" name="number" type="text" placeholder="Enter your phone Number"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
-                            <span id="numbererror" class="text-danger"></span>
-                    </div>
-                    <div class="input">
-                        <font style="color: #fff; " size="5"><b>E-mail</b><br>
-                            <input id="email" name="email" type="text" onblur="check_email(this)" placeholder="example@gmail.com"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
-                            <span id="emailerror" class="text-danger"></span>
-                    </div>
+    <body style="justify-content: center;border: #ffffff solid 2px;height: 100vh;">
+        <div class="form" style="display: flex;justify-content: center;margin-top:5px;">
+            <div style="background-color: rgba(0,0,0,0.7);width:400px; height:1008px;border-radius: 20px;">
+                <!-- <center><img src="../image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center> -->
+                <div style="padding: 30px;">
+                    <form onsubmit="return validation1()" action="">
+                        <div class="input">
+                            <font style="color: #fff; " size="5"><b>Full Name</b><br>
+                                <input id="name" name="fln" type="text" placeholder="Enter your Name" required  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                               <span id="nameerror" class="text-danger"></span>
+                        </div>
+                        <div class="input">
+                            <font style="color: #fff; " size="5"><b>ID NO</b><br>
+                                <input id="number" name="idn" type="number" placeholder="Enter Id_NO" required  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                               <span id="nameerror" class="text-danger"></span>
+                        </div>
+                        <div class="input">
+                            <font style="color: #fff; " size="5"><b>E-mail</b><br>
+                                <input name="em" id="email" type="email" placeholder="example@gmail.com"required   style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                                <span id="emailerror" class="text-danger"></span>
+                        </div>
+                        <div class="input">
+                            <font style="color: #fff; " size="5"><b>Phone Number</b><br>
+                                <input name="mn" id="number" type="text" placeholder="Enter your phone Number" required  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                                <span id="numbererror" class="text-danger"></span>
+                        </div>
+                        <div class="input"><b>Password</b> <br>
+                            <input name="pwd" id="password" type="password" placeholder="Enter password" required  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                            <span id="passworderror" class="text-danger"></span>
+                        </div>
+                        <div class="input"><b>Confirm Password</b> <br>
+                            <input name="" id="password1" type="password" placeholder="confirm password" required  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                            <span id="passworderror1" class="text-danger"></span>
+                        </div>
+                        <div class="input">
+                            <font style="color: #fff; " size="5"><b>State</b><br>
+                                <input name="st" id="name" type="text" placeholder="Enter State Detail"required   style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                                <span id="nameerror" class="text-danger"></span>
+                        </div>
+                        <div class="input">
+                            <font style="color: #fff; " size="5"><b>City</b><br>
+                                <input name="ct" id="name" type="text" placeholder="Enter City Name"required   style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                                <span id="nameerror" class="text-danger"></span>
+                        </div>
+                        <div class="input">
+                            <font style="color: #fff; " size="5"><b>Role</b><br>
+                                <select name="role" id="name" style="width: 110px;">
+                                    <option value="Admin">Admin</option>
+                                    <option value="Admin">User</option>
+                                    <option value="Admin">Seller</option>
+                                    <option value="Admin">Normal</option>
+                                </select>
+                                <span id="nameerror" class="text-danger"></span>
+                        </div>
+                        <div class="input"><b>Profile Picture</b> <br>
+                            <input name="pic" id="pic" type="file" placeholder="confirm password" required   style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                            <label for="pic">Choose Profile Picture</label>
+                        </div>
+                        </font><br>
+                        <p id="p1"></p>
+                        <center><input name="btn" type="submit" class="btn1" id="" value="Register"></center>
+                    </form>
+                    <font color="white"><b>Have an Account?</b> <u><a href="../login.php">login</a></u><br></font><br>
 
-                    <div class="input"><b>Password</b> <br>
-                        <input id="password" type="password" placeholder="Enter password"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
-                        <span id="passworderror" class="text-danger"></span>
-                    </div>
-                    <div class="input"><b>Confirm Password</b> <br>
-                        <input id="password1" name="pass" type="password" placeholder="confirm password"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
-                        <span id="passworderror1" class="text-danger"></span>
-                    </div>
-                    </font><br>
-                    <p id="p1"></p>
-                    <center><input type="submit" class="btn1" name="regi" id="regi" value="Register"></center>
-                </form>
-                <font color="white"><b>Have an Account?</b> <u><a href="login.php">login</a></u><br></font><br>
-
-                <!-- <center><button style="background-color: rgb(117, 14, 143);width: 150px;height:35px;font-size: 20px;border: 0;border-radius: 10px;">
-                        <a href="#" style="color:#fff;"><b>Return BAck</b></a></button></center><br> -->
-                        
-
+                    <!-- <center><button style="background-color: rgb(117, 14, 143);width: 400px;height:35px;
+                        font-size: 20px;border: 0;border-radius: 10px; margin-left: -30px;">
+                            <a href="../Dashboard.php" style="color:#fff;"><b>Return BAck To Home</b></a></button>
+                        </center><br> -->
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
@@ -258,3 +287,40 @@ if (isset($_SESSION['reg_msg'])) {
         }
     }
 </script>
+
+
+<?php
+    include_once("Connection.php");
+
+if(isset($_POST['btn']))
+{
+$fn = @$_POST['fln'];
+$id = @$_POST['idn'];
+$em = @$_POST['em'];
+$phone = @$_POST['phone'];
+$st = @$_POST['st'];
+$ct = @$_POST['ct'];
+$rol = @$_POST['role'];
+$pwd = @$_POST['pwd'];
+$pic = @$_FILES['pic']['name'];
+$q = "INSERT INTO `registration`(`Fullname`, `Email`, `Mobile`, `Password`, `State`, `City`, `profile_pic`, `role`,User_id) VALUES 
+('$fn','$em','$phone','$pwd','$st',$ct,'$pic','$rol',$id)";
+
+    if(mysqli_query($con,$q))
+    {
+        move_uploaded_file($_FILES['pic']['tmp_name'],'images/'.$pic);
+        ?>
+        <script>
+            alert("Data Uploded successfully");
+            window.location.href="register.php?Email_Id=<?php echo $em ?>";
+        </script>
+        <?php
+            } else {
+                ?>
+        <script>
+            alert("Data Uploaded fail  Try Again latter");
+            window.location.href="register.php?Email_Id=<?php echo $em ?>";
+        </script>
+        <?php
+            }
+        }
