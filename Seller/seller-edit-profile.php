@@ -5,21 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title>Seller_profile</title>
+    <title>My-Profile</title>
+    <?php include_once("seller_nave.php") ?>
     <style>
-        .jack12 {
-            height: 80px;
-        }
+      
 
-        html {
-            scroll-behavior: smooth;
+        @media (max-width: 992px) {
+            main {
+                padding-top: 30px;
+            }
         }
-        /* body{
-            height: 200vh;
-        } */
         .profile {
             border-radius: 50%;
             background-color: rgb(255, 153, 0);
@@ -27,9 +22,9 @@
             margin-left: 35%;
         }
 
-        .full {
+        /* .full {
             margin-top: 20px;
-        }
+        } */
 
         .full .btn2 {
             margin-top: 35px;
@@ -50,13 +45,13 @@
             font-size: 20px;
         }
 
-        .oi {
+        /* .oi {
             position: fixed;
             height: 80%;
-            /* display: none; */
+            display: none;
             background-color: #9ec5c6;
-            /* border-radius: 10px; */
-        }
+            border-radius: 10px;
+        } */
 
         .feed {
             margin-top: 8px;
@@ -64,78 +59,34 @@
             font-size: 30px;
             font-weight: bold;
         }
-
-        .btn-custom {
-            background-color: #128680 !important;
-            color: #f3f3f3 !important;
-            transition: 0.5s ease-in-out;
-        }
-
-        .btn-custom:hover {
-            background-color: #169f98 !important;
-            /* color: #c7c6c6 !important; */
-            transform: scale(0.9);
-            transition: 0.5s ease-in-out;
-        }
-
-        .btn-custom-1 {
-            background-color: #689abf !important;
-            color: #f3f3f3 !important;
-            transition: 0.7s ease-in-out;
-        }
-
-        .btn-custom-1:hover {
-            background-color: #169f98 !important;
-            /* color: #c7c6c6 !important; */
-            transform: scale(1.1);
-            transition: 0.5s ease-in-out;
-        }
-
-        .fade {
-            width: 1000px;
-            height: 800px;
+        .jo{
+            margin-top: 70px;
         }
     </style>
 </head>
-
+<?php
+$email = $_SESSION['seller_email'];
+$data = "SELECT * FROM `registration` WHERE email='$email'";
+$a = mysqli_fetch_array(mysqli_query($con, $data));
+?>
 <body>
-    <?php include("seller_navebar.php") ?>
-    <div class="jack12"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12" style="text-align: center; background-color:white;">
-                <h2><b> <u>Profile Edit</u> </b> </h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-2 oi">
-                <div class="d-grid gap-3 full">
-                    <a href="seller_profile.php" class="btn btn-custom btn-lg active btn3" role="button"aria-pressed="true">
-                        Profile</a>
-                    <a href="seller_product.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Add product</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
-
-                    <a href="seller_rating.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Feedback</a>
-                    <a href="login.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
+   
+        <div class="container-fluid jo">
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center; background-color:white;">
+                    <h2><b>Edit Profile</b> </h2>
                 </div>
             </div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-10">
-                <form onSubmit="return(validate123());" method="post" enctype="multipart/form-data" action="Seller_dashboard.php">
-                <div class="hu">
-                        <img src="../image/Book.png" alt="Profile_picture" width="150px" class="profile"><br>
+            <form onSubmit="return(validate123());" method="post" enctype="multipart/form-data" action="">
+            <div class="row">
+                    <div class="hu">
+                        <img src="../image/user_image/<?php echo $a[6] ?>" alt="Profile_picture" height="150px" width="150px" class="profile"><br>
                         <div class="row row1">
                             <div class="col-sm-6">
 
                                 <div class="form-group">
                                     <label for="email">Full Name:</label>
-                                    <input type="text" class="form-control" placeholder="Enter Name" id="fname1"value="krishnu Gupta" name="fn1">
+                                    <input type="text" class="form-control" placeholder="Enter Name"  id="fname1" value="<?php echo $a[0] ?>" name="fn1">
                                     <p id="fn1"></p>
                                 </div>
 
@@ -143,7 +94,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="email">Email address:</label>
-                                    <input type="email" class="form-control" placeholder="Enter Email" id="emailid1" name="eid" value="Krishnu593@gmail.com" onblur="demo(this)">
+                                    <input type="email" readonly class="form-control" value="<?php echo $a[1] ?>" >
                                     <p id="mail1"></p>
                                 </div>
                             </div>
@@ -152,14 +103,15 @@
                             <div class="col-sm-6 con">
                                 <div class="form-group">
                                     <label for="pwd">Contact Number:</label>
-                                    <input type="text" class="form-control" placeholder="Number" id="mobile1" value="98.........." name="mobile">
+                                    <input type="text" class="form-control" placeholder="Number" id="mobile1" value="<?php echo $a[2] ?>" name="mobile">
                                     <p id="mno"> </p>
                                 </div>
                             </div>
+                            
                             <div class="col-sm-6 con">
                                 <div class="form-group">
                                     <label for="email">State:</label>
-                                    <input type="text" class="form-control" placeholder="Enter State" id="st" value="Gujrat" name="fn1">
+                                    <input type="text" class="form-control" placeholder="Enter State" id="st" value="<?php echo $a[4] ?>" name="state">
                                     <p id="st1"></p>
                                 </div>
                             </div>
@@ -168,52 +120,39 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="email">City:</label>
-                                    <input type="text" class="form-control" placeholder="Enter City" id="ct"value="Rajkot" name="fn1">
+                                    <input type="text" class="form-control" placeholder="Enter City" id="ct" value="<?php echo $a[5] ?>" name="city">
                                     <p id="ct1"></p>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <span>
-                                    Bio: <br>
-                                    <textarea name="" id="" cols="25" rows="2" placeholder="Bio"></textarea> <br>
+                                    About: <br>
+                                    <textarea name="about" id="" cols="25" rows="2" placeholder="Bio"></textarea> <br>
                                 </span>
                             </div>
                         </div>
                         <div class="row row1">
                             <div class="col-sm-3">
-
                             </div>
                             <div class="col-sm-6">
                                 <br>
                                 <input type="submit" class="btn btn-custom" value="Update" name="sub" />
                             </div>
                             <div class="col-sm-3">
-
                             </div>
                         </div>
 
                     </div>
                 </div>
-    </form>
             </div>
         </form>
+        </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-    <?php include_once("seller_change_password.php") ?>
-
+</html>
 <script>
     function validate123() {
         //alert("welcome to js");
         var fn = document.getElementById('fname1').value;
-        var email = document.getElementById('emailid1').value;
         var state = document.getElementById('st').value;
         var city = document.getElementById('ct').value;
         var no = document.getElementById('mobile1').value;
@@ -241,26 +180,7 @@
                 vfn = "true";
             }
         }
-        if (email == "") {
-            document.getElementById('mail1').innerHTML = "Email Address field cannot be empty";
-            document.getElementById('mail1').style.color = "red";
-            document.getElementById('emailid1').style.borderColor = "red";
-            var vemail = "false";
-        } else {
-            var em = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-            var a = em.test(email);
-            if (a == false) {
-                document.getElementById('emailid1').focus();
-                document.getElementById('mail1').innerHTML = "Invalid Email address Please Enter Valid Email Address";
-                document.getElementById('mail1').style.color = "red";
-                document.getElementById('emailid1').style.borderColor = "red";
-                vemail = "false";
-            } else {
-                document.getElementById('mail1').innerHTML = "";
-                document.getElementById('emailid1').style.borderColor = "green";
-                vemail = "true";
-            }
-        }
+        
         if (no == "") {
             document.getElementById('mno').innerHTML = "Mobile  number cannot be empty";
             document.getElementById('mno').style.color = "red";
@@ -271,7 +191,7 @@
             var b = mn.test(no);
             if (b == false) {
                 document.getElementById('mobile1').focus();
-                document.getElementById('mno').innerHTML = "Invalid Mobile Number Please Enter Valid Mobile Number";
+                document.getElementById('mno').innerHTML = "Invalid Mobile Number ";
                 document.getElementById('mno').style.color = "red";
                 document.getElementById('mobile1').style.borderColor = "red";
                 vno = "false";
@@ -284,10 +204,10 @@
         }
         if (state == "") {
             //alert("error");
-            document.getElementById('st1').innerHTML = "state name field cannot be empty";
-            document.getElementById('st1').style.color = "red";
-            document.getElementById('st1').style.borderColor = "red";
-            var vst = "false";
+            // document.getElementById('st1').innerHTML = "state name field cannot be empty";
+            // document.getElementById('st1').style.color = "red";
+            // document.getElementById('st1').style.borderColor = "red";
+            var vst = "true";
         } else {
             var fn123 = /^[a-zA-Z ]*$/;
             //alert ("demooooooooooo");
@@ -307,10 +227,10 @@
         }
         if (city == "") {
             //alert("error");
-            document.getElementById('ct1').innerHTML = "city name field cannot be empty";
-            document.getElementById('ct1').style.color = "red";
-            document.getElementById('ct1').style.borderColor = "red";
-            var vct = "false";
+            // document.getElementById('ct1').innerHTML = "city name field cannot be empty";
+            // document.getElementById('ct1').style.color = "red";
+            // document.getElementById('ct1').style.borderColor = "red";
+            var vct = "true";
         } else {
             var fn123 = /^[a-zA-Z ]*$/;
             //alert ("demooooooooooo");
@@ -328,12 +248,40 @@
                 vct = "true";
             }
         }
-        if (vemail == "true" && vno == "true" && vfn == "true" && vst == "true" && vct == "true") {
+        if ( vno == "true" && vfn == "true" && vst == "true" && vct == "true") {
             return true;
         } else {
             return false;
         }
     }
 </script>
-
-</html>
+<?php
+if(isset($_POST['sub'])){
+    $name=@$_POST['fn1'];
+    $email=$_SESSION['seller_email'];
+    $number=@$_POST['mobile'];
+    $state=@$_POST['state'];
+    $city=@$_POST['city'];
+    $about=@$_POST['about'];
+    if($about==""){
+        $about=$a[7];
+    }
+    $update="UPDATE `registration` SET `Fullname`='$name',`mobile`='$number',`State`='$state',`City`='$city',`About`='$about' WHERE Email='$email'";
+    if(mysqli_query($con,$update)){
+        $_SESSION['pass_profile']="Profile Updated";
+        ?>
+        <script>
+            window.location.href="seller_profile.php";
+        </script>
+        <?php
+    }else{
+        $_SESSION['fail_profile']="Profile Updated Failed";
+        header("location:user_profile.php");
+        ?>
+        <script>
+            window.location.href="seller_profile.php";
+        </script>
+        <?php
+    }
+}
+?>

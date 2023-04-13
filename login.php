@@ -235,10 +235,13 @@ if (isset($_POST['log'])) {
                 </script>
             <?php
             } else {
-                echo "Seller";
+                session_start();
+                $_SESSION['seller_id'] = "$role[10]";
+                $_SESSION['seller_email'] = "$em";
+                $_SESSION['seller_password'] = "$pass";
             ?>
                 <script>
-                    window.location.href="seller.php";
+                    window.location.href="seller/Seller_dashboard.php";
                 </script>
             <?php
             }

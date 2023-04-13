@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title>My-profile</title>
+    <title>Dashboard</title>
     <style>
         .jack12 {
-            height: 80px;
+            height:70px;
         }
 
         html {
@@ -103,17 +103,17 @@
             border: 7px solid #074c8d;
             background-color: #55d0cc;
             border-radius: 15px;
-            height: 250px;
-            width: 300px;
+            height: 300px;
+            width: 350px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
             transition: 0.5s ease-in-out;
         }
-        .box:hover{
+        /* .box:hover{
             transform: scale(1.1)
-        }
+        } */
         .contain {
             margin-top: 20px;
             width: 80%;
@@ -127,82 +127,88 @@
         .contain p {
             font-size: 30px;
         }
+        .da{
+            margin-left: 40px !important;
+        }
+        @media only screen and (max-width: 500px) {
+            .da{
+                margin-left:-25px !important;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <?php include("seller_navebar.php") ?>
+    <?php include_once("seller_nave.php") ?>
     <div class="jack12"></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12" style="text-align: center; background-color:white;">
+            <div class="col-sm-12 " style="text-align: center; background-color:white;">
                 <h2><b> <u>Dashboard</u> </b> </h2>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-2 oi">
-                <div class="d-grid gap-3 full">
-                    <a href="seller_profile.php" class="btn btn-custom btn-lg active btn3" role="button"aria-pressed="true">
-                        Profile</a>
-                    <a href="seller_product.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Add product</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
-
-                    <a href="seller_rating.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Feedback</a>
-                    <a href="login.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>
-                </div>
-            </div>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-9">
+        <div class="row da">
+            <div class="col-sm-12">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="box">
                             <div class="contain">
                                 <p>Total product</p> <br>
                                 <p> 6 </p>
                             </div>
-                            <a href="seller_product.php"><button class="btn-custom"  style="height:35px; width:100%">View Product</button></a>
+                            <a href="seller_product.php"><button  class="btn btn-info">View Product</button></a>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="box">
                             <div class="contain">
                                 <p>Orders</p> <br>
                                 <p> 67 </p>
                             </div>
-                            <a href="#"><button class="btn-custom"  style="height:35px; width:100%">Orders</button></a>
+                            <a href="#"><button  class="btn btn-info">Orders</button></a>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <div class="contain">
+                                <p>Out Of Stock</p> <br>
+                                <p> 67 </p>
+                            </div>
+                            <a href="#"><button  class="btn btn-info">Orders</button></a>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-9">
+            <div class="col-sm-12">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="box">
                             <div class="contain">
-                                <p>Total Income</p> <br>
-                                <p> 578 </p>
+                                <p>Undelivered</p> <br>
+                                <p> 1111 </p>
                             </div>
-                            
-                            <a href="seller_rating.php"><button class="btn-custom"  style="height:35px; width:100%">Income</button></a>
-
+                            <a href="seller_rating.php"><button class="btn btn-info">View user</button></a>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="box">
                             <div class="contain">
                                 <p>Feedbacks</p> <br>
                                 <p> 1111 </p>
                             </div>
-                            <a href="seller_rating.php"><button class="btn-custom"  style="height:35px; width:100%;">View user</button></a>
+                            <a href="seller_rating.php"><button  class="btn btn-info">View Feedback</button></a>
                         </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <div class="contain">
+                                <p>Total Income</p> <br>
+                                <p> RS.578 </p>
+                            </div>
+                         </div>
                     </div>
                 </div>
             </div>

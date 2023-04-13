@@ -173,6 +173,7 @@ if (isset($_SESSION['PASSWORDWRONG'])) {
                 if (pass != "") {
                     if (pass == cpass) {
                         document.getElementById("orangeForm-name").style.boxShadow = "4px 4px 1px 1px green";
+                        document.getElementById("checkpasserr").innerHTML='';
                     } else {
                         document.getElementById("orangeForm-name").style.boxShadow = "4px 4px 1px 1px red";
                         document.getElementById("checkpasserr").innerHTML='Enter Correct Password';
@@ -189,6 +190,8 @@ if (isset($_SESSION['PASSWORDWRONG'])) {
                 if (pass != "") {
                     if (passwordcheck.test(pass)) {
                         document.getElementById("pass").style.boxShadow = "4px 4px 1px 1px green";
+                        document.getElementById("passerr").innerHTML='';
+
                     } else {
                         document.getElementById("pass").style.boxShadow = "4px 4px 1px 1px red";
                         document.getElementById("passerr").innerHTML='Password must Contain 8 Character With Special Symbol And Number';
@@ -205,6 +208,7 @@ if (isset($_SESSION['PASSWORDWRONG'])) {
                 if (cpass != "") {
                     if (pass == cpass) {
                         document.getElementById("cpass").style.boxShadow = "4px 4px 1px 1px green";
+                        document.getElementById("cpasserr").innerHTML='';
                     } else {
                         document.getElementById("cpass").style.boxShadow = "4px 4px 1px 1px red";
                         document.getElementById("cpasserr").innerHTML='Enter Same Password As Above';

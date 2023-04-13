@@ -1,93 +1,96 @@
-
-
 <style>
-    tr td input{
+    tr td input {
         color: black;
     }
 </style>
 
 <link rel="stylesheet" href="style.css">
 
-<form action="" method="post"enctype="multipart/form-data">
-<table border="1">
-    <tr>
-        <td colspan="2" style="font-size: 30px;">Order Insert Form !</td>
-    </tr>
-    <tr>
-        <td>Product_Id:</td>
-        <td> <input type="text" name="pid" required></td>
-    </tr>
-    <tr>
-        <td>Product_Name:</td>
-        <td> <input type="text" name="p_name" required></td>
-    </tr>
-    <tr>
-        <td>Seller_Id:</td>
-        <td> <input type="text" name="sid" required></td>
-    </tr>
-    <tr>
-        <td>Price: </td>
-        <td><input type="text" name="price" required></td>
-    </tr>
-    <tr>
-        <td>Quantity:</td>
-        <td><input type="text" name="qntt" required></td>
-    </tr>
-    <tr>
-        <td>Author:</td>
-        <td><input type="text" name="athr" required></td>
-    </tr>
-    <tr>
-        <td>Category:</td>
-        <td><input type="text" name="c_name" required></td>
-    </tr>
-    <tr>
-        <td>My Product:</td>
-        <td><input type="file" name="pic" id="pic1" required></td>
-    </tr>
-    <tr>
-        <td colspan="2"><input type="submit" value="Upload" name="btn"  style="font-size: 20px; width: 30%; background: green; border-radius: 7px;"></td>
-    </tr>
-    <!-- <tr>
+<form action="" method="post" enctype="multipart/form-data">
+    <table border="1">
+        <tr>
+            <td colspan="2" style="font-size: 30px;">Product Insert Form !</td>
+        </tr>
+        <tr>
+            <td>Book:</td>
+            <td> <input type="text" name="book" id="" required> </td>
+        </tr>
+        <tr>
+            <td>Auther:</td>
+            <td> <input type="text" name="auther" id="" required></td>
+        </tr>
+        <tr>
+            <td>Seller_Id:</td>
+            <td> <input type="text" name="seller" required></td>
+        </tr>
+        <tr>
+            <td>category: </td>
+            <td> <select name="select" id="">
+                    <option value="Adventure stories">Adventure stories</option>
+                    <option value="Classics">Classics</option>
+                    <option value="Crime">Crime</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Humour and satire">Humour and satire</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Literary fiction">Literary fiction</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td> <textarea name="des" id="" cols="80" rows="5"></textarea></td>
+        </tr>
+        <tr>
+            <td>price:</td>
+            <td><input type="number" name="price" id=""></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><input type="number" name="quantity" id=""></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="file" name="photo"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="submit" name="btn"></td>
+        </tr>
+        <!-- <tr>
         <td colspan="2" style="font-size: 20px;">Have an account? <a href="Login.php" style="text-decoration: none; color: green;">Login</a></td>
     </tr> -->
-</table>
+    </table>
 </form>
 <?php
 include_once("../database/Create_database.php");
 
-if(isset($_POST['btn']))
-{
-$p_id = @$_POST['pid'];
-$p_name = @$_POST['p_name'];
-$s_id = @$_POST['sid'];
-$price = @$_POST['price'];
-$q_name = @$_POST['qntt'];
-$author = @$_POST['athr'];
-$cname = @$_POST['c_name'];
-$pic = @$_FILES['pic']['name'];
+if(isset($_POST['btn'])){
+    $Book=@$_POST['book'];
+    $Auther=@$_POST['auther'];
+    $select=@$_POST['select'];
+    $description =@$_POST['des'];
+    $price=@$_POST['price'];
+    $quantity=@$_POST['quantity'];
+    $file_name = $_FILES['photo']['name'];
+    $file_temp = $_FILES['photo']['tmp_name'];
+    $target_dir = "../image/Book_image/";
+    $target_file = $target_dir . basename($file_name);
+    $seller_id=@$_POST['seller'];
 
-$q = "INSERT INTO `Products`(`Product_Id`, `Product_Name`, `Seller_Id`, `Price`, `Quantity`, `Author`, `Category`, `Product_pic`) VALUES 
-('$p_id','$p_name','$s_id','$price','$q_name','$author','$cname','$pic')";
-
-    if(mysqli_query($con,$q))
-    {
-        move_uploaded_file($_FILES['pic']['tmp_name'],'image/'.$pic);
+    // INSERT INTO `product`(`Product_Name`, `Price`, `Product_Image`, `Total_Quantity`, `Renaining_Quantity`, `Category`, `Description`, `Auther`, `User_id`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]')
+    $update="INSERT INTO `product`(`Product_Name`, `Price`, `Product_Image`, `Category`, `Description`, `Auther`, `User_id`, `Total_Quantity`, `Renaining_Quantity`) VALUES ('$Book','$price','$file_name','$select','$description','$Auther','$seller_id','$quantity','$quantity')";
+    if(mysqli_query($con,$update)){
+    if(move_uploaded_file($file_temp, $target_file)){
         ?>
         <script>
-            alert("Pruduct Uploaded successful");
-        </script>
-<tr>
-<td><a href="Product.php" style="text-decoration: none; color: green; width: 50%; text-align: center; 
-font-size: 25px; background: transparent; border-radius: 5px; border:2px solid black;">View Data</a></td>
-</tr>
-<?php
-    }
-    else{
-        ?>
-        <script>
-            alert("Product Uploaded unsuccessful");
+            alert("fail in Product Insersion ");
+            window.location.href="Product.php";
         </script>
         <?php
+    }else{
+        ?>
+        <script>
+            alert("Product Inserted");
+            window.location.href="Product.php";
+        </script>
+        <?php
+    }
     }
 }

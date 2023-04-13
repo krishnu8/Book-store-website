@@ -5,96 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title>My-profile</title>
+    <title>My-Profile</title>
+    <?php include_once("seller_nave.php") ?>
     <style>
-        .jack12 {
-            height: 80px;
-        }
+        @media (max-width: 992px) {
+            main {
+                padding-top: 30px;
+            }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* body{
-            height: 200vh;
-        } */
-        .profile {
-            border-radius: 50%;
-            background-color: rgb(255, 153, 0);
-            margin-top: 15px;
-            margin-left: 35%;
-        }
-
-        .full {
-            margin-top: 20px;
-        }
-
-        .full .btn2 {
-            margin-top: 35px;
-        }
-
-        .full .btn3 {
-            margin-top: 10px;
-        }
-
-        .hu {
-            background-color: #e2e0d4;
-        }
-
-        .row1 .col-sm-6 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 20px;
-        }
-
-        .oi {
-            position: fixed;
-            height: 80%;
-            /* display: none; */
-            background-color: #9ec5c6;
-            /* border-radius: 10px; */
-        }
-
-        /* .feed {
-            margin-top: 8px;
-            text-align: center;
-            font-size: 30px;
-            font-weight: bold;
-        } */
-
-        .btn-custom {
-            background-color: #128680 !important;
-            color: #f3f3f3 !important;
-            transition: 0.5s ease-in-out;
-        }
-
-        .btn-custom:hover {
-            background-color: #169f98 !important;
-            /* color: #c7c6c6 !important; */
-            transform: scale(0.9);
-            transition: 0.5s ease-in-out;
-        }
-
-        .btn-custom-1 {
-            background-color: #689abf !important;
-            color: #f3f3f3 !important;
-            transition: 0.7s ease-in-out;
-        }
-
-        .btn-custom-1:hover {
-            background-color: #169f98 !important;
-            /* color: #c7c6c6 !important; */
-            transform: scale(1.1);
-            transition: 0.5s ease-in-out;
-        }
-
-        .fade {
-            width: 1000px;
-            height: 800px;
+            .bu {
+                position: absolute;
+                margin-top: 225px;
+                margin-left: 250px;
+            }
         }
 
         .box {
@@ -142,27 +65,10 @@
             text-align: center;
         }
 
-        .profile-img img {
-            width: 70%;
-            height: 100%;
-        }
-
-        .profile-img .file {
-            position: relative;
-            overflow: hidden;
-            margin-top: -20%;
-            width: 70%;
-            border: none;
-            border-radius: 0;
-            font-size: 15px;
-            background: #212529b8;
-        }
-
-        .profile-img .file input {
-            position: absolute;
-            opacity: 0;
-            right: 0;
-            top: 0;
+        .profile-img .im {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
         }
 
         .profile-head h5 {
@@ -175,10 +81,11 @@
 
         .profile-edit-btn {
             border: none;
-            border-radius: 1.5rem;
+            border-radius: 5px;
             padding: 2%;
             font-weight: 600;
-            color: #6c757d;
+            color: white;
+            background-color: #128680;
             cursor: pointer;
         }
 
@@ -239,154 +146,297 @@
             font-weight: 600;
             color: #0062cc;
         }
+
+        .ju {
+            width: 180px;
+            font-size: 18px;
+        }
+
+        .up {
+            position: relative;
+            z-index: 1;
+            left: -120px;
+            top: 80px;
+            cursor: pointer;
+            height: 80px;
+            opacity: 0%;
+        }
+
+        .up:hover {
+            opacity: 60%;
+        }
+
+        .change {
+            position: relative;
+            z-index: 1;
+            bottom: -250px;
+            left: -110px;
+        }
+        .jo{
+            margin-top: 70px;
+        }
     </style>
 </head>
+<?php
+$email = $_SESSION['seller_email'];
+$data = "SELECT * FROM `registration` WHERE email='$email'";
+$a = mysqli_fetch_array(mysqli_query($con, $data));
+
+if (isset($_SESSION['fail_profile'])) {
+?>
+    <div class="ale">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Sorry!</strong> <?php echo $_SESSION['fail_profile'] ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        setTimeout("", 5000);
+    </script>
+<?php
+    unset($_SESSION['fail_profile']);
+}
+
+if (isset($_SESSION['pass_profile'])) {
+?>
+    <div class="ale">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong> <?php echo $_SESSION['pass_profile'] ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        setTimeout("", 5000);
+    </script>
+<?php
+    unset($_SESSION['pass_profile']);
+}
+
+if (isset($_SESSION['Image_error'])) {
+?>
+    <div class="ale">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> <?php echo $_SESSION['Image_error'] ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        setTimeout("", 5000);
+    </script>
+<?php
+    unset($_SESSION['Image_error']);
+}
+
+if (isset($_SESSION['Image_succ'])) {
+?>
+    <div class="ale">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong> <?php echo $_SESSION['Image_succ'] ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        setTimeout("", 5000);
+    </script>
+<?php
+    unset($_SESSION['Image_succ']);
+}
+?>
 
 <body>
-    <?php include("seller_navebar.php") ?>
-    <div class="jack12"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12" style="text-align: center; background-color:white;">
-                <h2><b>MY Profile</b> </h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-2 oi">
-                <div class="d-grid gap-3 full">
-                    <a href="#" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">
-                        Profile</a>
-                    <a href="seller_product.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Add product</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#modalRegisterForm">Change Password</a>
-                    <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true"
-                        data-toggle="modal" data-target="#exampleModalCenter">Delete Account</a>
-
-                    <a href="seller_rating.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Feedback</a>
-                    <a href="login.php" class="btn btn-custom btn-lg active btn2" role="button"
-                        aria-pressed="true">Logout</a>
+  
+        <div class="container-fluid jo">
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center; background-color:white;">
+                    <h2><b>Profile</b> </h2>
                 </div>
             </div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-5">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class=" emp-profile">
-                            <form method="post">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="profile-img">
-                                            <img src="../image/a3.jpg" alt="" />
-                                            <!-- <div class="file btn btn-lg btn-primary">
-                                                Change Photo
-                                                <input type="file" name="file" />
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="profile-head">
-                                            <h5>
-                                                Krishnu Gupta
-                                            </h5>
-                                            <h6>
-                                                Web Developer and Designer
-                                            </h6>
-                                            <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
-                                            <br>
-                                            <br>
-                                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" id="home-tab" data-toggle="tab"
-                                                        href="#home" role="tab" aria-controls="home"
-                                                        aria-selected="true">About</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <a href="seller-edit-profile.php"><input type="button" name="btnAddMore" class="profile-edit-btn"
-                                            value="Edit Profile" /></a>
-                                    </div>
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-sm-12">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="profile-img">
+                                    <img class="im" src="../image/user_image/<?php echo $a[6] ?>" alt="Profile picture" />
+                                    <label for="image1"><img class="up" src="../image/edit.png"></label>
+                                    <form action="seller_profilepicture_action.php?img=<?php echo $a[6] ?>" method="post" enctype="multipart/form-data" onsubmit=return(validate_image())>
+                                        <input type="file" name="fgd" id="image1" style="display: none; ">
+                                        <input type="submit" id="change_pic" class="change profile-edit-btn" name="change_pic" value="Change Profile Picture">
+                                    </form>
+                                    <!-- <label for="sub"><p class="profile-edit-btn" style="cursor: pointer;">Change password</p></label> -->
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="profile-work">
-                                            <p>
-                                            <h5>About Your Self</h5>
-                                            printf("Hello world");
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="tab-content profile-tab" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                                aria-labelledby="home-tab">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>User Id</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>Krishnu</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Name</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>Krishnu Gupta</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Email</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>krishnugupta593@gmail.com</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Phone</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>123 456 7890</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Number of Bought</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>128</p>
-                                                    </div>
-                                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="profile-head">
+                                    <h5>
+                                        <?php echo $a[0] ?>
+                                    </h5>
+                                    <h6>
+                                        <?php
+                                        if ($a[9] == "Normal") {
+                                        ?>
+                                            Customer
+                                        <?php
+                                        } elseif ($a[9] == "Admin") {
+                                        ?>
+                                            Admin
+                                        <?php
+                                        } else {
+                                        ?>
+                                            Seller
+                                        <?php
+                                        }
+                                        ?>
+                                    </h6>
+                                    <br>
+                                    <br>
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item" style="display: flex; flex-direction: column; margin-bottom: 0px;">
+                                            <h4 style="margin-top: 80px;">About</h4>
+                                            <hr style="height: 2px; background-color: red; margin: 0;">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 bu">
+                                <a href="seller-edit-profile.php"><input type="button" name="btnAddMore" class="profile-edit-btn" value="Edit Profile" /></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="profile-work">
+                                    <p>
+                                    <h5>About Your Self</h5>
+                                    <div class="ju"><?php echo $a[7] ?></div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="tab-content profile-tab" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $a[0] ?></p>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $a[1] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo $a[2] ?></p>
+                                            </div>
+                                        </div>
+                                        <?php
+                                        if ($a[4] != "" && $a[5] != "") {
+                                        ?>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>City State</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><?php echo $a[5] ?>,<?php echo $a[4] ?></p>
+                                                </div>
+                                            </div>
+                                            <?php
+                                        } else {
+                                            if ($a[4] != "") {
+                                            ?>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>State</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p><?php echo $a[4] ?></p>
+                                                    </div>
+                                                </div>
+                                            <?php
+                                            } elseif ($a[5] != "") {
+                                            ?>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>City</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p><?php echo $a[5] ?></p>
+                                                    </div>
+                                                </div>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                        <!-- <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Number of Book Bought</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>128</p>
+                                            </div>
+                                        </div> -->
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
 
                     </div>
+
                 </div>
             </div>
         </div>
-
-
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
 
 </html>
-<?php include_once("seller_change_password.php") ?>
+<script>
+ function validate_image(Fileupload, main_photo_err) {
+    //alert("hello");
+    img_size = Fileupload.files[0].size;
+    alert(img_size);
+    var FileUploadPath = Fileupload.value;
+    // alert(FileUploadPath);
+    //To check if user upload any file
+    if (FileUploadPath == '') {
+        main_photo_err.innerHTML = "Please upload a file";
+        main_photo_err.style.color = "red";
+        return false;
+    }
+    else if (img_size >= 409600 || img_size == 0) {
+        main_photo_err.innerHTML = "Please upload a file of size less than 200Kb";
+        main_photo_err.style.color = "red";
+        return false;
+    }
+    else {
+        var Extension = FileUploadPath.substring(
+            FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+        //The file uploaded is an image
+        if (Extension == "png" || Extension == "jpeg" || Extension == "jpg") {
+            return true;
+        }
+        //The file upload is NOT an image
+        else {
+            main_photo_err.innerHTML = "Please upload a valid image file of type JPG or PNG";
+            main_photo_err.style.color = "red";
+            return false;
+        }
+    }
+}
+</script>

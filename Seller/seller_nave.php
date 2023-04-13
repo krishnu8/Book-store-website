@@ -1,7 +1,11 @@
-
-
+<?php
+session_start();
+include_once("../database/Create_database.php");
+include_once("seller_change_password.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,8 +21,8 @@
   <style type="text/css">
     body {
       background-color: rgb(220, 220, 220);
-      font-family: 'Open Sans', serif;    
-        font-size: 14px;
+      /* font-family: 'Open Sans', serif;     */
+      font-size: 14px;
     }
 
     table,
@@ -30,19 +34,16 @@
     }
 
     .navbar-nav1 {
-      margin-left:50%;
+      margin-left: 500px;
     }
 
     li {
-      /* margin-left: 45px;
-      margin-right: 20px; */
-      display: flex;
-      /* margin-left: 50px; */
-      margin-right: 100px;
+      margin-left: 45px;
+      margin-right: 20px;
       font-size: 20px;
     }
-
     @media only screen and (max-width: 500px) {
+     
 
       .navbar-nav1 {
         margin: 0;
@@ -124,6 +125,38 @@
       transform: scale(1.1);
       transition: 0.5s ease-in-out;
     }
+
+    main {
+      margin-top: 75px;
+    }
+
+    .ale {
+      position: absolute;
+      top: 100px;
+      right: 50px;
+      z-index: 1;
+      width: 500px;
+      font-size: 18px;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: #e9ecef;
+    }
+
+    .navbar-dark .navbar-nav .active1 {
+      color: red;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover{
+            color: red; 
+    }
+
+    .drop {
+      color: red;
+    }
+    .roman123{
+      background-color: blue;
+      color: red !important ;
+    }
   </style>
 </head>
 
@@ -142,31 +175,34 @@
         <i class="bi bi-three-dots-vertical" style="font-size: 25px; background-color: none;"></i>
       </button>
       <div class="collapse navbar-collapse" id="topNavBar">
-       
         <ul class="navbar-nav navbar-nav1">
           <li class="nav-item">
-            <a class="nav-link" href="">Dashboard</a>
+            <a class="nav-link" href="Seller_dashboard.php">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i> Start selling</a>
+            <a class="nav-link" href="">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="seller_rating.php">Feadback</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="seller_product.php">Products</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              
+              <!-- <i class="bi bi-person-fill"></i> -->
+              <!-- <img src="image/Book1.png" class="img-fluid" style="height:25px; width:25px; border-radius:50%;"> -->
               More
             </a>
             <ul class="dropdown-menu dropdown-menu-end dro">
-            <li>
-                <a class="dropdown-item" href="user_profile.php">View product</a>
+              <li>
+                <a class="dropdown-item " href="">My Profile</a>
               </li>
               <li>
-                <a class="dropdown-item" href="user_profile.php">My Profile</a>
-              </li>
+                <a class="dropdown-item" data-toggle="modal" data-target="#cppp" href="">Change Password</a>
+              </li> 
               <li>
-                <a class="dropdown-item" href="user_profile.php">Change Password</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="user_profile.php">Delete Account</a>
+                <a class="dropdown-item" data-toggle="modal" data-target="#delete_acc" href="">Delete Account</a>
               </li>
               <li>
                 <a class="dropdown-item" href="">About Us</a>
@@ -175,13 +211,13 @@
                 <a class="dropdown-item" href="">Contact Us</a>
               </li>
               <li>
-                <a class="dropdown-item" href="" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
+                <a class="dropdown-item" href="seller_logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
               </li>
             </ul>
           </li>
-         
         </ul>
       </div>
     </div>
   </nav>
-  <script src="custom_js/bootstrap.bundle.min.js"></script> 
+  
+  <script src="custom_js/bootstrap.bundle.min.js"></script>

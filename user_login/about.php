@@ -53,25 +53,33 @@
 ?>
 <div class="aahan"></div>
 <body style="display:flex ;flex-direction: column;flex-wrap: nowrap;word-wrap: none;">
-    <section class="nav">
+<section class="nav">
         
     
-            <div style="border-bottom: rgb(230, 8, 8);margin-left: 45%;">
-                <div class="about"> About Us<br></div>
-            </div>
-    <br>
-        <div class="ab"
-            style="display: flex; flex-direction:row;margin:50px;justify-content:center; height:60%;width:100%;margin-left: -10px;">
-            <div style="width: 40%; height:110%;margin: 0px 20px ;"><img src="../image/Book_image/a2.jpg" alt="" height="100%"
-                    width="100%"></div>
-            <di7
-                style="width: 40%; height:110%;margin: 0px 20px;background-color: white;padding: 10px;justify-content: space-evenly;">
-                <div class="text1"><br> As previously mentioned, the Internet can be used to start an online business, but that is not the only way to profit on the Internet. For writers, it is now possible to self-publish a book on the Internet. Kindle Direct Publishing, NOOK Press, and iTunes Connect are just a few of the services that can be used to publish a book. 
-                <br><br>
-                    Enjoy your day and hope you liked our website</div>
-            </div>
+        <div style="border-bottom: rgb(230, 8, 8);margin-left: 45%;">
+            <div class="about"> About Us<br></div>
         </div>
-    </section>
+        <?php 
+         $select_query = "select * from `about_us`";
+         $result_query = mysqli_query($con,$select_query);
+         while($row = mysqli_fetch_assoc($result_query)){
+    $Message = $row['Message'];
+    $Pic = $row['Pic'];
+    echo "<div class='ab'
+    style='display: flex; flex-direction:row;margin:50px;justify-content:center; height:60%;width:100%;margin-left: -10px;'>
+    <div style='width: 40%; height:110%;margin: 0px 20px ;'><img src='../image/about_pic/$Pic' alt='' height='100%'
+            width='100%'></div>
+    <di7
+        style='width: 40%; height:110%;margin: 0px 20px;background-color: white;padding: 10px;justify-content: space-evenly;'>
+        <div class='text1' style='font-size: 30px;'>$Message <br> <br> Thanks For Visiting Our Web Site
+            </div> <br> 
+            <button type='button' class='btn btn-success' >Read More</button>
+    </div>
+</div>";
+         }
+?>
+    
+</section>
     <?php include_once("footer.php"); ?>
 </body>
 
