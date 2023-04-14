@@ -1,15 +1,5 @@
 <head>
-<?php
-include_once("navbar.php")
-?>
 <style>
-    .form-control{
-        height: 40px;
-    }
-    .search{
-        height: 40px;
-        width: 75px;
-    }
 .form_class{
     width: 350px;
     margin: 10px;
@@ -29,6 +19,10 @@ include_once("navbar.php")
 
 </style>
 </head>
+
+<?php
+include_once("navbar.php")
+?>
 <br>
 <h2 style="color: green; width: 15%; margin-left: 39%;">MESSAGES</h2>
 <br>

@@ -1,11 +1,29 @@
+<head>
+    <style>
+            form{
+        text-align: center;
+        margin-top: 10px;
+        margin-left: 35%;
+    }
+    tr td{
+        font-size: 20px;
+    }
+    tr td input{
+        border-radius: 5px;
+        font-size: 17px;
+    }
+    </style>
+</head>
+<?php
+include_once('Header.php');
+?>
 
-<link rel="stylesheet" href="style.css">
+<!-- <link rel="stylesheet" href="style.css"> -->
 <?php
 include_once("../database/Create_database.php");
 
 // session_start();
 // if (isset($_SESSION['Email_Id']) && isset($_SESSION['password'])) {
-
     $o_id = @$_GET['Order_Id'];
     $q = "SELECT * FROM `Oders` WHERE Order_Id='$o_id'";
     $result = mysqli_query($con, $q);
@@ -28,21 +46,17 @@ include_once("../database/Create_database.php");
         <td>Quantity:</td>
         <td> <input type="text" name="qntt" value="<?php echo "$a[2]"; ?>"></td>
     </tr>
-    <tr class="a0">
-        <td>Price:</td>
-        <td> <input type="text" name="price" value="<?php echo "$a[3]"; ?>"></td>
-    </tr>
     <tr class="a1">
         <td>Order Date:</td>
-        <td><input type="date" name="orderdt" value="<?php echo "$a[4]"; ?>" readonly> <br></td>
+        <td><input type="date" name="orderdt" value="<?php echo "$a[3]"; ?>" readonly> <br></td>
     </tr>
     <tr class="a0">
         <td>Deliver Date:</td>
-        <td><input type="text" name="deliverdt" value="<?php echo "$a[5]"; ?>"></td>
+        <td><input type="text" name="deliverdt" value="<?php echo "$a[4]"; ?>"></td>
     </tr>
     <tr class="a1">
-        <td>Coupon:</td>
-        <td><input type="text" name="cup" value="<?php echo "$a[6]"; ?>" readonly> <br></td>
+        <td>User Id:</td>
+        <td><input type="text" name="uid" value="<?php echo "$a[5]"; ?>" readonly> <br></td>
     </tr>
 
     <tr class="a1">
@@ -59,22 +73,18 @@ include_once("../database/Create_database.php");
             $o_id = @$_POST['oid'];
             $p_id = @$_POST['pid'];
             $c_name = @$_POST['qntt'];
-            $price = @$_POST['price'];
             $odt = @$_POST['orderdt'];
             $ddt = @$_POST['deleverdt'];
             $uid = @$_POST['uid'];
-            $des = @$_POST['dis'];
-
-            $update = "UPDATE `Oders` SET `Product_Id`='$p_id',`Quantity`='$c_name',`Price`='$price',
-            `Order_date`='$odt', `Deliver_date`='$ddt', `User_Id`='$uid',`Description`='$des'WHERE Order_Id='$o_id'";
+ 
+            $update = "UPDATE `Oders` SET `Product_Id`='$p_id',`Quantity`='$c_name',
+            `Order_date`='$odt', `Deliver_date`='$ddt', `User_Id`='$uid'WHERE Order_Id='$o_id'";
             if (mysqli_query($con, $update)) {
                 ?>
         <script>
             alert("Data Updated successfully");
+            window.location.href="Orders.php?Order_Id=<?php echo $o_id ?>";
         </script>
-        <a href="Orders.php">
-        <button style="color: black; width: 50%; border: 2px double black; background: transparent; margin-top: -10px;">
-        View Data</button></a>
         <?php
             } else {
                 ?>

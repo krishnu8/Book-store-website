@@ -39,7 +39,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     ?>
 <div class="stu">Seller Details !</div>
 <div class="fam">
-<h3><a href="edit_data.php"><i class="fa fa-solid fa-pen-to-square"></i>Edit</a></h3>
+<h3><a href="Seller_Edit.php"><i class="fa fa-solid fa-pen-to-square"></i>Edit</a></h3>
 </div>
 <div style="background-color: #212529; width: 50%; margin-left: 25%; text-align: center;">
     <img src="uploads/<?php echo $a[6]; ?>" alt="No profile picture"height='150px;' width='150px' >

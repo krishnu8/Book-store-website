@@ -1,11 +1,30 @@
+<head>
+    <style>
+            form{
+        text-align: center;
+        margin-left: 35%;
+        margin-top: 10px;
+    }
+    tr td input{
+        font-size: 17px;
+        border-radius: 5px;
+    }
+    tr td{
+        font-size: 20px;
+    }
+    </style>
+</head>
+<?php
+include_once('Header.php');
+?>
 
-<link rel="stylesheet" href="style.css">
+<!-- <link rel="stylesheet" href="style.css"> -->
 <?php
 include_once("../database/Create_database.php");
 
-    $o_id = @$_GET['User_Id'];
+    $u_id = @$_GET['User_Id'];
 
-    $q = "SELECT * FROM `Review` WHERE User_Id='$o_id'";
+    $q = "SELECT * FROM `Review` WHERE User_Id='$u_id'";
 
     $result = mysqli_query($con, $q);
     $a = mysqli_fetch_array($result);
@@ -25,7 +44,7 @@ include_once("../database/Create_database.php");
     </tr>
     <tr class="a1">
         <td>Feedback:</td>
-        <td> <input type="text" name="qntt" value="<?php echo "$a[2]"; ?>"></td>
+        <td> <input type="text" name="feed" value="<?php echo "$a[2]"; ?>"></td>
     </tr>
     <tr class="a0">
         <td>Rating:</td>
@@ -42,12 +61,12 @@ include_once("../database/Create_database.php");
 </form>
 <?php
         if (isset($_POST['btn'])) {
-            $o_id = @$_POST['uid'];
+            $u_id = @$_POST['uid'];
             $p_id = @$_POST['pid'];
-            $c_name = @$_POST['qntt'];
-            $price = @$_POST['price'];
+            $feed = @$_POST['feed'];
+            $rat = @$_POST['price'];
 
-            $update = "UPDATE `Review` SET `Product_Id`='$p_id',`Feedback`='$c_name',`Rating`='$price'WHERE User_Id='$o_id'";
+            $update = "UPDATE `Review` SET `Product_Id`='$p_id',`Feedback`='$feed',`Rating`='$rat'WHERE User_Id='$u_id'";
             if (mysqli_query($con, $update)) {
                 ?>
         <script>

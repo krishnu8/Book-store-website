@@ -42,7 +42,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 <h3><a href="User_Edit.php"><i class="fa fa-solid fa-pen-to-square"></i>Edit</a></h3>
 </div>
 <div style="background-color: #212529; width: 50%; margin-left: 25%; text-align: center;">
-    <img src="../image/<?php echo $a[6]; ?>" alt="No profile picture"height='150px;' width='150px' >
+    <img src="uploads/<?php echo $a[6]; ?>" alt="No profile picture"height='150px;' width='150px' >
 </div>
 <table>
   <tbody>

@@ -1,5 +1,24 @@
 
-<link rel="stylesheet" href="style.css">
+<head>
+    <style>
+        form{
+            text-align: center;
+            margin-left: 37%;
+            margin-top: 10px;
+        }
+        tr td{
+            font-size: 20px;
+        }
+        tr td input{
+            font-size: 17px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<?php
+include_once('Header.php');
+?>
+<!-- <link rel="stylesheet" href="style.css"> -->
 <?php
 include_once("../database/Create_database.php");
 
@@ -13,7 +32,7 @@ include_once("../database/Create_database.php");
 <form action="" method="post"enctype="multipart/form-data">
 <table >
     <tr class="a1">
-        <td colspan="2" style="font-size: 30px;">Update Cart Details !</td>
+        <td colspan="2" style="font-size: 30px;">Update Notification Details !</td>
     </tr>
     <tr class="a1">
         <td>User_Id_NO:</td>
@@ -25,7 +44,7 @@ include_once("../database/Create_database.php");
     </tr>
     <tr class="a1">
         <td>Messages:</td>
-        <td> <input type="text" name="qntt" value="<?php echo "$a[3]"; ?>"></td>
+        <td> <input type="text" name="qntt" value="<?php echo "$a[2]"; ?>"></td>
     </tr>
 
     <tr class="a1">

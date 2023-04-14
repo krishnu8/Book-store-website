@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 <?php
 include_once("Connection.php");
 
@@ -50,7 +50,7 @@ include_once("Connection.php");
         <td colspan="2"><input type="submit" value="Update" name="btn"  style="font-size: 20px; width: 30%; border-radius: 5px;"></td>
     </tr>
     <tr class="a0">
-        <td colspan="2" style="font-size: 20px;">Have an account? <a href="Login.php" style="text-decoration: none; color: green;">Login</a></td>
+        <td colspan="2" style="font-size: 20px;">Return Backt To Previous Page? <a href="Admin.php" style="text-decoration: none; color: green;">Return</a></td>
     </tr>
 </table>
 </form>

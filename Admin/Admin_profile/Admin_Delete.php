@@ -1,17 +1,24 @@
 <?php
 include_once("Connection.php");
-session_start();
-if (isset($_SESSION['Email']) && isset($_SESSION['password'])) {
-    $enroll = @$_GET['Enroll'];
-    $q = "DELETE FROM `registration` WHERE role='Admin'";
-    if (mysqli_query($con, $q)) {
-        ?>
-    <script>
-        alert("Data deleted successfully");
-        window.location.href="../Dashboard.php";
-    </script>
+
+$rol=@$_GET['Admin'];
+$q="DELETE FROM `registration` WHERE role='Admin'";
+// echo $q;
+if (mysqli_query($con,$q))
+{
+    ?>
+     <script>
+            alert("Data Deleted successfully");
+            window.location.href="Admin.php?Admin_Id=<?php echo $rol ?>";
+        </script>
     <?php
-    }
-}else{
-    header("location:Login.php");
 }
+else{
+    ?>
+     <script>
+            alert("Can't Delete Please CheckOut the Error");
+            window.location.href="Admin.php?Admin_Id=<?php echo $rol ?>";
+        </script>
+    <?php
+}
+?>

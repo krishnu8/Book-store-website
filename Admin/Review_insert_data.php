@@ -1,12 +1,26 @@
 
-
 <style>
     tr td input{
         color: black;
     }
+    form{
+        text-align: center;
+        margin-left: 30%;
+        margin-top: 10px;
+    }
+    tr td input{
+        font-size: 17px;
+        /* border-radius: 5px; */
+    }
+    tr td{
+        font-size: 25px;
+    }
 </style>
+<?php
+include_once('Header.php');
+?>
 
-<link rel="stylesheet" href="style.css">
+<!-- <link rel="stylesheet" href="style.css"> -->
 
 <form action="" method="post"enctype="multipart/form-data">
 <table border="1">
@@ -23,19 +37,19 @@
     </tr>
     <tr>
         <td>Feedback:</td>
-        <td><input type="text" name="qntt" required></td>
+        <td><input type="text" name="feed" required></td>
     </tr>
     <tr>
         <td>Rating:</td>
         <td><input type="text" name="price" required></td>
     </tr>
     <tr>
-        <td>My Product Pic:</td>
-        <td><input type="file" name="pic" style="color: #fff;" required></td>
+        <td>Review Pic</td>
+        <td><input type="file" name="pic" required></td>
     </tr>
    
     <tr>
-        <td colspan="2"><input type="submit" value="Add To Cart" name="btn"  style="font-size: 20px; width: 30%; "></td>
+        <td colspan="2"><input type="submit" value="Add To Cart" name="btn"  style="font-size: 20px; width: 50%; margin-left: 27%;"></td>
     </tr>
     <!-- <tr>
         <td colspan="2" style="font-size: 20px;">Have an account? <a href="Login.php" style="text-decoration: none; color: green;">Login</a></td>
@@ -47,14 +61,14 @@ include_once("../database/Create_database.php");
 
 if(isset($_POST['btn']))
 {
-$o_id = @$_POST['uid'];
+$u_id = @$_POST['uid'];
 $p_id = @$_POST['pid'];
-$c_name = @$_POST['qntt'];
-$price = @$_POST['price'];
+$feed = @$_POST['feed'];
+$ret = @$_POST['price'];
 $pic = @$_FILES['pic']['name'];
 
-$q = "INSERT INTO `Review`(`User_Id`, `Product_Id`, `Feedback`, `Rating`,`Review_pic`) VALUES 
-('$o_id','$p_id','$c_name','$price','$pic')";
+$q = "INSERT INTO `Review`(`User_Id`, `Product_Id`, `Feedback`, `Rating`, `Review_pic`) VALUES 
+('$u_id','$p_id','$feed','$ret','$pic')";
 
     if(mysqli_query($con,$q))
     {
@@ -62,14 +76,9 @@ $q = "INSERT INTO `Review`(`User_Id`, `Product_Id`, `Feedback`, `Rating`,`Review
         ?>
         <script>
             alert("Add To Cart successful");
+            window.location.href="Review.php";
         </script>
-        <?php
 
-        ?>
-<tr>
-<td><a href="Review.php" style="text-decoration: none; color: green; width: 50%; text-align: center; 
-font-size: 25px; background: transparent; border-radius: 5px; border:2px solid black;">View Data</a></td>
-</tr>
 <?php
     }
     else{

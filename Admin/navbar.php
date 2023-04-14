@@ -126,15 +126,15 @@ $first_part = $components[3];
   More
   </button>
   <ul class="dropdown-menu dropdown-menu-dark">
-    <li><a class="dropdown-item" href="Users/User.php"><i class="fa fa-solid fa-users"></i><h6>Users</h6></a></li>
-    <li><a class="dropdown-item" href="Sellers/Seller.php"><i class="fa fa-solid fa-user-secret"></i><h6>Selles Man</h6></a></li>
+    <li><a class="dropdown-item" href="User.php"><i class="fa fa-solid fa-users"></i><h6>Users</h6></a></li>
+    <li><a class="dropdown-item" href="Seller.php"><i class="fa fa-solid fa-user-secret"></i><h6>Selles Man</h6></a></li>
     <li><a class="dropdown-item" href="Product.php"><i class="fa fa-brands fa-product-hunt"></i><h6>Products</h6></a></li>
     <li><a class="dropdown-item" href="Orders.php"><i class="fa fa-brands fa-jedi-order"></i><h6>Orders</h6></a></li>
     <li><a class="dropdown-item" href="Notification.php"><i class="fa fa-solid fa-circle-exclamation"></i><h6>Notification</h6></a></li>
     <li><a class="dropdown-item" href="Cart.php"><i class="fa fa-solid fa-cart-shopping"></i><h6>Carts</h6></a></li>
     <li><a class="dropdown-item" href="Offers.php"><i class="fa fa-regular fa-face-laugh-beam"></i><h6>Offers</h6></a></li>
     <li><a class="dropdown-item" href="Review.php"><i class="fa fa-regular fa-star"></i><h6>Feedback Review</h6></a></li><br>
-    <li><a class="dropdown-item" href="logout.php"><i class="fa "></i><h6>Logout</h6></a></li>
+    <li><a class="dropdown-item" href="Login.php"><h6>Logout</h6></a></li>
 
     <li><hr class="dropdown-divider"></li>
     <p style="color: red; text-align: center; font-size: 20px;">Contact Links</p>

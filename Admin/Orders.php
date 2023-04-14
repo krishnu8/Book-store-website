@@ -1,92 +1,153 @@
 
 
 <head>
-    <?php
-include_once("navbar.php")
-?>
-<style>
-    /* body{
-    background-color:#212529;
-    color: white;
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-} */
-input{
-    background-color: red;
-    color: white;
-    font-size: 25px;
-}
-table{
-    font-size: 25px;
-}   
-input:hover{
-    background-color: green;
-    color:red;
-}
-</style>
-    
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <script src="js/bootstrap.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
-<body style="background-color: #212529; color: white;">
-    
-
-<div class="container">
-Insert New Record<a href="Orders_insert_data.php" style="text-decoration: none; color: #fff;"><button style="background: green; color: #fff; width: 15%; font-size: 15px; border-radius: 5px;">Insert</a></button> <br>
-<table border="1">
-<tr>
-    <td>Order_Id</td>
-    <td>Product_Id</td>
-    <td>Quantity</td>
-    <td>Price</td>
-    <td>User_id</td>
-    <td>Ordered_Date</td>
-    <td>Deliver_Date</td>
-    <td>My Order</td>
-    <td>Status</td>
-    <td>Operation</td>
-    <td>Edit</td>
-    <td>Delete</td>
-</tr>
 <?php
 include_once("../database/Create_database.php");
 
-$q = "select * from Oders";
-$result = mysqli_query($con, $q);
-while($a=mysqli_fetch_array($result))
-{
-    ?>
-    <tr>
-        <td><?php echo"$a[0]"?></td>
-        <td><?php echo"$a[1]"?></td>
-        <td><?php echo"$a[2]"?></td>
-        <td><?php echo"$a[3]"?></td>
-        <td><?php echo"$a[6]"?></td>
-        <td><?php echo"$a[4]"?></td>
-        <td><?php echo"$a[5]"?></td>
-        <td><img src='image/<?php echo$a[7]?> 'alt="No Pic" height="110px" width="110px"></td>
-        <td><?php echo"$a[8]"?></td>
-
-        <?php
-        if( $a['order_status']=="Cancelled"){
-            ?>
-            <td align="center"><a href="order_active.php?id=<?php echo $a[0] ?>" style="color: #fff; text-decoration: none;"><button style="background: green;">Active</a></button></td>
-            <?php
-        }else{
-            ?>
-            <td align="center"><a href="order_cancel.php?id=<?php echo $a[0] ?>" style="text-decoration: none;"><button style="background: yellow;">Cancelled</a></button></td>
-            <?php
-        }
-        ?>
-                
-        <td><a href="Order_Edit.php?Order_Id=<?php echo"$a[0]"?>"><input type="button" value="Edit" class="btns" style="background: blue;"></a></td>
-        <td><a href="Order_Delete.php?Order_Id=<?php echo"$a[0]"?>"><input type="button" value="Delete" class="btns"></a></td>
-    </tr>
-    <?php
-}
 ?>
+
+<?php
+$results_per_page = 3;
+if (isset($_GET["page"])) {
+    $page  = $_GET["page"];
+} else {
+    $page = 1;
+};
+$start_from = ($page - 1) * $results_per_page;
+$q = "SELECT * FROM Oders";
+$result = mysqli_query($con, $q);
+?>
+<div class="container">
+<?php
+include_once("Header.php");
+?>
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <b>Search: </b> <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Here">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class=" offset-sm-6 col-sm-2">
+            <div class="row">
+                <div class="col">
+                    <a href="Orders_insert_data.php" style="margin-left: -36px;"><button class="btn btn-danger">Add New User</button></a>
+                </div>
+            </div>
+
+        </div>
+
+
+<br>
+<table class="table table-striped" border="1" id="myTable">
+<tr>
+    <th>Order_Id</th>
+    <th>Product_Id</th>
+    <th>Quantity</th>
+    <th>User_id</th>
+    <th>Ordered_Date</th>
+    <th>Deliver_Date</th>
+    <th>Status</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>Operation</th>
+</tr>
+    <?php
+    while ($r = mysqli_fetch_array($result)) {
+    ?>
+        <tr>
+        <td><?php echo"$r[0]"?></td>
+        <td><?php echo"$r[1]"?></td>
+        <td><?php echo"$r[2]"?></td>
+        <td><?php echo"$r[5]"?></td>
+        <td><?php echo"$r[3]"?></td>
+        <td><?php echo"$r[4]"?></td>
+        <td><?php echo"$r[6]"?></td>
+
+
+            <td> 
+                <a href="Order_Edit.php?Order_Id=<?php echo $r[1]; ?>"><button class="btn btn-info" style="width:70px">Edit</button></a>
+            </td>
+            <td> 
+                <a href="Order_Delete.php?Order_Id=<?php echo $r[1]; ?>"><button class="btn btn-danger" style="width:100px">Delete</button></a>
+            </td>
+
+            <td>
+            <?php
+                if($r['Status']=='Cancle'){
+                    echo '<p><a href="order_active.php?Order_Id='.$r[1].'& Status=Active" style=" text-decoration: none; color: #fff; margin-top: 5px;">
+                    <button class="btn btn-success" style="width:100px">Activate</button></a></p>';
+                }else{
+                    echo '<p><a href="order_cancel.php?Order_Id='.$r[1].'& Status=Cancle" style=" text-decoration: none; color: #fff; margin-top: 5px;">
+                    <button class="btn btn-warning" style="width:100px">Deactive</button></a></p>';
+                }
+
+            ?>
+        </td>
+            
+
+
+        </tr>
+    <?php
+    }
+    ?>
+</table>
+<!-- </div>
 </div>
 
-</body>
+<div class="container">
+    <div class="row"> -->
+        <div class="col-sm-4 pagination" style="text-align:center">
+            <?php
+            $q1 = "SELECT * FROM Oders";
+            $result = mysqli_num_rows(mysqli_query($con, $q1));
+
+            $total_pages = ceil($result / $results_per_page); // calculate total pages with results
+            $pagLink = "";
+
+            if ($page >= 2) {
+                echo "<a href='Orders.php?page=" . ($page - 1) . "'>  Prev </a>";
+            }
+
+            for ($i = 1; $i <= $total_pages; $i++) {
+                if ($i == $page) {
+                    $pagLink .= "<a class = 'active' href='Orders.php?page="
+                        . $i . "'>" . $i . " </a>";
+                } else {
+                    $pagLink .= "<a href='Orders.php?page=" . $i . "'>   
+                                                " . $i . " </a>";
+                }
+            };
+            echo $pagLink;
+
+            if ($page < $total_pages) {
+                echo "<a href='Orders.php?page=" . ($page + 1) . "'>  Next </a>";
+            }
+            ?>
+        </div>
+        <div class="offset-sm-4 col-sm-4 inline">
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <input id="page" class="form-control" type="number" min="1" max="<?php echo $total_pages ?>" placeholder="<?php echo $page . "/" . $total_pages; ?>" required />
+                    </div>
+                    <div class="col">
+                        <input type="button" onClick="go2Page(<?php echo $total_pages; ?>);" value="Go" class="btn btn-danger" />
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</center>
+</div>
+</div>
+<br>

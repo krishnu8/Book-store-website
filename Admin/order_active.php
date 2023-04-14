@@ -1,9 +1,9 @@
 <?php
 include_once("../database/Create_database.php");
 
-$o_id = @$_GET['id'];
+$o_id = @$_GET['Order_Id'];
 // echo $o_id;
-$q = "UPDATE `oders` SET `order_status`='Active' WHERE Order_Id='$o_id'";
+$q = "UPDATE `Oders` SET `Status`='Active' WHERE Order_Id='$o_id'";
 
     if(mysqli_query($con,$q)){
         ?>

@@ -1,7 +1,22 @@
-<head>
-    <link rel="stylesheet" href="style.css">
-</head>
+<style>
+    form{
+        text-align: center;
+        margin-top: 10px;
+        margin-left: 35%;
+    }
+    tr td{
+        font-size: 20px;
+    }
+    tr td input{
+        font-size: 17px;
+        border-radius: 5px;
+    }
+</style>
+<?php
+include_once('Header.php');
+?>
 
+<!-- <link rel="stylesheet" href="style.css"> -->
 <?php
 include_once("../database/Create_database.php");
 
@@ -22,21 +37,21 @@ include_once("../database/Create_database.php");
         <td>Discount:</td>
         <td> <input type="text" name="disc" value="<?php echo "$a[0]"; ?>"></td>
     </tr>
-    <!-- <tr class="a1">
+    <tr class="a1">
         <td>Category:</td>
-        <td> <input type="file" name="cat" value="<?php echo "$a[1]"; ?>"></td>
-    </tr> -->
+        <td> <input type="text" name="cat" value="<?php echo "$a[1]"; ?>" readonly></td>
+    </tr>
     <tr class="a0">
         <td>Start Date:</td>
-        <td> <input type="text" name="startdt" value="<?php echo "$a[2]"; ?>"></td>
+        <td> <input type="date" name="startdt" value="<?php echo "$a[2]"; ?>"></td>
     </tr>
     <tr class="a0">
         <td>End Date:</td>
-        <td> <input type="text" name="enddt" value="<?php echo "$a[3]"; ?>"></td>
+        <td> <input type="date" name="enddt" value="<?php echo "$a[3]"; ?>"></td>
     </tr>
     <tr class="a0">
         <td>Coupen:</td>
-        <td> <input type="text" name="cup" value="<?php echo "$a[4]"; ?>"></td>
+        <td> <input type="date" name="cup" value="<?php echo "$a[4]"; ?>"></td>
     </tr>
 
     <tr class="a1">
@@ -50,12 +65,12 @@ include_once("../database/Create_database.php");
 <?php
         if (isset($_POST['btn'])) {
             $dis = @$_POST['disc'];
-            // $cat = @$_FILES['cat']['name'];
+            // $cat = @$_POST['cat'];
             $sdt = @$_POST['startdt'];
             $edt = @$_POST['enddt'];
             $cup = @$_POST['cup'];
 
-            $update = "UPDATE `Offers` SET `Discount`='$dis',`Category`='$cat',
+            $update = "UPDATE `Offers` SET `Discount`='$dis',
             `Start_date`='$sdt',`End_date`='$edt',`Coupon`='$cup'WHERE Category='$cat'";
             if (mysqli_query($con, $update)) {
                 ?>

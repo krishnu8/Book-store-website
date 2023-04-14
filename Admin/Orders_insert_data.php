@@ -1,12 +1,23 @@
 
-
 <style>
+    form{
+        text-align: center;
+        margin-top: 10px;
+        margin-left: 35%;
+    }
+    tr td{
+        font-size: 25px;
+    }
     tr td input{
-        color: black;
+        font-size: 17px;
     }
 </style>
 
-<link rel="stylesheet" href="style.css">
+<!-- <link rel="stylesheet" href="style.css"> -->
+<?php
+include_once('Header.php');
+?>
+
 
 <form action="" method="post"enctype="multipart/form-data">
 <table border="1">
@@ -26,10 +37,6 @@
         <td><input type="text" name="qntt" required></td>
     </tr>
     <tr>
-        <td>Price: </td>
-        <td><input type="text" name="price" required></td>
-    </tr>
-    <tr>
         <td>Ordered Date:</td>
         <td><input type="date" name="orderdt" required></td>
     </tr>
@@ -41,20 +48,12 @@
         <td>User_Id:</td>
         <td> <input type="text" name="uid" required></td>
     </tr>
-    <tr>
-        <td>My Order Pic:</td>
-        <td> <input type="file" name="pic" id="pic1" style="color: #fff;" required></td>
-    </tr>
-    <tr>
-        <td>Description:</td>
-        <td><input type="text" name="dis" required></td>
-    </tr>
    
     <tr>
-        <td colspan="2"><input type="submit" value="Register" name="btn"  style="font-size: 20px; width: 30%; "></td>
+        <td colspan="2"><input type="submit" value="Register" name="btn"  style="font-size: 20px; width: 70%; margin-left: 15%;"></td>
     </tr>
     <tr>
-        <td colspan="2" style="font-size: 20px;">Have an account? <a href="Login.php" style="text-decoration: none; color: green;">Login</a></td>
+        <td colspan="2" style="font-size: 20px;">Return Back To Privious Page? <a href="Orders.php" style="text-decoration: none; color: green;">Return</a></td>
     </tr>
 </table>
 </form>
@@ -66,30 +65,22 @@ if(isset($_POST['btn']))
 $o_id = @$_POST['oid'];
 $p_id = @$_POST['pid'];
 $c_name = @$_POST['qntt'];
-$price = @$_POST['price'];
 $odt = @$_POST['orderdt'];
 $ddt = @$_POST['deleverdt'];
 $uid = @$_POST['uid'];
-$pic = @$_FILES['pic']['name'];
-$des = @$_POST['dis'];
 
-$q = "INSERT INTO `Oders`(`Order_Id`, `Product_Id`, `Quantity`, `Price`, `Order_date`, `Deliver_date`, `User_Id`, `Order_pic`, `Description`) VALUES 
-('$o_id','$p_id','$c_name','$price','$odt','$ddt','$uid','$pic','$des')";
+$q = "INSERT INTO `Oders`(`Order_Id`, `Product_Id`, `Quantity`, `Order_date`, `Deliver_date`, `User_Id`) VALUES 
+('$o_id','$p_id','$c_name','$odt','$ddt','$uid')";
 
     if(mysqli_query($con,$q))
     {
-        move_uploaded_file($_FILES['pic']['tmp_name'],'image/'.$pic);
+        // move_uploaded_file($_FILES['pic']['tmp_name'],'uploads/'.$pic);
         ?>
         <script>
             alert("Registration successful");
+            window.location.href="Orders.php";
         </script>
-        <?php
 
-        ?>
-<tr>
-<td><a href="Orders.php" style="text-decoration: none; color: green; width: 50%; text-align: center; 
-font-size: 25px; background: transparent; border-radius: 5px; border:2px solid black;">View Data</a></td>
-</tr>
 <?php
     }
     else{

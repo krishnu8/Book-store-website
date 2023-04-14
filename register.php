@@ -147,7 +147,7 @@ if (isset($_SESSION['reg_msg'])) {
             <div style="padding: 30px;">
                 <form  action="register_action.php" onsubmit="return(validation1())" method="post">
                     <div class="input">
-                        <font style="color: #fff; " size="5"><b>Name</b><br>
+                        <font style="color: #fff; " size="5"><b>Full Name</b><br>
                             <input id="name" name="name" type="text" placeholder="Enter your Name"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
                             <!-- <span id="nameerror" class="text-danger"></span> -->
                     </div>

@@ -1,4 +1,21 @@
-<link rel="stylesheet" href="../style.css">
+<head>
+    <style>
+        form{
+            text-align: center;
+            margin-left: 35%;
+            margin-top: 50px;
+        }
+        tr td input{
+            font-size: 17px;
+            border-radius: 5px;
+        }
+        tr td{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<!-- <link rel="stylesheet" href="../style.css"> -->
 <?php
 include_once("Connection.php");
 
@@ -14,6 +31,10 @@ include_once("Connection.php");
 <table >
     <tr class="a1">
         <td colspan="2" style="font-size: 30px;">Update Profile</td>
+    </tr>
+    <tr class="a1">
+        <td>Seller Id:</td>
+        <td> <input type="text" name="sid" value="<?php echo "$a[10]"; ?>"></td>
     </tr>
     <tr class="a1">
         <td>Full Name:</td>
@@ -50,12 +71,13 @@ include_once("Connection.php");
         <td colspan="2"><input type="submit" value="Update" name="btn"  style="font-size: 20px; width: 30%; border-radius: 5px;"></td>
     </tr>
     <tr class="a0">
-        <td colspan="2" style="font-size: 20px;">Have an account? <a href="Login.php" style="text-decoration: none; color: green;">Login</a></td>
+        <td colspan="2" style="font-size: 20px;">Return Backt To Previous Page? <a href="../Seller.php" style="text-decoration: none; color: green;">Return</a></td>
     </tr>
 </table>
 </form>
 <?php
         if (isset($_POST['btn'])) {
+            $s_id = @$_POST['sid'];
             $name = @$_POST['name'];
             $em = @$_POST['em'];
             $phone = @$_POST['phone'];
@@ -65,19 +87,19 @@ include_once("Connection.php");
             $ab = @$_POST['about'];
 
             $update = "UPDATE `registration` SET `Fullname`='$name',`Email`='$em',`mobile`='$phone',`password`='$pwd',
-            `State`='$st',`City`='$ct',`About`='$ab'WHERE role='Seller'";
+            `State`='$st',`City`='$ct',`About`='$ab',`User_id`='$s_id'WHERE role='Seller'";
             if (mysqli_query($con, $update)) {
                 ?>
         <script>
             alert("Data Updated successfully");
-            window.location.href="Seller.php?Email_Id=<?php echo $em ?>";
+            window.location.href="../Seller.php?Email_Id=<?php echo $em ?>";
         </script>
         <?php
             } else {
                 ?>
         <script>
             alert("Data Updated fail  Try Again latter");
-            window.location.href="Seller.php?Email_Id=<?php echo $em ?>";
+            window.location.href="../Seller.php?Email_Id=<?php echo $em ?>";
         </script>
         <?php
             }
