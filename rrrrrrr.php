@@ -213,7 +213,7 @@ session_start();
     var password = document.getElementById("password").value;
     var cpass = document.getElementById("password1").value;
     // var email = document.getElementById("em").value;
-    var namecheck = /^[A-Za-z]$/;
+    var namecheck = /^[A-Za-z]+$/;;
     var numbercheck = /^[0-9]{10}$/;
     var passwordcheck = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     var emailcheck = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;

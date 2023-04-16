@@ -139,7 +139,25 @@
 </head>
 
 <body>
-    <?php include_once("seller_nave.php") ?>
+    <?php include_once("seller_nave.php");
+    $seller_id= $_SESSION['seller_id'];
+    $sel="SELECT count( `Total_Quantity`) FROM `product` WHERE seller_id='$seller_id' and status='Active'";
+    $tpro =mysqli_fetch_array(mysqli_query($con,$sel));
+    $sel="select count('oders.Deliver_date') FROM Oders INNER JOIN product ON Oders.product_id = product.product_id WHERE product.seller_id='$seller_id'";
+    $rpro=mysqli_fetch_array(mysqli_query($con,$sel));
+    $sel="SELECT count( `Renaining_Quantity`) FROM `product` WHERE seller_id='$seller_id' and `Renaining_Quantity`='0' and status='Active'";
+    $ostock=mysqli_fetch_array(mysqli_query($con,$sel));
+    $sel="SELECT oders.Deliver_date FROM Oders INNER JOIN product ON Oders.product_id = product.product_id WHERE product.seller_id='$seller_id'";
+    $rel=mysqli_query($con,$sel);
+    $date=date('Y/m/d');
+    $count=0;
+    while($a=mysqli_fetch_array($rel)){
+        if($a[0]>$date){
+            $count++;
+           
+        }
+    }
+    ?>
     <div class="jack12"></div>
     <div class="container-fluid">
         <div class="row">
@@ -154,8 +172,8 @@
                     <div class="col-sm-4">
                         <div class="box">
                             <div class="contain">
-                                <p>Total product</p> <br>
-                                <p> 6 </p>
+                                <p>Total Product</p> <br>
+                                <p> <?php echo $tpro[0] ?></p>
                             </div>
                             <a href="seller_product.php"><button  class="btn btn-info">View Product</button></a>
                         </div>
@@ -164,9 +182,9 @@
                         <div class="box">
                             <div class="contain">
                                 <p>Orders</p> <br>
-                                <p> 67 </p>
+                                <p><?php echo $rpro[0] ?>  </p>
                             </div>
-                            <a href="#"><button  class="btn btn-info">Orders</button></a>
+                            <a href="seller_orders.php"><button  class="btn btn-info">View Orders</button></a>
 
                         </div>
                     </div>
@@ -174,9 +192,9 @@
                         <div class="box">
                             <div class="contain">
                                 <p>Out Of Stock</p> <br>
-                                <p> 67 </p>
+                                <p> <?php echo $ostock[0] ?></p>
                             </div>
-                            <a href="#"><button  class="btn btn-info">Orders</button></a>
+                            <a href="out_of_stock.php"><button  class="btn btn-info">View product</button></a>
 
                         </div>
                     </div>
@@ -188,9 +206,9 @@
                         <div class="box">
                             <div class="contain">
                                 <p>Undelivered</p> <br>
-                                <p> 1111 </p>
+                                <p> <?php echo $count ?></p>
                             </div>
-                            <a href="seller_rating.php"><button class="btn btn-info">View user</button></a>
+                            <a href="undelivered_product.php"><button class="btn btn-info">View Orders</button></a>
                         </div>
                     </div>
                     <div class="col-sm-4">

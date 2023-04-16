@@ -174,7 +174,19 @@ if(isset($_POST['buy'])){
     </script>
     <?php
     }
+  
+    if(isset($_POST['cart'])){
+    $Quantity=@$_POST['select'];
+    $product_id=@$_POST['product_id'];
+    ?>
+    <script>
+      window.location.href="cart_action.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
+    </script>
+    <?php
+    }
   ?>
+
+
   <?php
   include_once("footer.php");
   ?>

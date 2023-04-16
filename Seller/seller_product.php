@@ -1,6 +1,13 @@
+<?php
+$directoryURI = $_SERVER['REQUEST_URI'];
+$path = parse_url($directoryURI, PHP_URL_PATH);
+$components = explode('/', $path);
+$location = $components[3];
+?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
     /* 
     * {
         margin: 0;
@@ -21,7 +28,7 @@
     }
 
     .table thead th {
-        padding: 30px;
+        padding:30px;
         font-size: 14px;
         color: white;
     }
@@ -93,9 +100,9 @@
         justify-content: center;
     }
 
-    .table tbody td input[type="checkbox"]:hover {
+    /* .table tbody td input[type="checkbox"]:hover {
         background-color: #ddd;
-    }
+    } */
 
     .table tbody td {
         padding: 30px;
@@ -122,20 +129,67 @@
             overflow: hidden;
         }
     }
+
+    .ale {
+        position: absolute;
+        top: 30px;
+        right: 50px;
+    }
 </style>
 <?php include("seller_nave.php") ?>
-<div class="container-fluid">
+<?php
+        if (isset($_SESSION['product_upp'])) {
+        ?>
 
+            <div class="ale">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Successfully!</strong> <?php echo $_SESSION['product_upp'] ?>.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+
+
+            <Script>
+                setTimeout("", 5000);
+            </Script>
+        <?php
+            unset($_SESSION['product_upp']);
+        }
+        if (isset($_SESSION['update'])) {
+            ?>
+    
+                <div class="ale">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Successfully!</strong> <?php echo $_SESSION['update'] ?>.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+    
+    
+                <Script>
+                    setTimeout("", 5000);
+                </Script>
+            <?php
+                unset($_SESSION['update']);
+            }
+?>
+
+<div class="container-fluid">
     <div class="table-wrap">
         <div style="text-align: center;">
             <h2><u>MY Product</u></h2>
         </div>
-        <table class="table table-responsive table-borderless">
+        <table class="table table-responsive table-borderless" style="text-align: center;">
 
             <thead>
                 <th>&nbsp;</th>
                 <th>Product</th>
                 <th>Category</th>
+                <!-- <th>Description</th> -->
                 <th>Price</th>
                 <th>Total Quantity</th>
                 <th> Remaining Quantity</th>
@@ -143,43 +197,58 @@
                 <th>&nbsp;</th>
             </thead>
             <tbody>
-            <tr>
-                <td colspan="8"> <a href="seller_product_register.php"><button class="btn btn-secondary ">Add product</button></a> </td>
-            </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="../image/Book_image/book1.jpg" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">Anand Math</p>
-                            <p class="m-0 text-muted"> BY Bankim Chandra Chatterjee</p>
-                        </div>
-                    </td>
-                    <td>
-                        Fairy tales
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.544.99</div>
-                    </td>
-                    <td class="d-">
-                        12
-                    </td>
-                    <td class="d-">
-                        7
-                    </td>
-                    <td>
-                        <div class="btn">
-                            <button class="btn btn-danger">Edit</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="btn">
-                            <button class="btn btn-danger">Delete</button>
-                        </div>
-                    </td>
+                <tr>
+                    <td colspan="8" style="text-align: start;"> <a href="seller_product_register.php"><button class="btn btn-secondary ">Add product</button></a> </td>
                 </tr>
+                <?php
+                $id = $_SESSION['seller_id'];
+                // $id=10;
+                $select = "SELECT * FROM `product` WHERE seller_id='$id' and status='Active'";
+                $result=mysqli_query($con, $select);
+                while ($product = mysqli_fetch_array($result)) {
+                ?>
+                    <tr class="align-middle alert border-bottom" role="alert">
+
+                        <td class="text-center">
+                            <img class="pic" src="../image/Book_image/<?php echo $product[3] ?>" alt="">
+                        </td>
+                        <td>
+                            <div>
+                                <p class="m-0 fw-bold"><?php echo $product[1] ?></p>
+                                <p class="m-0 text-muted"> BY <?php echo $product[8] ?></p>
+                            </div>
+                        </td>
+                        <td>
+                        <?php echo $product[6] ?>
+                        </td>
+                        <!-- <td>
+                           <p style="height: 75px; width: 200px; overflow: auto;">
+                                ?php echo $product[7] ?>
+                            </p>
+                        </td> -->
+                        <td>
+                            <div class="fw-600">RS.<?php echo $product[2] ?></div>
+                        </td>
+                        <td class="d-">
+                        <?php echo $product[4] ?>
+                        </td>
+                        <td class="d-">
+                        <?php echo $product[5] ?>
+                        </td>
+                        <td>
+                            <div class="btn">
+                                <a href="edit_product.php?product_id=<?php echo $product[0]?>&&path=<?php echo $location ?>"><button class="btn btn-danger">Edit</button></a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn">
+                                <a href="Delete_product.php?product_id=<?php echo $product[0] ?>&&path=<?php echo $location ?>"><button class="btn btn-danger">Delete</button></a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
     </div>

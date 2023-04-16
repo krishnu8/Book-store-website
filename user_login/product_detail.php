@@ -146,4 +146,13 @@ if(isset($_POST['buy'])){
   </script>
   <?php
   }
+
+  if(isset($_POST['cart'])){
+    $Quantity=@$_POST['select'];
+    ?>
+    <script>
+      window.location.href="cart_action.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
+    </script>
+    <?php
+    }
 ?>

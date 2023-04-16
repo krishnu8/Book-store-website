@@ -177,57 +177,43 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                            $user_id=$_SESSION['User_id'];
+                                            $selectcart="SELECT * FROM `cart` WHERE user_id='$user_id'";
+                                            $a=mysqli_query($con,$selectcart);
+                                            while($cart=mysqli_fetch_array($a)){
+                                                $prode="SELECT * FROM `product` WHERE Product_Id='$cart[0]' and Status='Active'";
+                                                $product_detail=mysqli_fetch_array(mysqli_query($con,$prode));
+                                        ?>
                                         <tr>
                                             <td>
                                                 <figure class="itemside align-items-center">
-                                                    <div class="aside"><img src="../image/Book.png" class="img-sm">
+                                                    <div class="aside"><img src="../image/Book_image/<?php echo $product_detail[3] ?>" class="img-sm">
                                                     </div>
-                                                    <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">Absalom</a>
-                                                        <p class="text-muted small">By:William Faulkner<br> CAtegory:
-                                                            Timepass</p>
+                                                    <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true"><?php echo $product_detail[1] ?></a>
+                                                        <p class="text-muted small">By:<?php echo $product_detail[8] ?><br> Category:<?php echo $product_detail[6] ?></p>
                                                     </figcaption>
                                                 </figure>
                                             </td>
                                             <td>
-                                                <select class="form-control">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
+                                                <select class="form-control" oninput="price()" id='sel'>
+                                                    <option value="<?php echo $cart[1] ?>"><?php echo $cart[1] ?></option>
+                                                    <option value="1">1</option>
+                                                    <option value='2'>2</option>
+                                                    <option value='3'>3</option>
+                                                    <option value='4'>4</option>
+                                                    <option value='5'>5</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <div class="price-wrap"> <var class="price">RS.10.00</var> <small class="text-muted"> RS.9.20 each </small> </div>
+                                                <div class="price-wrap"> <var class="price" id='price'>RS.<?php echo $cart[2] ?></var> <small class="text-muted"> RS.<?php echo $product_detail[2] ?> each </small> </div>
                                             </td>
                                             <td class="text-right d-none d-md-block"> <a href="" class="btn btn-light" data-abc="true"> Remove</a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <figure class="itemside align-items-center">
-                                                    <div class="aside"><img src="../image/Book.png" class="img-sm">
-                                                    </div>
-                                                    <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">Absalom</a>
-                                                        <p class="text-muted small">By:William Faulkner<br> CAtegory:
-                                                            Timepass</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </td>
-                                            <td>
-                                                <select class="form-control">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <div class="price-wrap"> <var class="price">RS.10.00</var> <small class="text-muted"> RS.9.20 each </small> </div>
-                                            </td>
-                                            <td class="text-right d-none d-md-block"> <a href="" class="btn btn-light" data-abc="true"> Remove</a>
-                                            </td>
-                                        </tr>
-
+                                        <?php
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -251,8 +237,8 @@
                                         <dd class="text-right ml-3">RS.69.97</dd>
                                     </dl>
                                     <dl class="dlist-align">
-                                        <dt>Discount:</dt>
-                                        <dd class="text-right text-danger ml-3">- RS.10.00</dd>
+                                        <dt>Offer Discount:</dt>
+                                        <dd class="text-right text-danger ml-3"> RS.10.00</dd>
                                     </dl>
                                     <dl class="dlist-align">
                                         <dt>Total:</dt>
@@ -273,3 +259,14 @@
 </body>
 
 </html>
+<script>
+    function price(){
+        var sel=document.getElementById('sel').value;
+        var each_price="<?php echo $product_detail[2] ?>";
+        var total=sel*each_price;
+        document.getElementById('price').innerHTML=total;
+        <?php
+        $update="UPDATE `cart` SET `Quantity`='[value-2]',`price`='[value-3]' WHERE product_id='$product_detail[0]';"
+        ?>
+    }
+</script>
