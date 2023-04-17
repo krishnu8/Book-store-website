@@ -104,14 +104,16 @@
                 $auther = $row[8];
                 $product_id = $row[0];
             ?>
-
+                <?php
+                $mrp=(($Price*10)/100)+$Price;
+                ?>
                 <div class='col-xl-3 col-md-4 col-sm-6 mt-5'>
                     <a href="product_detail.php?product_id=<?php echo $product_id ?>" class="an">
                         <img class='card-image-top' src='../image/Book_image/<?php echo $Product_Image ?>' alt='$Product_Name' width='100%' height='350px'>
                         <div class='card-body'>
                             <h3 class='card-titel '><?php echo $Product_Name ?></h3>
                             <h5>By <?php echo $auther ?></h5>
-                            <h5>Price:&nbsp<strike>12</strike> &nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $Price ?></h5>
+                            <h5>Price:&nbsp<strike><?php echo $mrp ?></strike> &nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $Price ?></h5>
                     </a>
                     <form action="" method="post">
                         <h5>Quantity:<h5>
@@ -151,15 +153,17 @@
                                     if ($row[5] > 0) {
                                     ?>
                                         <button type='' name='buy'>Buy Now</button>
+                                        <br>
+                                        <button type='submit' name='cart'>Add To Cart</button>
                                     <?php
                                     } else {
                                     ?>
                                         <button type='' disabled name='buy'>Buy Now</button>
+                                        <br>
+                                        <button type='submit' disabled name='cart'>Add To Cart</button>
                                     <?php
                                     }
                                     ?>
-                                    <br>
-                                    <button type='submit' name='cart'>Add To Cart</button>
                                 </div>
                     </form>
                 </div>

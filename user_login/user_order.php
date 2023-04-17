@@ -186,7 +186,7 @@ if (isset($_SESSION['order_err'])) {
                             <h5>Delivered</h5>
                             Can you please share your feedback with us? It will help us improve our services and ensure that we are meeting your expectations.
                             </div>
-                            <div><a href=""><button class="aa">Review and Rating</button></a></div>
+                            <div><a href="rating_form.php?product_id=<?php echo $product_info[0] ?>"><button class="aa">Review and Rating</button></a></div>
                             <?php
                         }else{
                             $day=date('l', strtotime($a[4]));
@@ -215,7 +215,7 @@ if (isset($_SESSION['order_err'])) {
                             <h5>Delivered</h5>
                             Can you please share your feedback with us? It will help us improve our services and ensure that we are meeting your expectations.
                             </div>
-                            <div><a href=""><button class="aa">Review and Rating</button></a></div>
+                            <div><a href="rating_form.php?product_id=<?php echo $product_info[0] ?>"><button class="aa">Review and Rating</button></a></div>
                             <?php
                         }else{
                             $day=date('l', strtotime($a[4]));

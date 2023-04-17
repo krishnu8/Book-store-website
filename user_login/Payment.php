@@ -19,7 +19,7 @@ $user_data = mysqli_fetch_array(mysqli_query($con, $select));
         width: 100%;
         height: auto;
         min-height: 100vh;
-        background-color: #cccccc;
+        /* background-color: #cccccc; */
         background-size: 100% 100%;
         background-position: top center;
         margin: auto;
@@ -150,7 +150,8 @@ p.nameAndcvc,p.cardAndExpire{
         width: 100%;
         border-top-left-radius: calc(.25rem - 1px);
         border-top-right-radius: calc(.25rem - 1px);
-        height: 430px;
+        height: 550px;
+        width: 400px;
     }
 
     .jo {
@@ -168,6 +169,9 @@ p.nameAndcvc,p.cardAndExpire{
 
     .jjj {
         align-self: center;
+    }
+    .view view-cascade overlay text-center{
+        background-color: transparent;
     }
 </Style>
 
