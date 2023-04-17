@@ -239,7 +239,7 @@
                                                     </figure>
                                                 </td>
                                                 <td>
-                                                    <select class="form-control" oninput="<?php echo $product_detail[1] ?>();data()"  id='<?php echo $product_detail[0] ?>'>
+                                                    <select class="form-control" oninput="<?php echo $product_detail[1] ?>()" id='<?php echo $product_detail[0] ?>'>
                                                         <option value="<?php echo $cart[1] ?>"><?php echo $cart[1] ?></option>
                                                         <?php
                                                         if ($product_detail[5] <= 5) {
@@ -308,33 +308,35 @@
                                 <div class="card-body">
                                     <form>
                                         <div class="form-group"> <label>Have coupon?</label>
-                                            <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Coupon code"> <span class="input-group-append">
-                                                    <button class="btn btn-primary btn-apply coupon">Apply</button>
+                                            <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Coupon code" onblur="check_cupon()" id="cupon"> <span class="input-group-append">
+                                                    <!-- <button class="btn btn-primary btn-apply coupon" name="cupon">Apply</button> -->
                                                 </span> </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <dl class="dlist-align">
-                                        <dt>Total price:</dt>
-                                        <dd class="text-right ml-3" id="total_price"></dd>
-                                    </dl>
-                                    <dl class="dlist-align">
-                                        <dt>Offer Discount:</dt>
-                                        <dd class="text-right text-danger ml-3"> RS.10.00</dd>
-                                    </dl>
-                                    <dl class="dlist-align">
-                                        <dt>Total:</dt>
-                                        <dd class="text-right text-dark b ml-3"><strong>RS.59.97</strong></dd>
-                                    </dl>
-                                    <hr>
-                                    <a href="cart_order.php" class="btn btn-out btn-secondary btn-square btn-main" data-abc="true">Show Price</a>
-                                    <a href="cart_order.php" class="btn btn-out btn-primary btn-square btn-main mt-2" data-abc="true"> Make Purchase </a>
-                                    <a href="user_home.php" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+                            <form action="" method="post">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <dl class="dlist-align">
+                                            <dt>Price:</dt>
+                                            <dd class="text-right ml-3" id="total_price"></dd>
+                                        </dl>
+                                        <dl class="dlist-align">
+                                            <dt>Offer Discount:</dt>
+                                            <dd class="text-right text-danger ml-3" id="discount">0%</dd>
+                                        </dl>
+                                        <dl class="dlist-align">
+                                            <dt>Total:</dt>
+                                            <dd class="text-right text-dark b ml-3"><strong id="tttol">RS.59.97</strong></dd>
+                                        </dl>
+                                        <hr>
+                                        <button type="" name="total" class="btn btn-out btn-secondary btn-square btn-main">Show Total</button>
+                                        <a href="cart_order.php" class="btn btn-out btn-primary btn-square btn-main mt-2" data-abc="true"> Make Purchase </a>
+                                        <a href="user_home.php" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -344,18 +346,42 @@
 </body>
 
 </html>
-
 <script>
-    function data(){
-        <?php
-                $sum=0;
-                $selectprice="SELECT * FROM `cart` WHERE User_id='$user_id'";
-                $pro=mysqli_query($con,$selectprice);
-                 while($total_price=mysqli_fetch_array($pro)){
-                    $sum = $sum + ($total_price[1] * $total_price[2]);
-                 }
-        ?>
+    function check_cupon() {
+        var cupon = document.getElementById('cupon').value;
+        var url = "check_cupon.php?cupon="+cupon;
 
-        document.getElementById('total_price').innerHTML ="<?php echo $sum ?>";
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("GET", url, false);
+        xmlhttp.send(null);
     }
 </script>
+
+
+
+
+<?php
+$Discount = 0;
+if (isset($_POST['total'])) {
+    $sum = 0;
+    $selectprice = "SELECT * FROM `cart` WHERE User_id='$user_id'";
+    $pro = mysqli_query($con, $selectprice);
+    while ($total_price = mysqli_fetch_array($pro)) {
+        $sum = $sum +  $total_price[2];
+    }
+    $discountamt = $Discount * $sum / 100;
+?>
+    <script>
+        document.getElementById('total_price').innerHTML = "RS.<?php echo $sum ?>";
+        document.getElementById('tttol').innerHTML = "RS.<?php echo $sum - $discountamt ?>";
+        document.getElementById('discount').innerHTML = "<?php echo $Discount ?>%";
+    </script>
+<?php
+}
+?>
