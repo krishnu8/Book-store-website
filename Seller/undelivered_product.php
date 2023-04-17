@@ -4,6 +4,7 @@ $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
 $location = $components[3];
 ?>
+ <title>Undelivered Order</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -128,7 +129,27 @@ if (isset($_SESSION['order_add'])) {
     unset($_SESSION['order_add']);
 }
 ?>
+<?php
+if (isset($_SESSION['Deliver_order'])) {
+?>
 
+    <div class="ale">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong> <?php echo $_SESSION['Deliver_order'] ?>.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+
+
+    <Script>
+        setTimeout("", 5000);
+    </Script>
+<?php
+    unset($_SESSION['Deliver_order']);
+}
+?>
 <div class="container-fluid">
     <div class="table-wrap">
         <div style="text-align: center;">
@@ -149,10 +170,9 @@ if (isset($_SESSION['order_add'])) {
                 <th></th>
             </thead>
             <tbody>
-                <?php
+                 <?php
                 $seller_id = $_SESSION['seller_id'];
-                $date = date('Y/m/d');
-                $sel = "SELECT oders.* FROM Oders INNER JOIN product ON Oders.product_id = product.product_id WHERE product.seller_id='$seller_id'";
+                $sel = "SELECT oders.* FROM Oders INNER JOIN product ON Oders.product_id = product.product_id WHERE product.seller_id='$seller_id' and oders.status='Active'";
                 $rel = mysqli_query($con, $sel);
                 ?>
                 <tr>
@@ -164,74 +184,85 @@ if (isset($_SESSION['order_add'])) {
                     $product_info = mysqli_fetch_array(mysqli_query($con, $select_product));
                     $select_user = "SELECT * FROM `registration` WHERE User_id='$order[5]'";
                     $user_info = mysqli_fetch_array(mysqli_query($con, $select_user));
-                    if ($order[4] > $date && $order[6]=="Active") {
                 ?>
-                        <tr class="align-middle alert border-bottom" role="alert">
+                    <tr class="align-middle alert border-bottom" role="alert">
 
-                            <td class="text-center">
-                                <img class="pic" src="../image/user_image/<?php echo $user_info[6] ?>" alt="">
-                            </td>
-                            <td>
-                                <?php echo $user_info[0] ?>
-                            </td>
-                            <td>
-                                <?php echo $user_info[1] ?>
-                            </td>
-                            <td>
-                                <?php echo $user_info[5] . ',' . $user_info[4] ?>
-                            </td>
-                            <td class="d-">
-                                <div>
-                                    <p class="m-0 fw-bold"><?php echo $product_info[1] ?></p>
-                                    <p class="m-0 text-muted"> BY <?php echo $product_info[8] ?></p>
-                                </div>
-                            </td>
-                            <td><?php echo $order[2] ?> </td>
-                            <td>
-                                <div>
-                                    <p class="m-0 fw-bold">Rs <?php echo $product_info[2] ?></p>
-                                    <p class="m-0 text-muted">For each</p>
-                                </div>
-
-
-                            </td>
-                            <td>
-                                <?php
-                                $date = date('Y/m/d');
-                                if ($date > $order[4]) {
-                                    echo "Delivered";
-                                } else {
-                                    echo "Yet to deliver";
-                                }
-                                ?>
-                            </td>
-                            <!-- <td>
-                            <div class="btn">
-                                <a href="edit_product.php?product_id="><button class="btn btn-danger">Edit</button></a>
+                        <td class="text-center">
+                            <img class="pic" src="../image/user_image/<?php echo $user_info[6] ?>" alt="Image not Available">
+                        </td>
+                        <td style="width: 170px;"   >
+                            <?php echo $user_info[0] ?>
+                        </td>
+                        <td>
+                            <?php echo $user_info[1] ?>
+                        </td>
+                        <td>
+                            <?php echo $user_info[5] . ',' . $user_info[4] ?>
+                        </td>
+                        <td class="d-">
+                            <div>
+                                <p class="m-0 fw-bold"><?php echo $product_info[1] ?></p>
+                                <p class="m-0 text-muted"> BY <?php echo $product_info[8] ?></p>
                             </div>
-                        </td> -->
-                            <td>
-                                <?php
-                                if ($order[6] == "Active") {
-                                ?>
-                                    <div class="btn">
-                                        <a href="seller_cancle_order.php?order_id=<?php echo $order[0] ?> &&path=<?php echo $location ?>"><button class="btn btn-danger">Cancle</button></a>
-                                    </div>
-                                <?php
-                                } else {
-                                ?>
-                                    <div class="btn">
-                                        <a href="seller_active_order.php?order_id=<?php echo $order[0] ?> &&path=<?php echo $location ?>"><button class="btn btn-danger">Reorder</button></a>
-                                    </div>
+                        </td>
+                        <td><?php echo $order[2] ?> </td>
+                        <td>
+                            <div>
+                                <p class="m-0 fw-bold">RS <?php echo $product_info[2]*$order[2] ?></p>
+                                <p class="m-0 text-muted"> Rs.<?php echo $product_info[2] ?>each</p>
+                            </div>
+
+
+                        </td>
+                        <td>
                             <?php
-                                }
+                            if($order[6]=="Delivered"){
+                                echo "Delivered";
+                            }else{
+                               if($order[6]=="Active"){
+                                echo "Yet To Deliver";
+                               }else{
+                                echo "Cancle";
+                               }
                             }
                             ?>
-                            </td>
-                        </tr>
-                    <?php
+                        </td>
+
+                        <td style="width: 170px;">
+                           <?php
+                           if($order[6]!="Delivered"){
+                               if($order[6]=="Active"){
+                                ?>
+                                <div class="btn">
+                                    <a href="seller_cancle_order.php?order_id=<?php echo $order[0]?>&&path=<?php echo $location ?>"><button class="btn btn-danger">Cancle</button></a>
+                                </div>
+                                <?php
+                               }else{
+                                ?>
+                                 <div class="btn">
+                                    <a href="seller_active_order.php?order_id=<?php echo $order[0]?> &&path=<?php echo $location ?>"><button class="btn btn-danger">Reorder</button></a>
+                                </div>
+                                <?php
+                               }
+                               ?>
+                               <?php
+                           }
+                           ?>   
+                        </td>
+
+                        <td>
+                            <?php
+                            if($order[6]=="Active"){
+                                ?>
+                                <a href="order_deliver.php?order_id=<?php echo $order[0]?> &&path=<?php echo $location ?>"><button class="btn btn-danger">Deliver</button></a>
+                                <?php
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                <?php
                 }
-                    ?>
+                ?>
 
             </tbody>
         </table>

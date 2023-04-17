@@ -91,7 +91,7 @@ session_start();
         }
         .re{
             position: absolute;
-            bottom: 80px;
+            bottom:15px;
             right:45%;
         }
     </style>
@@ -142,7 +142,7 @@ if (isset($_SESSION['reg_msg'])) {
 ?>
     
     <div class="form" style="display: flex;justify-content: center;margin-top:40px;">
-        <div style="background-color: rgba(0,0,0,0.7);width:400px; height:670px;border-radius: 20px;">
+        <div style="background-color: rgba(0,0,0,0.7);width:400px; height:720px;border-radius: 20px;">
             <center><img src="image/Book1.png" alt="" style="height:50px;width: 160px;border-radius: 10px;margin-top:-35px;"></center>
             <div style="padding: 30px;">
                 <form  action="register_action.php" onsubmit="return(validation1())" method="post">
@@ -161,7 +161,13 @@ if (isset($_SESSION['reg_msg'])) {
                             <input id="email" name="email" type="email" onblur="check_email(this)" placeholder="example@gmail.com"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
                             <!-- <span id="emailerror" class="text-danger"></span> -->
                     </div>
-
+                    <div class="input">
+                        <font style="color: #fff; " size="5"><b>Role</b><br>
+                        <select name="role" class="form-control" style="width:300px; background-color:transparent;color: white;">
+                            <option value="Normal" style="color: black;">User</option>
+                            <option value="Seller" style="color: black;">Seller</option>
+                        </select>
+                    </div>
                     <div class="input"><b>Password</b> <br>
                         <input id="password" type="password" placeholder="Enter password"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
                         <!-- <span id="passworderror" class="text-danger"></span> -->

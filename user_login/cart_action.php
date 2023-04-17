@@ -11,9 +11,7 @@ if(!isset($_SESSION['email'])&& !isset($_SESSION['password'])){
 $product_id=@$_GET['product_id'];
 $quantity=@$_GET['quantity'];
 $user_id=$_SESSION['User_id'];
-if($quantity==''){
-$quantity=1;
-}
+
 $selectp="SELECT`Price` FROM `product` WHERE Product_Id='$product_id'";
 $pri=mysqli_fetch_array(mysqli_query($con,$selectp)); 
 $price=$pri[0]*$quantity;

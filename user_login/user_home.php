@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,9 +54,9 @@
 </head>
 
 <body>
-<?php
-include_once("home_nave.php");
-?>
+    <?php
+    include_once("home_nave.php");
+    ?>
 
     <div class="aahan"></div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -116,34 +115,46 @@ include_once("home_nave.php");
                     </a>
                     <form action="" method="post">
                         <h5>Quantity:<h5>
-                             <select name="select" id="se" class="form-control" style="width: 150px;">
-                                    <?php
-                                    if ($row[5] <= 5) {
-                                        $i = 1;
-                                        while ($i <= $row[5]) {
-                                    ?>
-                                            <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                <?php
+                                if ($row[5] == 0) {
+                                ?>
+                                    <p style="color: red;">Out Of stock!!!</p>
+                                <?php
+                                } else {
+                                ?>
+                                    <select name="select" id="se" class="form-control" style="width: 150px;">
                                         <?php
-                                            $i++;
-                                        }
-                                    } else {
+                                        if ($row[5] <= 5) {
+                                            $i = 1;
+                                            while ($i <= $row[5]) {
                                         ?>
+                                                <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                            <?php
+                                                $i++;
+                                            }
+                                        } else {
+                                            ?>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         <?php
-                                    }
+                                        }
                                         ?>
 
-                                </select>
+                                    </select>
+                                <?php } ?>
                                 <input type="hidden" name="product_id" value="<?php echo $row[0] ?>">
                                 <div class='antima'>
                                     <?php
                                     if ($row[5] > 0) {
                                     ?>
                                         <button type='' name='buy'>Buy Now</button>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <button type='' disabled name='buy'>Buy Now</button>
                                     <?php
                                     }
                                     ?>
@@ -165,29 +176,31 @@ include_once("home_nave.php");
 
 </html>
 <?php
-if(isset($_POST['buy'])){
-    $Quantity=@$_POST['select'];
-    $product_id=@$_POST['product_id'];
-    ?>
+if (isset($_POST['buy'])) {
+    $Quantity = @$_POST['select'];
+    $product_id = @$_POST['product_id'];
+?>
     <script>
-      window.location.href="Payment.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
+        window.location.href = "Payment.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
     </script>
-    <?php
+<?php
+}
+
+if (isset($_POST['cart'])) {
+    $Quantity = @$_POST['select'];
+    $product_id = @$_POST['product_id'];
+    if ($Quantity == 0) {
+        $Quantity = 1;
     }
-  
-    if(isset($_POST['cart'])){
-    $Quantity=@$_POST['select'];
-    $product_id=@$_POST['product_id'];
-    ?>
+?>
     <script>
-      window.location.href="cart_action.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
+        window.location.href = "cart_action.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
     </script>
-    <?php
-    }
-  ?>
+<?php
+}
+?>
 
 
-  <?php
-  include_once("footer.php");
-  ?>
-  
+<?php
+include_once("footer.php");
+?>

@@ -113,34 +113,46 @@
                     </a>
                     <form action="" method="post">
                         <h5>Quantity:<h5>
-                             <select name="select" id="se" class="form-control" style="width: 150px;">
-                                    <?php
-                                    if ($row[5] <= 5) {
-                                        $i = 1;
-                                        while ($i <= $row[5]) {
-                                    ?>
-                                            <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                <?php
+                                if ($row[5] == 0) {
+                                ?>
+                                    <p style="color: red;">Out Of stock!!!</p>
+                                <?php
+                                } else {
+                                ?>
+                                    <select name="select" id="se" class="form-control" style="width: 150px;">
                                         <?php
-                                            $i++;
-                                        }
-                                    } else {
+                                        if ($row[5] <= 5) {
+                                            $i = 1;
+                                            while ($i <= $row[5]) {
                                         ?>
+                                                <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                            <?php
+                                                $i++;
+                                            }
+                                        } else {
+                                            ?>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         <?php
-                                    }
+                                        }
                                         ?>
 
-                                </select>
+                                    </select>
+                                <?php } ?>
                                 <input type="hidden" name="product_id" value="<?php echo $row[0] ?>">
                                 <div class='antima'>
                                     <?php
                                     if ($row[5] > 0) {
                                     ?>
                                         <button type='' name='buy'>Buy Now</button>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <button type='' disabled name='buy'>Buy Now</button>
                                     <?php
                                     }
                                     ?>

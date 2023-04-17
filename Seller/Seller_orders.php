@@ -4,6 +4,7 @@ $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
 $location = $components[3];
 ?>
+ <title>order</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -18,7 +19,7 @@ $location = $components[3];
 
     */
     .pic {
-        width: 50px;
+        width: 80px;
         height: 50px;
         object-fit: contain;
     }
@@ -57,7 +58,7 @@ $location = $components[3];
     } */
 
     .table tbody td {
-        padding: 30px;
+        padding: 20px;
         margin: 0;
         font-size: 14.5px;
         font-weight: 600;
@@ -128,6 +129,27 @@ if (isset($_SESSION['order_add'])) {
     unset($_SESSION['order_add']);
 }
 ?>
+<?php
+if (isset($_SESSION['Deliver_order'])) {
+?>
+
+    <div class="ale">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong> <?php echo $_SESSION['Deliver_order'] ?>.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+
+
+    <Script>
+        setTimeout("", 5000);
+    </Script>
+<?php
+    unset($_SESSION['Deliver_order']);
+}
+?>
 <div class="container-fluid">
     <div class="table-wrap">
         <div style="text-align: center;">
@@ -144,8 +166,7 @@ if (isset($_SESSION['order_add'])) {
                 <th> Quantity</th>
                 <th>Price</th>
                 <th>Status</th>
-                <th >Operator</th>
-                <th></th>
+                <th colspan="2">Operator</th>
             </thead>
             <tbody>
                 <?php
@@ -166,7 +187,7 @@ if (isset($_SESSION['order_add'])) {
                     <tr class="align-middle alert border-bottom" role="alert">
 
                         <td class="text-center">
-                            <img class="pic" src="../image/user_image/<?php echo $user_info[6] ?>" alt="">
+                            <img class="pic" src="../image/user_image/<?php echo $user_info[6] ?>" alt="Image not Available">
                         </td>
                         <td style="width: 170px;"   >
                             <?php echo $user_info[0] ?>
@@ -186,44 +207,55 @@ if (isset($_SESSION['order_add'])) {
                         <td><?php echo $order[2] ?> </td>
                         <td>
                             <div>
-                                <p class="m-0 fw-bold">Rs <?php echo $product_info[2] ?></p>
-                                <p class="m-0 text-muted">For each</p>
+                                <p class="m-0 fw-bold">RS <?php echo $product_info[2]*$order[2] ?></p>
+                                <p class="m-0 text-muted"> Rs.<?php echo $product_info[2] ?>each</p>
                             </div>
 
 
                         </td>
                         <td>
                             <?php
-                            $date = date('Y/m/d');
-                            if ($date > $order[4]) {
+                            if($order[6]=="Delivered"){
                                 echo "Delivered";
-                            } else {
-                                echo "Yet to deliver";
+                            }else{
+                               if($order[6]=="Active"){
+                                echo "Yet To Deliver";
+                               }else{
+                                echo "Cancle";
+                               }
                             }
                             ?>
                         </td>
-                        <!-- <td>
-                            <div class="btn">
-                                <a href="edit_product.php?product_id="><button class="btn btn-danger">Edit</button></a>
-                            </div>
-                        </td> -->
+
                         <td style="width: 170px;">
-                            <?php
-                            if ($date < $order[4]) {
-                            if($order[6]=="Active"){
+                           <?php
+                           if($order[6]!="Delivered"){
+                               if($order[6]=="Active"){
                                 ?>
                                 <div class="btn">
                                     <a href="seller_cancle_order.php?order_id=<?php echo $order[0]?>&&path=<?php echo $location ?>"><button class="btn btn-danger">Cancle</button></a>
                                 </div>
                                 <?php
-                            }else{
+                               }else{
                                 ?>
-                                <div class="btn">
+                                 <div class="btn">
                                     <a href="seller_active_order.php?order_id=<?php echo $order[0]?> &&path=<?php echo $location ?>"><button class="btn btn-danger">Reorder</button></a>
                                 </div>
                                 <?php
+                               }
+                               ?>
+                               <?php
+                           }
+                           ?>   
+                        </td>
+
+                        <td>
+                            <?php
+                            if($order[6]=="Active"){
+                                ?>
+                                <a href="order_deliver.php?order_id=<?php echo $order[0]?> &&path=<?php echo $location ?>"><button class="btn btn-danger">Deliver</button></a>
+                                <?php
                             }
-                        }
                             ?>
                         </td>
                     </tr>

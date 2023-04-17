@@ -183,7 +183,7 @@ include_once("seller_change_password.php");
             <a class="nav-link" href="Seller_orders.php">Orders</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="seller_rating.php">Feadback</a>
+            <a class="nav-link" href="seller_rating.php">Feedback</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="seller_product.php">Products</a>

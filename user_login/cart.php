@@ -266,7 +266,7 @@
         var total=sel*each_price;
         document.getElementById('price').innerHTML=total;
         <?php
-        $update="UPDATE `cart` SET `Quantity`='[value-2]',`price`='[value-3]' WHERE product_id='$product_detail[0]';"
+        // $update="UPDATE `cart` SET `Quantity`='[value-2]',`price`='[value-3]' WHERE product_id='$product_detail[0]';"
         ?>
     }
 </script>

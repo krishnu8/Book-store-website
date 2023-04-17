@@ -165,10 +165,10 @@ if (isset($_SESSION['order_err'])) {
             <?php
             $user_id = $_SESSION['User_id'];
             // echo $user_id;
-            $select = "SELECT * FROM `oders` WHERE User_id='$user_id' and status='Active'";
+            $select = "SELECT * FROM `oders` WHERE User_id='$user_id' and (status='Active' or status='Delivered')";
             $data = mysqli_query($con, $select);
             $b = 0;
-            $date = date('Y/m/d');
+            // $date = date('Y/m/d');
             while ($a = mysqli_fetch_array($data)) {
                 $product = "SELECT * FROM `product` WHERE Product_Id='$a[1]'";
                 $product_info=mysqli_fetch_array(mysqli_query($con,$product));
@@ -180,10 +180,11 @@ if (isset($_SESSION['order_err'])) {
                         <h5> <?php echo $product_info[1]," By:",$product_info[8] ?></h5>
                         </div>
                         <?php
-                        if($date>$a[4]){
+                        if($a[6]=="Delivered"){
                             ?>
                             <div style="width:40%">
                             <h5>Delivered</h5>
+                            Can you please share your feedback with us? It will help us improve our services and ensure that we are meeting your expectations.
                             </div>
                             <div><a href=""><button class="aa">Review and Rating</button></a></div>
                             <?php
@@ -208,10 +209,11 @@ if (isset($_SESSION['order_err'])) {
                             <h5><?php echo $product_info[1]," By:",$product_info[8] ?></h5>
                         </div>
                         <?php
-                        if($date>$a[4]){
+                        if($a[6]=="Delivered"){
                             ?>
                             <div style="width:40%">
                             <h5>Delivered</h5>
+                            Can you please share your feedback with us? It will help us improve our services and ensure that we are meeting your expectations.
                             </div>
                             <div><a href=""><button class="aa">Review and Rating</button></a></div>
                             <?php
