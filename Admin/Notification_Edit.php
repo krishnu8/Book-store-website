@@ -44,7 +44,7 @@ include_once("../database/Create_database.php");
     </tr>
     <tr class="a1">
         <td>Messages:</td>
-        <td> <input type="text" name="qntt" value="<?php echo "$a[2]"; ?>"></td>
+        <td> <input type="text" name="qntt" value="<?php echo "$a[3]"; ?>"></td>
     </tr>
 
     <tr class="a1">

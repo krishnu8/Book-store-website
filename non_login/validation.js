@@ -3,7 +3,7 @@ function validation1() {
     var number = document.getElementById("number").value;
     var password = document.getElementById("password").value;
     var cpass = document.getElementById("password1").value;
-    var email = document.getElementById("em").value;
+    // var email = document.getElementById("em").value;
     var namecheck = /[A-Za-z]/;
     var numbercheck = /^[0-9]{10}$/;
     var passwordcheck = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
@@ -24,14 +24,14 @@ function validation1() {
         alert("Number must be 10 digit");
         NU = "false";
     }
-    if (emailcheck.test(email)) {
-        EM = "true";
-    } else {
+    // if (emailcheck.test(email)) {
+    //     EM = "true";
+    // } else {
 
-        // document.getElementById('numbererror').innerHTML ="Number must be 10 digit";
-        alert("Enter correct Email Adderess");
-        EM = "false";
-    }
+    //     // document.getElementById('numbererror').innerHTML ="Number must be 10 digit";
+    //     alert("Enter correct Email Adderess");
+    //     EM = "false";
+    // }
     if (passwordcheck.test(password)) {
         if (password === cpass) {
             CP = "true";
@@ -45,8 +45,10 @@ function validation1() {
         alert("Password must contain number symbol and character");
         P = "false";
     }
-    if (N == "false" || NU == "false" || P == "false" || CP == "false" || EM == "false") {
+    if (N == "false" || NU == "false" || P == "false" || CP == "false") {
         return false;
+    }else{
+        return true;
     }
 
 }

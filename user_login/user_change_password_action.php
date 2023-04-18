@@ -18,7 +18,6 @@ include_once("../database/Create_database.php");
                 $_SESSION['PASSWORDWRONG'] = "Password Change Failed Enter Correct Password";
             }
         }
-        
         ?>
         <script>
             window.location.href="<?php echo$_SESSION['path']?>";

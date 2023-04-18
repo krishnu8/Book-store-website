@@ -103,28 +103,23 @@ include('home_nave.php');
                         <div style="color: rgb(139, 11, 165);margin: 20px;">
                             <font size="6px"><b>Send Message</b></font>
                         </div>
-                        <div style="margin: 5px 20px; "><input id="name" name="c1" type="text" placeholder="Name" required
-                                style="height: 30px; width: 90%; background-color: #fff; border: 0; border-radius: 5px;">
+                        <div style="margin: 5px 20px; "><input id="name" name="c1" type="text" placeholder="Name" required style="height: 30px; width: 90%; background-color: #fff; border: 0; border-radius: 5px;">
                             <span id="usererror" class="text-danger"></span>
-    
+
                         </div>
-                        <div style="margin: 5px 20px; "> <br> <input id="email" name="c2" type="text" placeholder="E-mail"
-                                style="height: 30px; width: 90%; background-color: #fff; border: 0; border-radius: 5px;">
+                        <div style="margin: 5px 20px; "> <br> <input id="email" name="c2" type="text" placeholder="E-mail" style="height: 30px; width: 90%; background-color: #fff; border: 0; border-radius: 5px;">
                             <span style="color: red;" id="emailerror" class="text-danger"></span>
-    
+
                         </div>
-                        <div style="margin: 5px 20px; "> <br> <input id="email" name="c3" type="int" placeholder="Phone_Number"
-                                style="height: 30px; width: 90%; background-color: #fff; border: 0; border-radius: 5px;">
-                            <span style="color: red;" id="emailerror" class="text-danger"></span>
-    
+                        <div style="margin: 5px 20px; "> <br> <input id="number" name="c3" type="number" maxlength="10" placeholder="Phone_Number" style="height: 30px; width: 90%; background-color: #fff; border: 0; border-radius: 5px;">
+                            <span style="color: red;" id="numbererror" class="text-danger"></span>
+
                         </div>
-                        <div style="margin: 5px 20px; "><textarea name="" name="c4" id="message" cols="36" rows="7"
-                                style=" background-color: #fff; border: 0; border-radius: 5px;width: 90%;"
-                                placeholder="  Type your message..." required></textarea></div>
+                        <div style="margin: 5px 20px; "><textarea name="c4" id="message" cols="36" rows="7" style=" background-color: #fff; border: 0; border-radius: 5px;width: 90%;" placeholder="  Type your message..." required></textarea></div>
                         <div style="margin: 5px 20px;"><button name="btn" type="submit" style=" border: 0; border-radius: 10px;background-color: rgb(189, 87, 248);color: #fff;
                                  height: 30px;width:100px;font-size: 20px;">
                                 Submit</button></div>
-    
+
                     </form>
                 </div>
     
@@ -159,3 +154,27 @@ include('home_nave.php');
         }
     }
 </script>
+<?php
+if (isset($_POST['btn'])) {
+    $c1 = @$_POST['c1'];
+    $c2 = @$_POST['c2'];
+    $c3 = @$_POST['c3'];
+    $c4 = @$_POST['c4'];
+
+    $q = "INSERT INTO `contact_us`(`Name`, `Email`, `Phone_Number`, `Message`) VALUES 
+('$c1','$c2','$c3','$c4')";
+    if (mysqli_query($con, $q)) {
+?>
+        <script>
+            alert("Thanks For Your Suggestion");
+        </script>
+    <?php
+    } else {
+    ?>
+        <script>
+            alert("unsuccessful");
+        </script>
+<?php
+    }
+}
+?>

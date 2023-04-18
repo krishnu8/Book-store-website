@@ -201,7 +201,7 @@ if (isset($_SESSION['pass_profile'])) {
 ?>
     <div class="ale">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Alert!</strong> <?php echo $_SESSION['pass_profile'] ?>
+            <strong>Alert!</strong> <?php echo $_SESSION['pass_profile'] ?> 
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -235,7 +235,7 @@ if (isset($_SESSION['Image_succ'])) {
 ?>
     <div class="ale">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Alert!</strong> <?php echo $_SESSION['Image_succ'] ?>
+            <strong>Alert!</strong> <?php echo $_SESSION['Image_succ'] ?> 
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

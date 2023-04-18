@@ -1,19 +1,33 @@
-
-<?php 
+<?php
 session_start();
 include_once("../database/Create_database.php");
-if(!isset($_SESSION['email'])&& !isset($_SESSION['password'])){
-  ?>
+if (!isset($_SESSION['email']) && !isset($_SESSION['password'])) {
+?>
   <script>
-    window.location.href="../login.php";
+    window.location.href = "../login.php";
   </script>
-  <?php
+<?php
 }
 include_once("user_change_password.php");
- ?>
+?>
+<?php
+// name in nave
+$email = $_SESSION['email'];
+$select = "SELECT * FROM `registration` WHERE Email='$email'";
+$ans = mysqli_fetch_array(mysqli_query($con, $select));
+$name = strtok($ans[0], " ");
+
+// navcolor
+
+$directoryURI = $_SERVER['REQUEST_URI'];
+$path = parse_url($directoryURI, PHP_URL_PATH);
+$components = explode('/', $path);
+$first__part = $components[3];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -30,7 +44,7 @@ include_once("user_change_password.php");
     body {
       background-color: rgb(220, 220, 220);
       /* font-family: 'Open Sans', serif;     */
-        font-size: 14px;
+      font-size: 14px;
     }
 
     table,
@@ -61,7 +75,7 @@ include_once("user_change_password.php");
       height: 40px;
       background-color: white;
       border-radius: 5px;
-      margin-left: 10%;
+      margin-left: 7%;
     }
 
     @media only screen and (max-width: 500px) {
@@ -158,16 +172,37 @@ include_once("user_change_password.php");
       transform: scale(1.1);
       transition: 0.5s ease-in-out;
     }
+
     main {
-            margin-top: 75px;
+      margin-top: 75px;
     }
+
     .ale {
-        position: absolute;
-        top: 100px;
-        right: 50px;
-        z-index: 1;
-        width: 500px;
-        font-size: 18px;
+      position: absolute;
+      top: 100px;
+      right: 50px;
+      z-index: 1;
+      width: 500px;
+      font-size: 18px;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: #e9ecef;
+    }
+
+    .navbar-dark .navbar-nav .active1 {
+      color: red;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover{
+            color: red; 
+    }
+
+    .drop {
+      color: red;
+    }
+    .roman123{
+      background-color: blue;
+      color: red !important ;
     }
   </style>
 </head>
@@ -189,11 +224,13 @@ include_once("user_change_password.php");
       <div class="collapse navbar-collapse" id="topNavBar">
         <form class="d-flex all">
           <input class="form-control me-2" style="height:30px; text-align:center;" ; type="text" placeholder="Search">
-          <button class="btn1 btn-primary btn" type="button">Search</button>
+          <button class="btn1 btn-primary btn" type="button"><a href="user_order_search.php" style="color: #fff; text-decoration: none;">Search</a></button>
         </form>
         <ul class="navbar-nav navbar-nav1">
           <li class="nav-item">
-            <a class="nav-link" href="" style="width:80px;">Name</a>
+            <a class="nav-link <?php if ($first_part == "user_profile") {
+                                  echo "active1";
+                                } ?>" href="user_profile.php" style="width:80px;"><?php echo $name ?></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="user_home.php">Home</a>
@@ -206,7 +243,9 @@ include_once("user_change_password.php");
             </a>
             <ul class="dropdown-menu dropdown-menu-end dro">
               <li>
-                <a class="dropdown-item" href="user_profile.php">My Profile</a>
+                <a class="dropdown-item <?php if ($first_part == 'user_profile.php') {
+                                  echo "active1";
+                                } ?>" href="user_profile.php">My Profile</a>
               </li>
               <li>
                 <a class="dropdown-item" href="about.php">About Us</a>
@@ -220,7 +259,9 @@ include_once("user_change_password.php");
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+            <a class="nav-link <?php if ($first_part == "cart.php") {
+                                  echo "active1";
+                                } ?>" href="cart.php"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
           </li>
         </ul>
       </div>
@@ -249,23 +290,31 @@ include_once("user_change_password.php");
             <a href="user_home.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">Home</a>
           </li>
           <li>
-            <a href="user_order.php" class="btn btn-custom btn-lg active btn3" role="button" aria-pressed="true">Orders</a>
+            <a href="user_order.php" class="btn btn-custom btn-lg active btn3 <?php if ($first_part == "user_order.php") {
+                                  echo "roman123";
+                                } ?>" role="button" aria-pressed="true">Orders</a>
           </li>
 
           <li>
-            <a href="cart.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Cart</a>
+            <a href="cart.php" class="btn btn-custom btn-lg active btn2 <?php if ($first_part == "cart.php") {
+                                  echo "roman123";
+                                } ?>" role="button" aria-pressed="true">Cart</a>
           </li>
           <li>
-            <a href="User_Notification.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Notification</a>
+            <a href="User_Notification.php" class="btn btn-custom btn-lg active btn2 <?php if ($first_part == "User_Notification.php") {
+                                  echo "roman123";
+                                } ?>" role="button" aria-pressed="true">Notification</a>
           </li>
           <li>
-          <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#cppp">Change Password</a>
+            <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#cppp">Change Password</a>
           </li>
           <li>
-          <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#delete_acc">Delete Account</a>
+            <a href="#" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true" data-toggle="modal" data-target="#delete_acc">Delete Account</a>
           </li>
           <li>
-            <a href="user_feedback.php" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Feed Back</a>
+            <a href="user_feedback.php" class="btn btn-custom btn-lg active btn2 <?php if ($first_part == "user_feedback.php") {
+                                  echo "roman123";
+                                } ?>" role="button" aria-pressed="true">Feed Back</a>
           </li>
           <li>
             <a href="logout.php" onclick="return confirm('Are you sure you want to logout?')" class="btn btn-custom btn-lg active btn2" role="button" aria-pressed="true">Logout</a>

@@ -28,13 +28,13 @@
                         <a href="non-login-home-page.php">Home</a>
                     </li>
                     <li>
-                        <a href="">Login</a>
+                        <a href="logout.php">logout</a>
                     </li>
                     <li>
-                        <a href="">About</a>
+                        <a href="about.php">About</a>
                     </li>
                     <li>
-                        <a href="">Contact</a>
+                        <a href="contact_us.php">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -42,16 +42,18 @@
                 <h5>Our Services</h5>
             <ul class="footer-links">
                     <li>
-                        <a href="">Home Delivery</a>
+                        <span style="color:white">Home Delivery</span>
                     </li>
                     <li>
-                        <a href="">Comics Books</a>
+                        <span style="color:white">Comics Books</span>
+
                     </li>
                     <li>
-                        <a href="">IN-Rent</a>
+                        <span style="color:white">IN-Rent</span>
+
                     </li>
                     <li>
-                        <a href="">Cash On delivery</a>
+                        <span style="color:white">Cash On delivery</span>
                     </li>
                 </ul>
             </div>

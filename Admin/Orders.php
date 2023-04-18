@@ -33,13 +33,14 @@ include_once("Header.php");
                     <div class="col">
                         <b>Search: </b> <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Here">
                     </div>
-                </div>
+                </div> 
             </form>
         </div>
+
         <div class=" offset-sm-6 col-sm-2">
             <div class="row">
                 <div class="col">
-                    <a href="Orders_insert_data.php" style="margin-left: -36px;"><button class="btn btn-danger">Add New User</button></a>
+                    <a href="Orders_insert_data.php" style="margin-left: -36px;"><button class="btn btn-danger">Add New Orders</button></a>
                 </div>
             </div>
 
@@ -74,10 +75,10 @@ include_once("Header.php");
 
 
             <td> 
-                <a href="Order_Edit.php?Order_Id=<?php echo $r[1]; ?>"><button class="btn btn-info" style="width:70px">Edit</button></a>
+                <a href="Order_Edit.php?Order_Id=<?php echo $r[0]; ?>"><button class="btn btn-info" style="width:70px">Edit</button></a>
             </td>
             <td> 
-                <a href="Order_Delete.php?Order_Id=<?php echo $r[1]; ?>"><button class="btn btn-danger" style="width:100px">Delete</button></a>
+                <a href="Order_Delete.php?Order_Id=<?php echo $r[0]; ?>"><button class="btn btn-danger" style="width:100px">Delete</button></a>
             </td>
 
             <td>

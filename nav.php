@@ -108,7 +108,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
       <div class="collapse navbar-collapse" id="mynavbar">
         <form class="d-flex all">
           <input class="form-control me-2" style="height:30px; text-align:center;" ; type="text" placeholder="Search">
-          <button class="btn1 btn-primary btn" type="button2">Search</button>
+          <button class="btn1 btn-primary btn" type="button2"><a href="search.php" style="color: #fff; text-decoration: none;">Search</a></button>
         </form>
 
         <ul class="navbar-nav me-auto">

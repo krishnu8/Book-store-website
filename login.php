@@ -177,7 +177,7 @@
                         </center>
                     </form>
                     <br>
-                    <font color="white">forgot password ?<br></font><br>
+                    <font color="white"><u><a href="forget.php" class="c">forgot password ?</a></u><br></font><br>
                     <font color="white"><b>Don't have?</b> <u><a href="register.php" class="c">Create Account</a></u><br></font><br>
 
                     <center><button style="background-color: rgb(117, 14, 143);width: 150px;height:35px;font-size: 20px;border: 0;border-radius: 10px; ">
@@ -235,10 +235,13 @@ if (isset($_POST['log'])) {
                 </script>
             <?php
             } else {
-                echo "Seller";
+                session_start();
+                $_SESSION['seller_id'] = "$role[10]";
+                $_SESSION['seller_email'] = "$em";
+                $_SESSION['seller_password'] = "$pass";
             ?>
                 <script>
-                    window.location.href="seller.php";
+                    window.location.href="seller/Seller_dashboard.php";
                 </script>
             <?php
             }

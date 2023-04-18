@@ -1,6 +1,3 @@
-
-
-
 <head>
 <link rel="stylesheet" href="css/bootstrap.css">
 </head>
@@ -40,7 +37,7 @@ include_once("Header.php");
         <div class=" offset-sm-6 col-sm-2">
             <div class="row">
                 <div class="col">
-                    <a href="Cart_insert_data.php" style="margin-left: -34px;"><button class="btn btn-danger">Add New User</button></a>
+                    <a href="Cart_insert_data.php" style="margin-left: -34px;"><button class="btn btn-danger">Add New Carts</button></a>
                 </div>
             </div>
 

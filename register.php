@@ -158,7 +158,7 @@ if (isset($_SESSION['reg_msg'])) {
                     </div>
                     <div class="input">
                         <font style="color: #fff; " size="5"><b>E-mail</b><br>
-                            <input id="email" name="email" type="text" onblur="check_email(this)" placeholder="example@gmail.com"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
+                            <input id="email" name="email" type="email" onblur="check_email(this)" placeholder="example@gmail.com"  style="border: 0;background-color:rgba(0,0,0,0); height:30px;width: 300px;border-radius: 5px;">
                             <!-- <span id="emailerror" class="text-danger"></span> -->
                     </div>
 

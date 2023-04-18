@@ -69,6 +69,7 @@ function go2Page(a) {
     page = ((page > a) ? a : ((page < 1) ? 1 : page));
     window.location = 'manage_events.php?page=' + page;
 }
+
 function myFunction() {
     // Declare variables
     var input, filter, table, tr, td, i, txtValue;

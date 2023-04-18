@@ -40,7 +40,7 @@ include_once("Header.php");
         <div class=" offset-sm-6 col-sm-2">
             <div class="row">
                 <div class="col">
-                    <a href="Offers_insert_data.php" style="margin-left: -34px;"><button class="btn btn-danger">Add New User</button></a>
+                    <a href="Offers_insert_data.php" style="margin-left: -34px;"><button class="btn btn-danger">Add New Offers</button></a>
                 </div>
             </div>
 

@@ -103,25 +103,28 @@ if (isset($_SESSION['PASSWORDWRONG'])) {
                 <div class="modal-body mx-3">
                     <div class="md-form mb-5">
                         <i class="fas fa-lock prefix grey-text"></i>
+                         <label data-error="wrong" data-success="right" for="orangeForm-name">Current Password</label>
                         <input type="password" id="orangeForm-name" class="form-control" required name="cp1" onblur="checkpass1()">
-                        <label data-error="wrong" data-success="right" for="orangeForm-name">Current
-                            Password</label>
+                        <p id="checkpasserr" style="color:red;"></p>
+
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-lock prefix grey-text"></i>
-                        <input type="password" id="pass" class="form-control " required onblur="check3()">
                         <label data-error="wrong" data-success="right" for="orangeForm-email">New Pasword</label>
+                        <input type="password" id="pass" class="form-control " required onblur="check3()">
+                        <p id="passerr" style="color:red;"></p>
                     </div>
 
                     <div class="md-form mb-4">
                         <i class="fas fa-lock prefix grey-text"></i>
-                        <input type="password" name="pass1" id="cpass" required class="form-control" onblur="check2()">
                         <label data-error="wrong" data-success="right" for="orangeForm-pass">verify</label>
+                        <input type="password" name="pass1" id="cpass" required class="form-control" onblur="check2()">
+                        <p id="cpasserr" style="color:red;"></p>
                     </div>
 
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <input type="submit" value="Change" name="change" style="width:100px;" class=" btn-primary">
+                    <input type="submit" value="Change" name="change" style="width:100px;" class="btn-custom">
                 </div>
             </div>
         </form>
@@ -170,9 +173,14 @@ if (isset($_SESSION['PASSWORDWRONG'])) {
                 if (pass != "") {
                     if (pass == cpass) {
                         document.getElementById("orangeForm-name").style.boxShadow = "4px 4px 1px 1px green";
+                        document.getElementById("checkpasserr").innerHTML='';
                     } else {
                         document.getElementById("orangeForm-name").style.boxShadow = "4px 4px 1px 1px red";
+                        document.getElementById("checkpasserr").innerHTML='Enter Correct Password';
                     }
+                }else{
+                    document.getElementById("orangeForm-name").style.boxShadow = "none";
+                    document.getElementById("checkpasserr").innerHTML='Current Password Cannot Be Empty';
                 }
             }
 
@@ -182,9 +190,15 @@ if (isset($_SESSION['PASSWORDWRONG'])) {
                 if (pass != "") {
                     if (passwordcheck.test(pass)) {
                         document.getElementById("pass").style.boxShadow = "4px 4px 1px 1px green";
+                        document.getElementById("passerr").innerHTML='';
+
                     } else {
                         document.getElementById("pass").style.boxShadow = "4px 4px 1px 1px red";
+                        document.getElementById("passerr").innerHTML='Password must Contain 8 Character With Special Symbol And Number';
                     }
+                }else{
+                    document.getElementById("pass").style.boxShadow = "none";
+                    document.getElementById("passerr").innerHTML='Password Cannot Be Empty';
                 }
             }
 
@@ -194,9 +208,15 @@ if (isset($_SESSION['PASSWORDWRONG'])) {
                 if (cpass != "") {
                     if (pass == cpass) {
                         document.getElementById("cpass").style.boxShadow = "4px 4px 1px 1px green";
+                        document.getElementById("cpasserr").innerHTML='';
                     } else {
                         document.getElementById("cpass").style.boxShadow = "4px 4px 1px 1px red";
+                        document.getElementById("cpasserr").innerHTML='Enter Same Password As Above';
                     }
+                }else{
+                    document.getElementById("cpass").style.boxShadow = "none";
+                    document.getElementById("cpasserr").innerHTML='Password Cannot Be Empty';
+
                 }
             }
             function checkpass4() {

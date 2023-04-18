@@ -47,7 +47,7 @@ if(isset($_FILES['fgd']) && $_FILES['fgd']['error'] == UPLOAD_ERR_OK){
       if(mysqli_query($con,$update)){
         $_SESSION['Image_succ']="Profile Picture Update Successfully";
       }else{
-        $_SESSION['Image_error']="Failed To update profile picture ";
+        $_SESSION['Image_error']="Fail To update profile picture ";
       }
     }
     ?>
@@ -57,7 +57,7 @@ if(isset($_FILES['fgd']) && $_FILES['fgd']['error'] == UPLOAD_ERR_OK){
     <?php
   }
 }else{
-  $_SESSION['Image_error']="Failed To update profile picture ";
+  $_SESSION['Image_error']="Select Picture to update profile picture ";
   ?>
     <script>
       window.location.href="user_profile.php";

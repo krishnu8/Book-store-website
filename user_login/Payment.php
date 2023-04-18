@@ -211,8 +211,7 @@ p.nameAndcvc,p.cardAndExpire{
                         <div class="payment">
                             <p class="heading2"><strong>Payment Details</strong></p>
                             <?php
-                                $date=date('Y/m/d', strtotime(date('Y/m/d'). ' + 2 days'));
-                                $day=date('l', strtotime($date[3]));
+                                $day=date('l', strtotime(date('l')."+2 Days"));
                             ?>
                             <p class="cardAndExpire">Order Delivered BY<span class="float-right"><?php echo $day ?></span></p>
                             <!-- <p class="cardAndExpireValue">161617161816188<span class="float-right">26/11</span></p> -->

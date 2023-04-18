@@ -39,7 +39,7 @@ include_once("Header.php");
         <div class=" offset-sm-6 col-sm-2">
             <div class="row">
                 <div class="col">
-                    <a href="Product_insert_data.php" style="margin-left: 15px;"><button class="btn btn-danger">Add New User</button></a>
+                    <a href="Product_insert_data.php" style="margin-left: 15px;"><button class="btn btn-danger">Add New Products</button></a>
                 </div>
             </div>
 
@@ -78,10 +78,10 @@ include_once("Header.php");
         <td><?php echo"$r[9]"?></td>
 
             <td> 
-                <a href="Product_Edit.php?Product_Id=<?php echo $r[1]; ?>"><button class="btn btn-info" style="width:70px">Edit</button></a>
+                <a href="Product_Edit.php?Product_Id=<?php echo $r[0]; ?>"><button class="btn btn-info" style="width:70px">Edit</button></a>
             </td>
             <td> 
-                <a href="Product_Delete.php?Product_Id=<?php echo $r[1]; ?>"><button class="btn btn-danger" style="width:100px">Delete</button></a>
+                <a href="Product_Delete.php?Product_Id=<?php echo $r[0]; ?>"><button class="btn btn-danger" style="width:100px">Delete</button></a>
             </td>
 
         </tr>

@@ -34,14 +34,14 @@ include_once("Header.php");
                 </div>
             </form>
         </div>
-        <div class=" offset-sm-6 col-sm-2">
+        <!-- <div class=" offset-sm-6 col-sm-2">
             <div class="row">
                 <div class="col">
-                    <a href="Review_insert_data.php" style="margin-left: -35px;"><button class="btn btn-danger">Add New User</button></a>
+                    <a href="review_rating.php" style="margin-left: -35px;"><button class="btn btn-danger">Add New Review</button></a>
                 </div>
             </div>
 
-        </div>
+        </div> -->
 
 
 <br>

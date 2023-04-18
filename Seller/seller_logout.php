@@ -1,0 +1,9 @@
+<?php
+session_start();
+unset($_SESSION['seller_password']);
+unset($_SESSION['seller_email']);
+unset($_SESSION['seller_id']);
+?>
+<script>
+    window.location.href="../login.php";
+</script>

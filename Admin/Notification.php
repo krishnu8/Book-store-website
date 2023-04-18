@@ -36,11 +36,11 @@ include_once("Header.php");
             </form>
         </div>
         <div class=" offset-sm-6 col-sm-2">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col">
-                    <a href="Notification_insert_data.php" style="margin-left: -34px;"><button class="btn btn-danger">Add New User</button></a>
+                    <a href="Notification_insert_data.php" style="margin-left: -34px;"><button class="btn btn-danger">Add New Notification</button></a>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 

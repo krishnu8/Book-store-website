@@ -123,7 +123,7 @@
         }
     }
 </style>
-<?php include("seller_navebar.php") ?>
+<?php include("seller_nave.php") ?>
 <div class="container-fluid">
 
     <div class="table-wrap">
@@ -135,19 +135,21 @@
             <thead>
                 <th>&nbsp;</th>
                 <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
                 <th>Category</th>
+                <th>Price</th>
+                <th>Total Quantity</th>
+                <th> Remaining Quantity</th>
+                <th colspan="2"></th>
                 <th>&nbsp;</th>
             </thead>
-            <tr>
-                <td colspan="6" style="text-align:end;"> <a href="seller_product_register.php"><button style="height: 30px; background-color:#3b6967">Add product</button></a> </td>
-            </tr>
             <tbody>
+            <tr>
+                <td colspan="8"> <a href="seller_product_register.php"><button class="btn btn-secondary ">Add product</button></a> </td>
+            </tr>
                 <tr class="align-middle alert border-bottom" role="alert">
 
                     <td class="text-center">
-                        <img class="pic" src="image/Book.png" alt="">
+                        <img class="pic" src="../image/Book_image/book1.jpg" alt="">
                     </td>
                     <td>
                         <div>
@@ -156,333 +158,28 @@
                         </div>
                     </td>
                     <td>
+                        Fairy tales
+                    </td>
+                    <td>
                         <div class="fw-600">RS.544.99</div>
+                    </td>
+                    <td class="d-">
+                        12
                     </td>
                     <td class="d-">
                         7
                     </td>
                     <td>
-                        Fairy tales
+                        <div class="btn">
+                            <button class="btn btn-danger">Edit</button>
+                        </div>
                     </td>
                     <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
+                        <div class="btn">
+                            <button class="btn btn-danger">Delete</button>
                         </div>
                     </td>
                 </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold"> Anna Karenina</p>
-                            <p class="m-0 text-muted">BY Leo Tolstoy</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.554.99</div>
-                    </td>
-                    <td class="d-">
-                        36
-                    </td>
-                    <td>
-                        Crime.
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">Death of a City</p>
-                            <p class="m-0 text-muted">BY Amrita Pritam</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.550.99</div>
-                    </td>
-                    <td class="d-">
-                        9
-                    </td>
-                    <td>
-                        Classics.
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">A Passage to India</p>
-                            <p class="m-0 text-muted">BY E.M. Foster</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.574.99</div>
-                    </td>
-                    <td>
-                        12
-                    </td>
-                    <td>
-                        Adventure stories
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">A Passage to India</p>
-                            <p class="m-0 text-muted">BY E.M. Foster</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.574.99</div>
-                    </td>
-                    <td>
-                        12
-                    </td>
-                    <td>
-                        Adventure stories
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">A Passage to India</p>
-                            <p class="m-0 text-muted">BY E.M. Foster</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.574.99</div>
-                    </td>
-                    <td>
-                        12
-                    </td>
-                    <td>
-                        Adventure stories
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">A Passage to India</p>
-                            <p class="m-0 text-muted">BY E.M. Foster</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.574.99</div>
-                    </td>
-                    <td>
-                        12
-                    </td>
-                    <td>
-                        Adventure stories
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">A Passage to India</p>
-                            <p class="m-0 text-muted">BY E.M. Foster</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.574.99</div>
-                    </td>
-                    <td>
-                        12
-                    </td>
-                    <td>
-                        Adventure stories
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">A Passage to India</p>
-                            <p class="m-0 text-muted">BY E.M. Foster</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.574.99</div>
-                    </td>
-                    <td>
-                        12
-                    </td>
-                    <td>
-                        Adventure stories
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">A Passage to India</p>
-                            <p class="m-0 text-muted">BY E.M. Foster</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.574.99</div>
-                    </td>
-                    <td>
-                        12
-                    </td>
-                    <td>
-                        Adventure stories
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">A Passage to India</p>
-                            <p class="m-0 text-muted">BY E.M. Foster</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.574.99</div>
-                    </td>
-                    <td>
-                        12
-                    </td>
-                    <td>
-                        Adventure stories
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">A Passage to India</p>
-                            <p class="m-0 text-muted">BY E.M. Foster</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.574.99</div>
-                    </td>
-                    <td>
-                        12
-                    </td>
-                    <td>
-                        Adventure stories
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="align-middle alert border-bottom" role="alert">
-
-                    <td class="text-center">
-                        <img class="pic" src="image/Book1.png" alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">A Passage to India</p>
-                            <p class="m-0 text-muted">BY E.M. Foster</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fw-600">RS.574.99</div>
-                    </td>
-                    <td>
-                        12
-                    </td>
-                    <td>
-                        Adventure stories
-                    </td>
-                    <td>
-                        <div class="btn" data-bs-dismiss="alert">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                </tr>
-
             </tbody>
         </table>
     </div>

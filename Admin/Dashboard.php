@@ -124,7 +124,7 @@
         <h2><i class="fa-solid fa-gauge"></i> DASHBOARD</h2>
 
         <div class="row row1" style="margin-top: -20px;">
-            <div class="col-sm-3 jack1" style="margin-left: -40px;">
+            <div class="col-sm-3 jack1" style="margin-left: -40px;" class="h3">
                 <h3 style="background-color: blue; color: #fff;">
                     <p> 2 </p> 
                     <div class="View_class"> <h4 style="width: 50%; margin-left: 20px;">Welcom To !</h4> View Users 
@@ -183,7 +183,7 @@
 
 
 <div class="row" class="row2">
-    <div class="col-sm-3 jack1"style="margin-left: -40px;">
+    <div class="col-sm-3 jack1"style="margin-left: -40px;" class="h3">
     <h3 style="background-color: RoyalBlue; color: #fff;"> 
         <p> $700 </p> 
         <div class="View_class"><h4 style="width: 50%; margin-left: 20px;">Welcom To !</h4>View See Orders</div>
