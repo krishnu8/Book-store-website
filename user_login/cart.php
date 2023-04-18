@@ -239,7 +239,10 @@
                                                     </figure>
                                                 </td>
                                                 <td>
-                                                    <select class="form-control" oninput="<?php echo $product_detail[1] ?>()" id='<?php echo $product_detail[0] ?>'>
+                                                    <?php
+                                                        $nam = strtok($product_detail[1], " ");
+                                                    ?>
+                                                    <select class="form-control" oninput="<?php echo $nam ?>()" id='<?php echo $product_detail[0] ?>'>
                                                         <option value="<?php echo $cart[1] ?>"><?php echo $cart[1] ?></option>
                                                         <?php
                                                         if ($product_detail[5] <= 5) {
@@ -273,7 +276,7 @@
                                                 </td>
 
                                                 <script>
-                                                    function <?php echo $product_detail[1] ?>() {
+                                                    function <?php echo $nam ?>() {
                                                         var sel = document.getElementById('<?php echo $product_detail[0] ?>').value;
                                                         var each_price = "<?php echo $product_detail[2] ?>";
                                                         var total = sel * each_price;
@@ -360,6 +363,12 @@
         }
         xmlhttp.open("GET", url, false);
         xmlhttp.send(null);
+        alert(xmlhttp.responseText);
+        // if (xmlhttp.responseText != "noerror") {
+        //     alert("Email ID is Already registered Please Enter a new Email address");
+        //     document.getElementById("email").value = "";
+        //     document.getElementById("email").focus();
+        // }
     }
 </script>
 
@@ -367,7 +376,13 @@
 
 
 <?php
-$Discount = 0;
+if(isset($_SESSION['Discount'])){
+    $dis=$_SESSION['Discount'];
+}else{
+    $dis=0;
+}
+unset($_SESSION['Discount']);
+$Discount =$dis;
 if (isset($_POST['total'])) {
     $sum = 0;
     $selectprice = "SELECT * FROM `cart` WHERE User_id='$user_id'";

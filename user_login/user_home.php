@@ -62,33 +62,33 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner " style="height:600px;">
             <div class="carousel-item active ">
-                <img src="../image/Book_image/book1.jpg" alt="Los Angeles" width="100%" class="img-fluid">
+                <img src="../image/Book_image/book1.jpg" alt="Los Angeles" width="100%" >
                 <div class="carousel-caption">
-                    <h3></h3>
-                    <p></p>
+                    <h3>rohhhhman</h3>
+                    <p>1234567890-</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="../image/Book_image/a1.jpg" alt="Chicago" width="100%" height="700px">
                 <div class="carousel-caption">
-                    <h3></h3>
-                    <p></p>
+                    <h3>ferderderderderderd</h3>
+                    <p>5425656</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="../image/Book_image/a2.jpg" alt="New York" width="100%" height="700px">
                 <div class="carousel-caption">
-                    <h3></h3>
-                    <p></p>
+                    <h3>sdrdsfrsder</h3>
+                    <p>686/p>
                 </div>
             </div>
         </div>
-        <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </a>
             <a class="carousel-control-next" href="#demo" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
-            </a> -->
+            </a>
     </div>
 
     <!-- Product Card fetching from databse -->

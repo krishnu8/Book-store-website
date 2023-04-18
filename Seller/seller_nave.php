@@ -1,5 +1,12 @@
 <?php
 session_start();
+if (!isset($_SESSION['seller_email']) && !isset($_SESSION['seller_password'])) {
+  ?>
+    <script>
+      window.location.href = "../login.php";
+    </script>
+  <?php
+  }
 include_once("../database/Create_database.php");
 include_once("seller_change_password.php");
 ?>
@@ -205,10 +212,7 @@ include_once("seller_change_password.php");
                 <a class="dropdown-item" data-toggle="modal" data-target="#delete_acc" href="">Delete Account</a>
               </li>
               <li>
-                <a class="dropdown-item" href="">About Us</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="">Contact Us</a>
+              <a class="dropdown-item " href="seller_offer.php">Offers</a>
               </li>
               <li>
                 <a class="dropdown-item" href="seller_logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
