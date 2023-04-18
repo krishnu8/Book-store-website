@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title>Seller_profile</title>
+    <title>Feedback</title>
     <style>
         .jack12 {
             height: 80px;
@@ -108,85 +108,46 @@
                 <h2><b> <u>Review & Rating</u> </b> </h2>
             </div>
         </div>
-
+        <?php
+        $seller_id=$_SESSION['seller_id'];
+        $select="SELECT * FROM review INNER JOIN product ON review.product_id = product.product_id WHERE product.seller_id='$seller_id'";
+        $a=mysqli_query($con,$select);
+        while($review=mysqli_fetch_array($a)){
+            $user_info="Select * from registration where user_id='$review[1]'";
+            $user=mysqli_fetch_array(mysqli_query($con,$user_info));
+        ?>
         <div class="row" style="margin-bottom: 3px;">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card card-inner">
-                        <div class="card-body">
+                        <div class="card-body" >
                             <div class="row">
-                                <div class="col-md-2">
-                                    <img src="../image/a1.jpg" class="img img-rounded img-fluid" />
+                                <div class="col-md-2" style="text-align: center;">
+                                    <img src="../image/Book_image/<?php echo $review[7] ?>" style="height: 100px; " />
                                 </div>
                                 <div class="col-md-10">
                                     <p>
-                                        <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>Mamjad </strong></a>
+                                        <strong><?php echo $user[0] ?></strong>
+                                        <?php
+                                        for($i=0;$i<$review[3];$i++){
+                                        ?>
                                         <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                        <?php
+                                        }
+                                        ?>
                                     </p>
                                     <div class="clearfix"></div>
-                                    <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                    <p style="height: 45px;overflow-y: hidden;"><?php echo $review[2] ?></p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>  
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-bottom: 3px;">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card card-inner">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="../image/a1.jpg" class="img img-rounded img-fluid" />
-                                </div>
-                                <div class="col-md-10">
-                                    <p>
-                                        <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>Mamjad </strong></a>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                    </p>
-                                    <div class="clearfix"></div>
-                                    <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <div class="row" style="margin-bottom: 3px;">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card card-inner">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="../image/a1.jpg" class="img img-rounded img-fluid" />
-                                </div>
-                                <div class="col-md-10">
-                                    <p>
-                                        <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>Mamjad </strong></a>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                                    </p>
-                                    <div class="clearfix"></div>
-                                    <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <?php
+        }
+        ?>
     </div>
 
 

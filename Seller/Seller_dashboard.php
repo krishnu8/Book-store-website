@@ -11,7 +11,7 @@
     <title>Dashboard</title>
     <style>
         .jack12 {
-            height:70px;
+            height: 70px;
         }
 
         html {
@@ -111,6 +111,7 @@
             align-items: center;
             transition: 0.5s ease-in-out;
         }
+
         /* .box:hover{
             transform: scale(1.1)
         } */
@@ -127,19 +128,34 @@
         .contain p {
             font-size: 30px;
         }
-        .da{
+
+        .da {
             margin-left: 40px !important;
         }
+
         @media only screen and (max-width: 500px) {
-            .da{
-                margin-left:-25px !important;
+            .da {
+                margin-left: -25px !important;
             }
         }
     </style>
 </head>
 
 <body>
-    <?php include_once("seller_nave.php") ?>
+    <?php include_once("seller_nave.php");
+    $seller_id = $_SESSION['seller_id'];
+    $sel = "SELECT count( `Total_Quantity`) FROM `product` WHERE seller_id='$seller_id' and status='Active'";
+    $tpro = mysqli_fetch_array(mysqli_query($con, $sel));
+    $sel = "select count('oders.Deliver_date') FROM Oders INNER JOIN product ON Oders.product_id = product.product_id WHERE product.seller_id='$seller_id'";
+    $rpro = mysqli_fetch_array(mysqli_query($con, $sel));
+    $sel = "SELECT count( `Renaining_Quantity`) FROM `product` WHERE seller_id='$seller_id' and `Renaining_Quantity`='0' and status='Active'";
+    $ostock = mysqli_fetch_array(mysqli_query($con, $sel));
+    $sel = "SELECT count('oders.*') FROM Oders INNER JOIN product ON Oders.product_id = product.product_id WHERE product.seller_id='$seller_id' and oders.status='Active'";
+    $undeliver = mysqli_fetch_array(mysqli_query($con, $sel));
+    $sel = "SELECT review.* FROM review INNER JOIN product ON review.product_id = product.product_id WHERE product.seller_id='$seller_id'";
+    $feedback = mysqli_num_rows(mysqli_query($con, $sel));
+
+    ?>
     <div class="jack12"></div>
     <div class="container-fluid">
         <div class="row">
@@ -154,19 +170,19 @@
                     <div class="col-sm-4">
                         <div class="box">
                             <div class="contain">
-                                <p>Total product</p> <br>
-                                <p> 6 </p>
+                                <p>Total Product</p> <br>
+                                <p> <?php echo $tpro[0] ?></p>
                             </div>
-                            <a href="seller_product.php"><button  class="btn btn-info">View Product</button></a>
+                            <a href="seller_product.php"><button class="btn btn-info">View Product</button></a>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="box">
                             <div class="contain">
                                 <p>Orders</p> <br>
-                                <p> 67 </p>
+                                <p><?php echo $rpro[0] ?> </p>
                             </div>
-                            <a href="#"><button  class="btn btn-info">Orders</button></a>
+                            <a href="seller_orders.php"><button class="btn btn-info">View Orders</button></a>
 
                         </div>
                     </div>
@@ -174,9 +190,9 @@
                         <div class="box">
                             <div class="contain">
                                 <p>Out Of Stock</p> <br>
-                                <p> 67 </p>
+                                <p> <?php echo $ostock[0] ?></p>
                             </div>
-                            <a href="#"><button  class="btn btn-info">Orders</button></a>
+                            <a href="out_of_stock.php"><button class="btn btn-info">View product</button></a>
 
                         </div>
                     </div>
@@ -188,41 +204,46 @@
                         <div class="box">
                             <div class="contain">
                                 <p>Undelivered</p> <br>
-                                <p> 1111 </p>
+                                <p> <?php echo $undeliver[0] ?></p>
                             </div>
-                            <a href="seller_rating.php"><button class="btn btn-info">View user</button></a>
+                            <a href="undelivered_product.php"><button class="btn btn-info">View Orders</button></a>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="box">
                             <div class="contain">
                                 <p>Feedbacks</p> <br>
-                                <p> 1111 </p>
+                                <p> <?php echo $feedback ?> </p>
                             </div>
-                            <a href="seller_rating.php"><button  class="btn btn-info">View Feedback</button></a>
+                            <a href="seller_rating.php"><button class="btn btn-info">View Feedback</button></a>
                         </div>
                     </div>
                     <div class="col-sm-4">
+                        <?php
+                        $sel = "SELECT * FROM Oders INNER JOIN product ON Oders.product_id = product.product_id WHERE product.seller_id='$seller_id' and oders.status='Delivered'";
+                        $getin = mysqli_query($con, $sel);
+                        $i = mysqli_num_rows($getin);
+                        $sum = 0;
+                        while ($val = mysqli_fetch_array($getin)) {
+                            $sum = $sum + ($val[2] * $val[9]);
+                        }
+                        ?>
                         <div class="box">
                             <div class="contain">
                                 <p>Total Income</p> <br>
-                                <p> RS.578 </p>
+                                <p> RS.<?php echo $sum ?></p>
                             </div>
-                         </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html>
 <?php include_once("seller_change_password.php") ?>

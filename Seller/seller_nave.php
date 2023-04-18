@@ -1,5 +1,12 @@
 <?php
 session_start();
+if (!isset($_SESSION['seller_email']) && !isset($_SESSION['seller_password'])) {
+  ?>
+    <script>
+      window.location.href = "../login.php";
+    </script>
+  <?php
+  }
 include_once("../database/Create_database.php");
 include_once("seller_change_password.php");
 ?>
@@ -180,10 +187,10 @@ include_once("seller_change_password.php");
             <a class="nav-link" href="Seller_dashboard.php">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Orders</a>
+            <a class="nav-link" href="Seller_orders.php">Orders</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="seller_rating.php">Feadback</a>
+            <a class="nav-link" href="seller_rating.php">Feedback</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="seller_product.php">Products</a>
@@ -196,7 +203,7 @@ include_once("seller_change_password.php");
             </a>
             <ul class="dropdown-menu dropdown-menu-end dro">
               <li>
-                <a class="dropdown-item " href="">My Profile</a>
+                <a class="dropdown-item " href="seller_profile.php">My Profile</a>
               </li>
               <li>
                 <a class="dropdown-item" data-toggle="modal" data-target="#cppp" href="">Change Password</a>
@@ -205,10 +212,7 @@ include_once("seller_change_password.php");
                 <a class="dropdown-item" data-toggle="modal" data-target="#delete_acc" href="">Delete Account</a>
               </li>
               <li>
-                <a class="dropdown-item" href="">About Us</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="">Contact Us</a>
+              <a class="dropdown-item " href="seller_offer.php">Offers</a>
               </li>
               <li>
                 <a class="dropdown-item" href="seller_logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout</a>

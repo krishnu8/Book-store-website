@@ -8,8 +8,6 @@
     <title>All Notification</title>
     <?php include_once("nave.php") ?>
     <style>
-        
-
         @media (max-width: 992px) {
             main {
                 padding-top: 30px;
@@ -60,14 +58,16 @@
             margin-left: 2.5%;
             margin-top: 10px;
         }
-        .aa{
-            background-color:blue;
+
+        .aa {
+            background-color: blue;
             color: white;
             border-radius: 8px;
             padding: 5px;
         }
-        .aa:hover{
-            background-color:white;
+
+        .aa:hover {
+            background-color: white;
             color: black;
             border-radius: 8px;
         }
@@ -82,18 +82,52 @@
                     <h2><b>Notification</b></h2>
                 </div>
             </div>
-            <div class="row1 data">
-                <div style="width:10%"><img src="../image/Book.png" height="80px" style="border-radius: 50%; background-color: red;" alt="img"></div>
-                <div style="width:10%"><h5>From:Amarjit</h5></div>
-                <div style="width:30%"> <h5>Hurry up! New product arrived  buy one get one free offer Limited product left</h5> </div>
-                <div><a href=""><button class="aa">Check it out</button></a></div>
-            </div>
-            <div class="row1 data1">
-                <div style="width:10%"><img src="../image/Book.png" height="80px" style="border-radius: 50%; background-color: red;" alt="img"></div>
-                <div style="width:10%"><h5>From:Amarjit</h5></div>
-                <div style="width:30%"> <h5>Hurry up! New product arrived  buy one get one free offer Limited product left</h5> </div>
-                <div><a href=""><button class="aa">Check it out</button></a></div>
-            </div>
+            <?php
+            $user_id = $_SESSION['User_id'];
+            $select = "SELECT * FROM `notification` WHERE 1";
+            $data = mysqli_query($con, $select);
+            $usel = "select * from registration where user_id='$user_id'";
+            $user_data = mysqli_fetch_array(mysqli_query($con, $usel));
+            $b=0;
+            while ($a = mysqli_fetch_array($data)) {
+                $product = "SELECT * FROM `product` WHERE Product_Id='$a[2]'";
+                $product_info = mysqli_fetch_array(mysqli_query($con, $product));
+                if ($user_data[11] < $a[3]) {
+                    if ($b == 0) {
+                        $b=1;
+            ?>
+                        <div class="row1 data">
+                            <div style="width:10%"><img src="../image/Book_image/<?php echo $product_info[3] ?>" height="80px" width="80px" style="border-radius: 50%; background-color: red;" alt="img"></div>
+                            <div style="width:20%">
+                                <h5> <?php echo $product_info[1], " By:", $product_info[8] ?></h5>
+                            </div>
+
+                            <div style="width:40%">
+                                <h5>Hurry Up!! A brand new product has just become available.</h5>
+                            </div>
+                            <div><a href=""><button class="aa">Check it out</button></a></div>
+                        </div>
+                    <?php
+                    } else {
+                        $b=0;
+                    ?>
+                        <div class="row1 data1">
+                            <div style="width:10%"><img src="../image/Book_image/<?php echo $product_info[3] ?>" height="80px" width="80px" style="border-radius: 50%; background-color: red;" alt="img"></div>
+                            <div style="width:20%">
+                                <h5> <?php echo $product_info[1], " By:", $product_info[8] ?></h5>
+                            </div>
+
+                            <div style="width:40%">
+                                <h5>Hurry Up!! A brand new product has just become available.</h5>
+                            </div>
+                            <div><a href=""><button class="aa">Check it out</button></a></div>
+                        </div>
+            <?php
+                    }
+                }
+            }
+
+            ?>
         </div>
     </main>
 </body>

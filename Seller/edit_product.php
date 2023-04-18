@@ -126,25 +126,30 @@
 <body>
     <?php
     include_once("seller_nave.php");
+    $product_id = @$_GET['product_id'];
+    $path=@$_GET['path'];
+    $select = "SELECT * FROM `product` WHERE Product_Id='$product_id'";
+    $info = mysqli_fetch_array(mysqli_query($con, $select));
     ?>
     <div class="row">
-            <div class="col-sm-12">
-                <h4><b>Product Register</b></h4>
-            </div>
+        <div class="col-sm-12">
+            <h4><b>Edit Product </b></h4>
         </div>
+    </div>
     <div class="con">
         <form action="" method="post" class="form" onsubmit="return check()" enctype="multipart/form-data">
             <div class="input">
                 <p class='font'>Product Name</p>
-                <input id="name" name="book" type="text" placeholder="Enter Book Name"  required>
+                <input id="name" name="book" type="text" placeholder="Enter Book Name" value="<?php echo $info[1] ?>">
             </div>
             <div class="input">
                 <p class='font'>Auther</p>
-                <input id="auther" name="auther" type="text" placeholder="Enter Auther Name"  required>
+                <input id="auther" name="auther" type="text" placeholder="Enter Auther Name" value="<?php echo $info[8] ?>">
             </div>
             <div class="input">
                 <p class='font'>Category</p>
                 <select name="select" id="" style="width:200px; text-align: center; background-color: transparent; color: white;">
+                    <option value="<?php echo $info[6] ?>" style="color: black;"><?php echo $info[6] ?></option>
                     <option value="Adventure stories" style="color: black;">Adventure stories</option>
                     <option value="Classics" style="color: black;">Classics</option>
                     <option value="Crime" style="color: black;">Crime</option>
@@ -155,21 +160,21 @@
                 </select>
             </div>
             <div class="input">
-                <p class='font'>Quantity</p>
-                <input type="number" name="quantity" id="quantity" placeholder="Number of Book"  required>
+                <p class='font'>Add Stock</p>
+                <input type="number" name="quantity" id="quantity" placeholder="Number of Book You want to add" value="0">
             </div>
             <div class="input">
                 <p class='font'>Price</p>
-                <input id="price" name="price" type="number" placeholder="Enter Price of each Book" required >
+                <input id="price" name="price" type="number" placeholder="Enter Price of each Book" value="<?php echo $info[2] ?>">
             </div>
 
             <div class="input">
                 <p class='font'>Description</p>
-                <textarea name="des" id="description" cols="39" rows="1" style="background-color: transparent; color: white;" placeholder="Something About book" required ></textarea>
+                <textarea name="des" id="des" cols="39" rows="1" style="background-color: transparent; color: white;" placeholder="<?php echo $info[7] ?>"></textarea>
             </div>
             <div class="input">
                 <p class='font'>product Image</p>
-                <input type="file" name="photo" id="" required >
+                <input type="file" name="photo" id="">
             </div>
             <input type="submit" value="Register" class="btn1" name="btn">
         </form>
@@ -187,7 +192,7 @@
         var numbercheck = /^\d{1,3}(?:\.\d{1,5})?$/;
         // var ho=namecheck.test(product_name);
         // alert(ho);
-        
+
         if (namecheck.test(product_name)) {
             P = 'true';
         } else {
@@ -203,13 +208,13 @@
         if (numbercheck.test(quantity)) {
             Q = 'true';
         } else {
-            alert('Quantity must be less than 1k');
+            alert('Quantity must be less than 1k and greater than 0');
             Q = 'false';
         }
         if (numbercheck.test(price)) {
             PR = 'true';
         } else {
-            alert("Price of product must be less than 1k");
+            alert("Price of product must be less than 1k and greater than 0");
             PR = 'false';
         }
 
@@ -221,36 +226,60 @@
     }
 </script>
 <?php
-if(isset($_POST['btn'])){
-    $Book=@$_POST['book'];
-    $Auther=@$_POST['auther'];
-    $select=@$_POST['select'];
-    $description =@$_POST['des'];
-    $price=@$_POST['price'];
-    $quantity=@$_POST['quantity'];
+if (isset($_POST['btn'])) {
+    $Book = @$_POST['book'];
+    $Auther = @$_POST['auther'];
+    $select = @$_POST['select'];
+    $description = @$_POST['des'];
+    $price = @$_POST['price'];
+    $add = @$_POST['quantity'];
     $file_name = @$_FILES['photo']['name'];
     $file_temp = @$_FILES['photo']['tmp_name'];
     $target_dir = "../image/Book_image/";
     $target_file = $target_dir . basename($file_name);
-    $seller_id=$_SESSION['seller_id'];
-    $update="INSERT INTO `product`(`Product_Name`, `Price`, `Product_Image`, `Category`, `Description`, `Auther`, `seller_id`, `Total_Quantity`, `Renaining_Quantity`) VALUES ('$Book','$price','$file_name','$select','$description','$Auther',$seller_id,'$quantity','$quantity')";
-    if(mysqli_query($con,$update)){
-    if(move_uploaded_file($file_temp, $target_file)){
-        $_SESSION['product_upp']="Product Added to the Book Chor";
-    }else{
-        $_SESSION['product_upp']="Fail to Add  the product";
+    if ($description == "") {
+        if ($file_name == "") {
+            $update = "UPDATE `product` SET`Product_Name`='$Book',`Price`='$price',`Total_Quantity`=Total_Quantity+$add,`Renaining_Quantity`=Renaining_Quantity+$add,`Category`='$select',`Auther`='$Auther' WHERE `Product_Id`='$product_id'";
+            if (mysqli_query($con, $update)) {
+                $_SESSION['product_upp'] = "Product updated";
+            } else {
+                $_SESSION['product_upp'] = "Something went wrong";
+            }
+        } else {
+
+            $update = "UPDATE `product` SET`Product_Name`='$Book',`Price`='$price',`Product_Image`='$file_name',`Total_Quantity`=Total_Quantity+$add,`Renaining_Quantity`=Renaining_Quantity+$add,`Category`='$select',`Auther`='$Auther' WHERE `Product_Id`='$product_id'";
+            if (mysqli_query($con, $update)) {
+                if (move_uploaded_file($file_temp, $target_file)) {
+                    $_SESSION['product_upp'] = "Product updated";
+                } else {
+                    $_SESSION['product_upp'] = "Something went wrong";
+                }
+            }
+        }
+    } else {
+        if ($file_name == "") {
+            $update = "UPDATE `product` SET`Product_Name`='$Book',`Price`='$price',`Total_Quantity`=Total_Quantity+$add,`Renaining_Quantity`=Renaining_Quantity+$add,`Category`='$select',`Description`='$description',`Auther`='$Auther' WHERE `Product_Id`='$product_id'";
+            if (mysqli_query($con, $update)) {
+                $_SESSION['product_upp'] = "Product updated";
+            } else {
+                $_SESSION['product_upp'] = "Something went wrong";
+            }
+        } else {
+
+            $update = "UPDATE `product` SET`Product_Name`='$Book',`Price`='$price',`Product_Image`='$file_name',`Total_Quantity`=Total_Quantity+$add,`Renaining_Quantity`=Renaining_Quantity+$add,`Category`='$select',`Description`='$description',`Auther`='$Auther' WHERE `Product_Id`='$product_id'";
+            if (mysqli_query($con, $update)) {
+                if (move_uploaded_file($file_temp, $target_file)) {
+                    $_SESSION['product_upp'] = "Product updated";
+                } else {
+                    $_SESSION['product_upp'] = "Something went wrong";
+                }
+            }
+        }
     }
-    $get="SELECT `Product_Id` FROM `product` WHERE Product_Name='$Book' AND Category='$select' AND Product_Image='$file_name'";
-    $data=mysqli_fetch_array(mysqli_query($con,$get));
-    $date = date('Y/m/d');
-    $insert="INSERT INTO `notification`( `Message`, `Product_id`, `Date`) VALUES ('New product Arrived','$data[0]','$date')";
-    mysqli_query($con,$insert);
-    
-    }
-    ?>
+?>
     <script>
-     window.location.href="seller_product.php";
+        window.location.href = "<?php echo $path ?>";
     </script>
-    <?php
+<?php
 }
 ?>

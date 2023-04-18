@@ -16,8 +16,9 @@ session_start();
         $num = @$_POST['number'];
         $pass = @$_POST['pass'];
         $em = @$_POST['email'];
-    
-        $q = "INSERT INTO registration(`Fullname`, `Email`, `mobile`, `password`, `profile_picture`,`Status`, `role`) VALUES ('$name','$em','$num','$pass','Default.png','Inactive','Normal');";
+        $role=@$_POST['role'];
+        $date=date('Y/m/d');
+        $q = "INSERT INTO registration(`Fullname`, `Email`, `mobile`, `password`, `profile_picture`,`Status`, `role`,`Register_date`) VALUES ('$name','$em','$num','$pass','Default.png','Inactive','$role','$date');";
         if (mysqli_query($con, $q)) {
             $link = "http://localhost/Group-16/account_activation.php?email=$em";
             $mail = new PHPMailer();

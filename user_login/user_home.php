@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,41 +54,41 @@
 </head>
 
 <body>
-<?php
-include_once("home_nave.php");
-?>
+    <?php
+    include_once("home_nave.php");
+    ?>
 
     <div class="aahan"></div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner " style="height:600px;">
             <div class="carousel-item active ">
-                <img src="../image/Book_image/book1.jpg" alt="Los Angeles" width="100%" class="img-fluid">
+                <img src="../image/Book_image/book1.jpg" alt="Los Angeles" width="100%" >
                 <div class="carousel-caption">
-                    <h3></h3>
-                    <p></p>
+                    <h3>rohhhhman</h3>
+                    <p>1234567890-</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="../image/Book_image/a1.jpg" alt="Chicago" width="100%" height="700px">
                 <div class="carousel-caption">
-                    <h3></h3>
-                    <p></p>
+                    <h3>ferderderderderderd</h3>
+                    <p>5425656</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="../image/Book_image/a2.jpg" alt="New York" width="100%" height="700px">
                 <div class="carousel-caption">
-                    <h3></h3>
-                    <p></p>
+                    <h3>sdrdsfrsder</h3>
+                    <p>686/p>
                 </div>
             </div>
         </div>
-        <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </a>
             <a class="carousel-control-next" href="#demo" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
-            </a> -->
+            </a>
     </div>
 
     <!-- Product Card fetching from databse -->
@@ -105,50 +104,66 @@ include_once("home_nave.php");
                 $auther = $row[8];
                 $product_id = $row[0];
             ?>
-
+                <?php
+                $mrp=(($Price*10)/100)+$Price;
+                ?>
                 <div class='col-xl-3 col-md-4 col-sm-6 mt-5'>
                     <a href="product_detail.php?product_id=<?php echo $product_id ?>" class="an">
                         <img class='card-image-top' src='../image/Book_image/<?php echo $Product_Image ?>' alt='$Product_Name' width='100%' height='350px'>
                         <div class='card-body'>
                             <h3 class='card-titel '><?php echo $Product_Name ?></h3>
                             <h5>By <?php echo $auther ?></h5>
-                            <h5>Price:&nbsp<strike>12</strike> &nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $Price ?></h5>
+                            <h5>Price:&nbsp<strike><?php echo $mrp ?></strike> &nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $Price ?></h5>
                     </a>
                     <form action="" method="post">
                         <h5>Quantity:<h5>
-                             <select name="select" id="se" class="form-control" style="width: 150px;">
-                                    <?php
-                                    if ($row[5] <= 5) {
-                                        $i = 1;
-                                        while ($i <= $row[5]) {
-                                    ?>
-                                            <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                <?php
+                                if ($row[5] == 0) {
+                                ?>
+                                    <p style="color: red;">Out Of stock!!!</p>
+                                <?php
+                                } else {
+                                ?>
+                                    <select name="select" id="se" class="form-control" style="width: 150px;">
                                         <?php
-                                            $i++;
-                                        }
-                                    } else {
+                                        if ($row[5] <= 5) {
+                                            $i = 1;
+                                            while ($i <= $row[5]) {
                                         ?>
+                                                <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                            <?php
+                                                $i++;
+                                            }
+                                        } else {
+                                            ?>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         <?php
-                                    }
+                                        }
                                         ?>
 
-                                </select>
+                                    </select>
+                                <?php } ?>
                                 <input type="hidden" name="product_id" value="<?php echo $row[0] ?>">
                                 <div class='antima'>
                                     <?php
                                     if ($row[5] > 0) {
                                     ?>
                                         <button type='' name='buy'>Buy Now</button>
+                                        <br>
+                                        <button type='submit' name='cart'>Add To Cart</button>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <button type='' disabled name='buy'>Buy Now</button>
+                                        <br>
+                                        <button type='submit' disabled name='cart'>Add To Cart</button>
                                     <?php
                                     }
                                     ?>
-                                    <br>
-                                    <button type='submit' name='cart'>Add To Cart</button>
                                 </div>
                     </form>
                 </div>
@@ -165,17 +180,31 @@ include_once("home_nave.php");
 
 </html>
 <?php
-if(isset($_POST['buy'])){
-    $Quantity=@$_POST['select'];
-    $product_id=@$_POST['product_id'];
-    ?>
+if (isset($_POST['buy'])) {
+    $Quantity = @$_POST['select'];
+    $product_id = @$_POST['product_id'];
+?>
     <script>
-      window.location.href="Payment.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
+        window.location.href = "Payment.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
     </script>
-    <?php
+<?php
+}
+
+if (isset($_POST['cart'])) {
+    $Quantity = @$_POST['select'];
+    $product_id = @$_POST['product_id'];
+    if ($Quantity == 0) {
+        $Quantity = 1;
     }
-  ?>
-  <?php
-  include_once("footer.php");
-  ?>
-  
+?>
+    <script>
+        window.location.href = "cart_action.php?quantity=<?php echo $Quantity ?> && product_id=<?php echo $product_id ?>";
+    </script>
+<?php
+}
+?>
+
+
+<?php
+include_once("footer.php");
+?>

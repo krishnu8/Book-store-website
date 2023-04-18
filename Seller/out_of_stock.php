@@ -4,7 +4,6 @@ $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
 $location = $components[3];
 ?>
- <title>Product</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -182,7 +181,7 @@ $location = $components[3];
 <div class="container-fluid">
     <div class="table-wrap">
         <div style="text-align: center;">
-            <h2><u>MY Product</u></h2>
+            <h2><u>Out of stock</u></h2>
         </div>
         <table class="table table-responsive table-borderless" style="text-align: center;">
 
@@ -204,7 +203,7 @@ $location = $components[3];
                 <?php
                 $id = $_SESSION['seller_id'];
                 // $id=10;
-                $select = "SELECT * FROM `product` WHERE seller_id='$id' and status='Active'";
+                $select = "SELECT * FROM `product` WHERE seller_id='$id' and status='Active' and  `Renaining_Quantity`='0'";
                 $result=mysqli_query($con, $select);
                 while ($product = mysqli_fetch_array($result)) {
                 ?>

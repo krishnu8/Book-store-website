@@ -34,7 +34,7 @@ if(isset($_POST['btn'])){
     $target_file = $target_dir . basename($file_name);
 
     // INSERT INTO `product`(`Product_Name`, `Price`, `Product_Image`, `Total_Quantity`, `Renaining_Quantity`, `Category`, `Description`, `Auther`, `User_id`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]')
-    $update="INSERT INTO `product`(`Product_Name`, `Price`, `Product_Image`, `Category`, `Description`, `Auther`, `User_id`, `Total_Quantity`, `Renaining_Quantity`) VALUES ('$Book','$price','$file_name','$select','$description','$Auther',10,'$quantity','$quantity')";
+    $update="INSERT INTO `product`(`Product_Name`, `Price`, `Product_Image`, `Category`, `Description`, `Auther`, `seller_id`, `Total_Quantity`, `Renaining_Quantity`) VALUES ('$Book','$price','$file_name','$select','$description','$Auther',10,'$quantity','$quantity')";
     if(mysqli_query($con,$update)){
     if(move_uploaded_file($file_temp, $target_file)){
         echo "File uploaded successfully and moved to target directory.";
